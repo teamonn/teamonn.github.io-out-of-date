@@ -6,26 +6,43 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>second | Hexo</title>
+  <title>闲话 git merge 与 git rebase 的区别 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Today, I have wrote my own first article. Eventhough it is as simple as ‘hello world’, but is is really my own. I think no one can knowns how happy I am. Thanking you all for reading.
-first1$ console.">
+  <meta name="description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。
+
+merge如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：
+
+假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：
+1$ git merge">
 <meta property="og:type" content="article">
-<meta property="og:title" content="second">
-<meta property="og:url" content="http://yoursite.com/2017/02/20/second/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Today, I have wrote my own first article. Eventhough it is as simple as ‘hello world’, but is is really my own. I think no one can knowns how happy I am. Thanking you all for reading.
-first1$ console.">
-<meta property="og:updated_time" content="2017-02-20T09:35:43.000Z">
+<meta property="og:title" content="闲话 git merge 与 git rebase 的区别">
+<meta property="og:url" content="http://yoursite.com/2017/03/12/merge-compare-rebase/index.html">
+<meta property="og:site_name" content="徐正茂的个人博客">
+<meta property="og:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。
+
+merge如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：
+
+假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：
+1$ git merge">
+<meta property="og:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170312163257132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-03-18T03:48:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="second">
-<meta name="twitter:description" content="Today, I have wrote my own first article. Eventhough it is as simple as ‘hello world’, but is is really my own. I think no one can knowns how happy I am. Thanking you all for reading.
-first1$ console.">
+<meta name="twitter:title" content="闲话 git merge 与 git rebase 的区别">
+<meta name="twitter:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。
+
+merge如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：
+
+假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：
+1$ git merge">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/8215285?v=3&s=40">
   
   <link rel="stylesheet" type="text/css" href="/main.d221b8.css">
   <style type="text/css">
@@ -49,10 +66,10 @@ first1$ console.">
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="null" class="js-avatar">
+			<img src="https://github.com/teamonn/teamonn.github.io/tree/master/img/owner.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">Xu Zhengmao</a></h1>
 		</hgroup>
 		
 
@@ -107,10 +124,10 @@ first1$ console.">
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="null" class="js-avatar">
+				<img src="https://github.com/teamonn/teamonn.github.io/tree/master/img/owner.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Xu Zhengmao</h1>
 			</hgroup>
 			
 			
@@ -156,30 +173,72 @@ first1$ console.">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-second" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-merge-compare-rebase" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      second
+      闲话 git merge 与 git rebase 的区别
     </h1>
   
 
         
-        <a href="/2017/02/20/second/" class="archive-article-date">
-  	<time datetime="2017-02-20T09:35:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
+        <a href="/2017/03/12/merge-compare-rebase/" class="archive-article-date">
+  	<time datetime="2017-03-12T09:35:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Today, I have wrote my own first article. Eventhough it is as simple as ‘hello world’, but is is really my own. I think no one can knowns how happy I am. Thanking you all for reading.</p>
-<h2 id="first"><a href="#first" class="headerlink" title="first"></a>first</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ console.log(<span class="string">"hello world"</span>)</div></pre></td></tr></table></figure>
-<h2 id="second"><a href="#second" class="headerlink" title="second"></a>second</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ console.log(<span class="string">"hello javascript"</span>)</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://www.baidu.com" target="_blank" rel="external">Deployment</a></p>
+        <blockquote>
+<p>最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。</p>
+</blockquote>
+<h2 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h2><p>如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：</p>
+<p><img src="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="（SourceTree中的分支截图）"></p>
+<p>假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge deve</div></pre></td></tr></table></figure>
+<p>Git 系统会以两个分支的共同祖先 e381a81 为基础，将两个分支的最新提交 8ab7cff 和 696398a 进行三方合并（分支路径没有合并），然后将合并中修改的内容生成一个新的 commit，即下图的 78941cb：</p>
+<p><img src="http://img.blog.csdn.net/20170312163257132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h2><p>假如我们初始的分支情况如下图：</p>
+<p><img src="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>我们还是处在 master 分支上，我们在该项目根目录路径下输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase deve</div></pre></td></tr></table></figure>
+<p>这时 Git 系统会将 master 上的最新提交 85841be、a016f64 与 e53ec51 合并到deve中最新提交 35b6708 后面，丢失掉自己分支的历史版本信息，从而使两个分支暂时合成一根线，如下图所示：</p>
+<p><img src="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="merge-和-rebase-的区别对比："><a href="#merge-和-rebase-的区别对比：" class="headerlink" title="merge 和 rebase 的区别对比："></a>merge 和 rebase 的区别对比：</h2><table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>merge</th>
+<th>rebase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作过程</td>
+<td>将两个分支的修改信息合并</td>
+<td>提取当前分支的修改，复制到目标分支的最新提交后面</td>
+</tr>
+<tr>
+<td>分支路径</td>
+<td>多条，各自显示，互不干扰</td>
+<td>单条，合在一起显示</td>
+</tr>
+<tr>
+<td>历史版本信息</td>
+<td>忠实反映各分支实际发生过什么</td>
+<td>只反映项目过程中发生过什么</td>
+</tr>
+<tr>
+<td>冲突处理</td>
+<td>遇见冲突后会直接停止，等待手动解决冲突并重新提交 commit 后，才能再次 merge</td>
+<td>遇见冲突后会暂停当前操作，开发者可以选择手动解决冲突，然后 git rebase –continue 继续，或者 –skip 跳过（注意此操作中当前分支的修改会直接覆盖目标分支的冲突部分），亦或者 –abort 直接停止该次 rebase 操作</td>
+</tr>
+</tbody>
+</table>
 
       
 
@@ -209,6 +268,17 @@ first1$ console.">
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -259,7 +329,7 @@ first1$ console.">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/20/second/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/12/merge-compare-rebase/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,8 +344,8 @@ first1$ console.">
 <nav id="article-nav">
   
   
-    <a href="/2017/02/20/first/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">My first article</div>
+    <a href="/2017/02/20/css-box-model/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">回顾盒子模型之 box-size 属性</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -300,7 +370,7 @@ first1$ console.">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 John Doe
+    		&copy; 2017 Xu Zhengmao
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -392,6 +462,14 @@ first1$ console.">
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">css盒子模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
