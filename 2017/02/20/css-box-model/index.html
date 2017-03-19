@@ -8,30 +8,18 @@
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
   <title>回顾盒子模型之 box-size 属性 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。
-标准盒模型1box-sizing: content-box;
-网上盗了张图：
-
-由上图可以看出，标准盒模型的 width 组成">
+  <meta name="description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回顾盒子模型之 box-size 属性">
 <meta property="og:url" content="http://xuzhengmao.com/2017/02/20/css-box-model/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。
-标准盒模型1box-sizing: content-box;
-网上盗了张图：
-
-由上图可以看出，标准盒模型的 width 组成">
+<meta property="og:description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312191531615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312191552052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-19T03:57:59.000Z">
+<meta property="og:updated_time" content="2017-03-19T04:11:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回顾盒子模型之 box-size 属性">
-<meta name="twitter:description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。
-标准盒模型1box-sizing: content-box;
-网上盗了张图：
-
-由上图可以看出，标准盒模型的 width 组成">
+<meta name="twitter:description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170312191531615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
@@ -189,6 +177,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。</p>
+<a id="more"></a>
+<p>以下是余下全文 </p>
 <h2 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box-sizing: content-box;</div></pre></td></tr></table></figure>
 <p>网上盗了张图：</p>
 <p><img src="http://img.blog.csdn.net/20170312191531615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
@@ -324,6 +314,11 @@
     </a>
   
   
+    <a href="/2016/09/19/cook-and-programmer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">厨子和程序员</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
 </nav>
 
 
@@ -457,11 +452,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
+                <a href="javascript:void(0)" class="js-tag color3">css盒子模型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css盒子模型</a>
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,35 +8,20 @@
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
   <title>闲话 git merge 与 git rebase 的区别 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。
-
-merge如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：
-
-假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：
-1$ git merge">
+  <meta name="description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="闲话 git merge 与 git rebase 的区别">
 <meta property="og:url" content="http://xuzhengmao.com/2017/03/12/merge-compare-rebase/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。
-
-merge如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：
-
-假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：
-1$ git merge">
+<meta property="og:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312163257132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-18T03:48:31.000Z">
+<meta property="og:updated_time" content="2017-03-19T04:12:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闲话 git merge 与 git rebase 的区别">
-<meta name="twitter:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。
-
-merge如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：
-
-假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：
-1$ git merge">
+<meta name="twitter:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
@@ -196,6 +181,8 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
         <blockquote>
 <p>最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。</p>
 </blockquote>
+<a id="more"></a>
+<p>以下是余下全文 </p>
 <h2 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h2><p>如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：</p>
 <p><img src="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="（SourceTree中的分支截图）"></p>
 <p>假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：</p>
@@ -348,15 +335,6 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
   
 <nav id="article-nav">
   
-    <a href="/2017/03/19/cook-and-programmer/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          厨子和程序员
-        
-      </div>
-    </a>
-  
   
     <a href="/2017/02/20/css-box-model/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">回顾盒子模型之 box-size 属性</div>
@@ -496,11 +474,11 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
+                <a href="javascript:void(0)" class="js-tag color3">css盒子模型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css盒子模型</a>
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
               </li>
              
               <li class="article-tag-list-item">
