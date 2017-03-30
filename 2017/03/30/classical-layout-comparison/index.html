@@ -6,15 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>classical-layout-comparison | 徐正茂的个人博客</title>
+  <title>圣杯布局 VS 双飞翼布局 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="classical-layout-comparison">
+  <meta name="description" content="作为前端开发者，布局都应该已经写了不少了，但很多时候我们实现布局的思路可能都不一定正确或者不是最合适的。要想自己的布局水平有所提高，两个经典的布局： 圣杯布局 和 双飞翼布局，我个人觉得还是很有必要掌握的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="圣杯布局 VS 双飞翼布局">
 <meta property="og:url" content="http://xuzhengmao.com/2017/03/30/classical-layout-comparison/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:updated_time" content="2017-03-30T01:54:50.000Z">
+<meta property="og:description" content="作为前端开发者，布局都应该已经写了不少了，但很多时候我们实现布局的思路可能都不一定正确或者不是最合适的。要想自己的布局水平有所提高，两个经典的布局： 圣杯布局 和 双飞翼布局，我个人觉得还是很有必要掌握的。">
+<meta property="og:updated_time" content="2017-03-30T02:21:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="classical-layout-comparison">
+<meta name="twitter:title" content="圣杯布局 VS 双飞翼布局">
+<meta name="twitter:description" content="作为前端开发者，布局都应该已经写了不少了，但很多时候我们实现布局的思路可能都不一定正确或者不是最合适的。要想自己的布局水平有所提高，两个经典的布局： 圣杯布局 和 双飞翼布局，我个人觉得还是很有必要掌握的。">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -157,7 +160,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      classical-layout-comparison
+      圣杯布局 VS 双飞翼布局
     </h1>
   
 
@@ -170,7 +173,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>作为前端开发者，布局都应该已经写了不少了，但很多时候我们实现布局的思路可能都不一定正确或者不是最合适的。要想自己的布局水平有所提高，两个经典的布局： 圣杯布局 和 双飞翼布局，我个人觉得还是很有必要掌握的。</p>
+<a id="more"></a>
+<p>圣杯布局和双飞翼布局都是为了实现一种非常常见的布局：即两侧定宽，中间自适应的三列布局，特征是中间列要放在文档流前面以优先渲染。</p>
+<p>既然都是为了解决同一个问题，那么有哪些不同呢？我们先来稍微回顾一下这两种布局，再加以比较。</p>
+<h2 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h2><p>圣杯布局的来历是2006年发在a list part上的这篇文章：</p>
+<p><a href="http://alistapart.com/article/holygrail" target="_blank" rel="external">点击原文链接</a> </p>
+<p>html 部分：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span> #main <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left"</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span> #left <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right"</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span> #right <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>css 部分：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#container</span> &#123;</div><div class="line">	<span class="attribute">padding-left</span>: <span class="number">200px</span>;</div><div class="line">	<span class="attribute">padding-right</span>: <span class="number">250px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.col</span> &#123; </div><div class="line">	<span class="attribute">position</span>: relative; </div><div class="line">	<span class="attribute">float</span>: left; </div><div class="line">	<span class="attribute">height</span>: <span class="number">300px</span>; </div><div class="line">&#125;</div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">background-color</span>: <span class="built_in">rgba</span>(255, 0, 0, .5);</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#left</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">	<span class="attribute">margin-left</span>: -<span class="number">100%</span>;</div><div class="line">	<span class="attribute">left</span>: -<span class="number">200px</span>;</div><div class="line">	<span class="attribute">background-color</span>: <span class="built_in">rgba</span>(0, 255, 0, .5);</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#right</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">250px</span>;</div><div class="line">	<span class="attribute">margin-left</span>: -<span class="number">250px</span>;</div><div class="line">	<span class="attribute">left</span>: <span class="number">250px</span>;</div><div class="line">	<span class="attribute">background-color</span>: <span class="built_in">rgba</span>(0, 0, 255, .5);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>大致实现思路：</strong>三个 col 的容器 #container 一开始先空出左右两个地方，准备待会儿放左列和右列。三个 col 都设置 <code>float: left</code> 和 相对定位，然后左列 <code>margin-left: -100%</code>; 则左列跟中间主列左对齐了。这时左列相对定位加上 left 值是负的左列宽度，就飘到最左边了；右列同理，margin-left 值是负的自身宽度，这时右列跟中间主列右对齐了。右列也是相对定位的，left 值是自身宽度时，右列就飘到最右侧了。</p>
+<h2 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h2><p>双飞翼布局的概念始于淘宝UED，据说是玉伯提出的（网上看到的，未求证）。意思是：如果把三列布局比作一只大鸟，可以把中间的主列看成是鸟的身体，左右则是鸟的翅膀。这个布局的实现思路是，先把最重要的身体部分放好，然后再将翅膀移动到适当的地方。</p>
+<p>html 部分：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main-wrapper"</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span> #main <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left"</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span> #left <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right"</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span> #right <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>css 部分：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.col</span> &#123; </div><div class="line">	<span class="attribute">float</span>: left; </div><div class="line">	<span class="attribute">height</span>: <span class="number">300px</span>; </div><div class="line">&#125;</div><div class="line"><span class="selector-id">#main-wrapper</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#main</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">	<span class="attribute">margin-left</span>: <span class="number">200px</span>;</div><div class="line">	<span class="attribute">margin-right</span>: <span class="number">250px</span>;</div><div class="line">	<span class="attribute">background-color</span>: <span class="built_in">rgba</span>(255, 0, 0, .5);</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#left</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">	<span class="attribute">margin-left</span>: -<span class="number">100%</span>;</div><div class="line">	<span class="attribute">background-color</span>: <span class="built_in">rgba</span>(0, 255, 0, .5);</div><div class="line">&#125;</div><div class="line"><span class="selector-id">#right</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">250px</span>;</div><div class="line">	<span class="attribute">margin-left</span>: -<span class="number">250px</span>;</div><div class="line">	<span class="attribute">background-color</span>: <span class="built_in">rgba</span>(0, 0, 255, .5);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>大致实现思路：</strong>在圣杯布局的 dom 基础上，给 中间列加了个容器，然后在容器里面左右各空出一个地方，准备待会儿放左列和右列。三个 col 都设置 <code>float: left</code>，然后左列 <code>margin-left: -100%</code>， 则左列就飘到最左边了；右列稍有不同，margin-left 值是负的自身宽度，这时右列就飘到最右侧了。</p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>圣杯布局</p>
+<ul>
+<li>特征：主列先加载，统一浮动，统一相对定位，设置负边距</li>
+<li>优点：不需要额外的 dom 节点</li>
+<li>缺点：需要清除浮动，需要设置相对定位</li>
+</ul>
+<p>双飞翼布局</p>
+<ul>
+<li>特征：主列先加载，仅需统一浮动、负边距</li>
+<li>优点：兼容性非常好，IE5.5 以上都支持</li>
+<li>缺点：需要额外的 dom 节点</li>
+</ul>
+<p>其实，实现这种经典的三列布局，还有另外两种思路：一种是圣杯布局的变种 —— 改用绝对定位来实现，一种是使用 flex 布局来实现。有兴趣的可以自己尝试下，这里我也简单的做出对比：</p>
+<p>绝对定位</p>
+<ul>
+<li>特征：按先后顺序加载，需要设置浮动、绝对定位、负边距</li>
+<li>优点：无高度坍塌，没有破坏文档流，不需要清除浮动</li>
+<li>缺点：浮动、绝对定位、负边距齐齐上阵，容易混淆</li>
+</ul>
+<p>flex 布局</p>
+<ul>
+<li>特征：容器 display 指为 flex，主列 flex 值为1，两侧宽度固定</li>
+<li>优点：写法简洁，易理解（还可以改写成一个响应式的三列布局，分辨率是移动设备时两侧都出现在主列下边）</li>
+<li>缺点：兼容性不好，需要加上各类浏览器前缀</li>
+</ul>
+<p>总的来看，网页布局技巧不外乎：浮动、绝对定位 / 相对定位、负边距、flex 布局。能把这几个灵活的搭配用到一起，大部分的布局一般就都能实现了。选用最合适的方法来布局，不仅能帮你节省很多时间，还能提升不少页面的加载性能。</p>
+<hr>
+<p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
+
       
 
       
@@ -204,6 +248,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CSS 布局</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -284,7 +339,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="classical-layout-comparison" data-title="classical-layout-comparison" data-url="http://xuzhengmao.com/2017/03/30/classical-layout-comparison/"></div>
+	<div class="ds-thread" data-thread-key="classical-layout-comparison" data-title="圣杯布局 VS 双飞翼布局" data-url="http://xuzhengmao.com/2017/03/30/classical-layout-comparison/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -407,15 +462,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css盒子模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS 盒子模型</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CSS 布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
               </li>
             
             <div class="clearfix"></div>
