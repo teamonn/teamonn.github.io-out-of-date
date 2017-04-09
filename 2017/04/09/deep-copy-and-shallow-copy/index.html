@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170409105542962?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409105749213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409111121300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-04-09T04:30:15.000Z">
+<meta property="og:updated_time" content="2017-04-09T05:29:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 的深拷贝和浅拷贝">
 <meta name="twitter:description" content="在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。">
@@ -212,6 +212,11 @@
 <p>运行结果：</p>
 <p><img src="http://img.blog.csdn.net/20170409111121300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>实现原理，其实就是先新建一个空对象，在内存中新开辟一块地址，把被复制对象的所有可枚举的（注意可枚举的对象）属性方法一一复制过来，注意要用递归来复制子对象里面的所有属性和方法，直到所有子代属性都为基本数据类型。</p>
+<p>对象深拷贝的方法还有不少：</p>
+<ol>
+<li>对象拷贝方法：<code>b = Object.assign({}, a)</code></li>
+<li>字符串对象互转方法结合：<code>b = JSON.parse( JSON.stringify(a) )</code></li>
+</ol>
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>对于简单的数据类型（如 Number、String、Boolean 等），JavaScript 变量赋值即是值复制（深拷贝）。但是对象或者数组，直接赋值其实复制的只是内存地址（浅拷贝）。这样错误的操作会让父对象或父数组存随时在被篡改的可能。这时，如需实现深拷贝则需要跟文中示例一样，自己另行处理。</p>
 <hr>
 <p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
@@ -452,10 +457,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">CSS 布局</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
               </li>
              
@@ -465,6 +466,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CSS 布局</a>
               </li>
             
             <div class="clearfix"></div>
