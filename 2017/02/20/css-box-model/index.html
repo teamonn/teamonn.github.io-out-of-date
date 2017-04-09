@@ -16,7 +16,7 @@
 <meta property="og:description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312191531615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312191552052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-30T01:58:13.000Z">
+<meta property="og:updated_time" content="2017-04-09T04:34:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回顾盒子模型之 box-size 属性">
 <meta name="twitter:description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
@@ -178,12 +178,12 @@
       
         <p>盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。</p>
 <a id="more"></a>
-<h2 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box-sizing: content-box;</div></pre></td></tr></table></figure>
+<h2 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">content-box</span>;</div></pre></td></tr></table></figure>
 <p>网上盗了张图：</p>
 <p><img src="http://img.blog.csdn.net/20170312191531615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>由上图可以看出，标准盒模型的 width 组成：content（不包含 padding 和 border）</p>
 <p>比如：你给一个div的宽度设为200px，那这个div实际的宽度其实是200px再加上padding和border的值（和是大于等于200px的）。</p>
-<h2 id="IE盒模型"><a href="#IE盒模型" class="headerlink" title="IE盒模型"></a>IE盒模型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box-sizing: border-box;</div></pre></td></tr></table></figure>
+<h2 id="IE盒模型"><a href="#IE盒模型" class="headerlink" title="IE盒模型"></a>IE盒模型</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">border-box</span>;</div></pre></td></tr></table></figure>
 <p>网上又盗了张图：</p>
 <p><img src="http://img.blog.csdn.net/20170312191552052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>由上图可以看出，IE盒模型的 width 组成：content + 2 * padding + 2 * border</p>
@@ -234,7 +234,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS 盒子模型</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css 盒子模型</a>
         		</li>
       		
 		</ul>
@@ -452,15 +452,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS 盒子模型</a>
+                <a href="javascript:void(0)" class="js-tag color2">CSS 布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">CSS 布局</a>
               </li>
              
               <li class="article-tag-list-item">
