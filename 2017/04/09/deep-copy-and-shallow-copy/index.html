@@ -6,14 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>Archives | 徐正茂的个人博客</title>
+  <title>JavaScript 的深拷贝和浅拷贝 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="徐正茂的个人博客">
-<meta property="og:url" content="http://xuzhengmao.com/archives/index.html">
+  <meta name="description" content="在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 的深拷贝和浅拷贝">
+<meta property="og:url" content="http://xuzhengmao.com/2017/04/09/deep-copy-and-shallow-copy/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
+<meta property="og:description" content="在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。">
+<meta property="og:image" content="http://img.blog.csdn.net/20170409104700282?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170409105005209?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170409105542962?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170409105749213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170409111121300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-04-09T04:23:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="徐正茂的个人博客">
+<meta name="twitter:title" content="JavaScript 的深拷贝和浅拷贝">
+<meta name="twitter:description" content="在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170409104700282?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -149,211 +159,196 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-deep-copy-and-shallow-copy" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      JavaScript 的深拷贝和浅拷贝
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/09/deep-copy-and-shallow-copy/" class="archive-article-date">
+
+        
+        <a href="/2017/04/09/deep-copy-and-shallow-copy/" class="archive-article-date">
   	<time datetime="2017-04-09T04:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/09/deep-copy-and-shallow-copy/">JavaScript 的深拷贝和浅拷贝</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/30/classical-layout-comparison/" class="archive-article-date">
-  	<time datetime="2017-03-30T01:54:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/30/classical-layout-comparison/">圣杯布局 VS 双飞翼布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CSS 布局</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/12/merge-compare-rebase/" class="archive-article-date">
-  	<time datetime="2017-03-12T09:35:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/12/merge-compare-rebase/">闲话 git merge 与 git rebase 的区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/20/css-box-model/" class="archive-article-date">
-  	<time datetime="2017-02-20T02:03:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/20/css-box-model/">回顾盒子模型之 box-size 属性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS 盒子模型</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <p>在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。</p>
+<a id="more"></a>
+<h2 id="什么是深拷贝和浅拷贝？"><a href="#什么是深拷贝和浅拷贝？" class="headerlink" title="什么是深拷贝和浅拷贝？"></a>什么是深拷贝和浅拷贝？</h2><p>浅拷贝比较容易理解，所以先从浅拷贝开始说起吧！</p>
+<p>浅拷贝</p>
+<blockquote>
+<p>就是将一个对象（或数组）的内存地址『编号』复制给另一个对象（或数组）</p>
+</blockquote>
+<p>深拷贝</p>
+<blockquote>
+<p>增加一个指针，并且申请一个新的内存地址，使这个增加的指针指向这个新的内存，然后将原变量对应内存地址里的值逐个复制过去</p>
+</blockquote>
+<h2 id="深拷贝和浅拷贝怎么实现？"><a href="#深拷贝和浅拷贝怎么实现？" class="headerlink" title="深拷贝和浅拷贝怎么实现？"></a>深拷贝和浅拷贝怎么实现？</h2><p><strong>数组</strong></p>
+<p>eg1. 浅拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr = [&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;];</div><div class="line">console.log(&quot;原数组的值：&quot; + arr);</div><div class="line">var newArr = arr;</div><div class="line">newArr[1] = &quot;newTwo&quot;;</div><div class="line">console.log(&quot;新数组的值：&quot; + newArr);</div><div class="line">console.log(&quot;浅拷贝后，原数组的值：&quot; + arr);</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><img src="http://img.blog.csdn.net/20170409104700282?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>因为 arr 浅拷贝赋值给 newArr 的是一个指向 arr 内存地址的引用，所以修改 newArr 的第2个元素的值，会将原数组 arr 的第二个元素值也修改掉了（其实在内存里，两个数组共用一个内存空间）。</p>
+<p>eg2. 深拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr = [&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;];</div><div class="line">console.log(&quot;原数组的值：&quot; + arr);</div><div class="line">var newArr = arr.slice(0);</div><div class="line">newArr[1] = &quot;newTwo&quot;;</div><div class="line">console.log(&quot;新数组的值：&quot; + newArr);</div><div class="line">console.log(&quot;深拷贝后，原数组的值：&quot; + arr);</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><img src="http://img.blog.csdn.net/20170409105005209?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>因为深拷贝是给 newArr 申请一个新的内存地址，并使 newArr 的指针指向这个新的内存。然后再把 arr 对应内存的值逐个复制到这个新内存地址。所以这时再修改 newArr 的第2个元素的值，就不会将原数组 arr 的第二个元素值也修改掉了（在内存里，两个数组不再共用一个内存空间了）。</p>
+<p><strong>对象</strong></p>
+<p>eg1. 浅拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">	name: &apos;xu&apos;,</div><div class="line">	age: 24,</div><div class="line">	sex: &apos;men&apos;,</div><div class="line">&#125;</div><div class="line">console.log(&quot;原对象的值：&quot;);</div><div class="line">console.log(obj);</div><div class="line">var newObj = obj;</div><div class="line">newObj.age = 25;</div><div class="line">console.log(&quot;新对象的值：&quot;);</div><div class="line">console.log(newObj);</div><div class="line">console.log(&quot;浅拷贝后，原对象的值：&quot;);</div><div class="line">console.log(obj);</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><img src="http://img.blog.csdn.net/20170409105542962?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>对象的浅拷贝跟数组一样，因为赋值过去的是原对象的引用，所以修改了新对象 newObj 的属性 age 后，原对象属性 age 也被修改了。</p>
+<p>eg2. 深拷贝<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">	name: &apos;xu&apos;,</div><div class="line">	age: 24,</div><div class="line">	sex: &apos;men&apos;,</div><div class="line">&#125;</div><div class="line">console.log(&quot;原对象的值：&quot;);</div><div class="line">console.log(obj);</div><div class="line">var newObj = &#123;&#125;;</div><div class="line">for (var i in obj) &#123;</div><div class="line">	newObj[i] = obj[i];</div><div class="line">&#125;</div><div class="line">newObj.age = 25;</div><div class="line">console.log(&quot;新对象的值：&quot;);</div><div class="line">console.log(newObj);</div><div class="line">console.log(&quot;深拷贝后，原对象的值：&quot;);</div><div class="line">console.log(obj);</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><img src="http://img.blog.csdn.net/20170409105749213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>这是针对一个对象中的所有属性值都是基本数据类型的情况。但是如果一个对象的属性值还是对象这种情况，就需要递归调用浅拷贝。可以如下处理：</p>
+<p>eg. 对象深拷贝拓展<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">function deepCopy(obj, copyObj) &#123;</div><div class="line">	var newObj = copyObj || &#123;&#125;;</div><div class="line">	for (var i in obj) &#123;</div><div class="line">		if (typeof obj[i] === &apos;object&apos;) &#123;</div><div class="line">			newObj[i] = (obj[i].constructor === Array) ? [] : &#123;&#125;;</div><div class="line">			deepCopy(obj[i], newObj[i]);</div><div class="line">		&#125; else &#123;</div><div class="line">			newObj[i] = obj[i];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	return newObj;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var obj = &#123;</div><div class="line">	name: &#123;</div><div class="line">		oldName: &apos;pan&apos;,</div><div class="line">		newName: &apos;zhengmao&apos;</div><div class="line">	&#125;,</div><div class="line">	age: 24,</div><div class="line">	sex: &apos;men&apos;,</div><div class="line">&#125;</div><div class="line">console.log(&quot;原对象的 name 属性值：&quot;);</div><div class="line">console.log(obj.name);</div><div class="line">var secObj = &#123;&#125;;</div><div class="line">secObj = deepCopy(obj, secObj);	 // 将 obj 的所有属性都复制到 secObj 中</div><div class="line">secObj.name = &#123;</div><div class="line">	oldName: &apos;pan2&apos;,</div><div class="line">	newName: &apos;zhengmao2&apos;</div><div class="line">&#125;</div><div class="line">console.log(&quot;新对象的的 name 属性值：&quot;);</div><div class="line">console.log(secObj.name);</div><div class="line">console.log(&quot;深拷贝后，原对象的 name 属性值：&quot;);</div><div class="line">console.log(obj.name);</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><img src="http://img.blog.csdn.net/20170409111121300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>实现原理，其实就是先新建一个空对象，在内存中新开辟一块地址，把被复制对象的所有可枚举的（注意可枚举的对象）属性方法一一复制过来，注意要用递归来复制子对象里面的所有属性和方法，直到所有子代属性都为基本数据类型。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>对于简单的数据类型（如 Number、String、Boolean 等），JavaScript 变量赋值即是值复制（深拷贝）。但是对象或者数组，直接赋值其实复制的只是内存地址（浅拷贝）。这样错误的操作会让父对象或父数组存随时在被篡改的可能。这时，如需实现深拷贝则需要跟文中示例一样，自己另行处理。</p>
+<hr>
+<p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>您的支持和赞赏，将是我继续创作的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://img.blog.csdn.net/20170318223224912?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/19/cook-and-programmer/" class="archive-article-date">
-  	<time datetime="2016-09-19T03:47:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/19/cook-and-programmer/">厨子和程序员</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">互联网的那些事</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/04/09/deep-copy-and-shallow-copy/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/03/30/classical-layout-comparison/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">圣杯布局 VS 双飞翼布局</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="deep-copy-and-shallow-copy" data-title="JavaScript 的深拷贝和浅拷贝" data-url="http://xuzhengmao.com/2017/04/09/deep-copy-and-shallow-copy/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -376,8 +371,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
