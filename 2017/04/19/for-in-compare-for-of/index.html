@@ -6,27 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>for...in 与 for...of 千万别混淆 | 徐正茂的个人博客</title>
+  <title>for...in 与 for...of 你千万别混淆 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="for…in 循环会遍历一个对象所有的可枚举属性。
+  <meta name="description" content="遇到不少人其实是分不太清 for…in 和 for…of 的。大都是用的时候试下，哪个能解决问题还不报错，就选用哪个了。
+
+for…in 循环会遍历一个对象所有的可枚举属性。
 for…of 会循环迭代出有序对象（或集合）的每一个属性值。
 
-这是 MDN 上的官方解释，如果错了怪它别怪我谢谢。下面，用两个例子说明一切。">
+这是 MDN 上的官方解释。下面，用两个例子说明一切。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="for...in 与 for...of 千万别混淆">
+<meta property="og:title" content="for...in 与 for...of 你千万别混淆">
 <meta property="og:url" content="http://xuzhengmao.com/2017/04/19/for-in-compare-for-of/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="for…in 循环会遍历一个对象所有的可枚举属性。
+<meta property="og:description" content="遇到不少人其实是分不太清 for…in 和 for…of 的。大都是用的时候试下，哪个能解决问题还不报错，就选用哪个了。
+
+for…in 循环会遍历一个对象所有的可枚举属性。
 for…of 会循环迭代出有序对象（或集合）的每一个属性值。
 
-这是 MDN 上的官方解释，如果错了怪它别怪我谢谢。下面，用两个例子说明一切。">
-<meta property="og:updated_time" content="2017-04-19T15:06:24.000Z">
+这是 MDN 上的官方解释。下面，用两个例子说明一切。">
+<meta property="og:updated_time" content="2017-04-19T15:24:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="for...in 与 for...of 千万别混淆">
-<meta name="twitter:description" content="for…in 循环会遍历一个对象所有的可枚举属性。
+<meta name="twitter:title" content="for...in 与 for...of 你千万别混淆">
+<meta name="twitter:description" content="遇到不少人其实是分不太清 for…in 和 for…of 的。大都是用的时候试下，哪个能解决问题还不报错，就选用哪个了。
+
+for…in 循环会遍历一个对象所有的可枚举属性。
 for…of 会循环迭代出有序对象（或集合）的每一个属性值。
 
-这是 MDN 上的官方解释，如果错了怪它别怪我谢谢。下面，用两个例子说明一切。">
+这是 MDN 上的官方解释。下面，用两个例子说明一切。">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -169,7 +175,7 @@ for…of 会循环迭代出有序对象（或集合）的每一个属性值。
         
   
     <h1 class="article-title" itemprop="name">
-      for...in 与 for...of 千万别混淆
+      for...in 与 for...of 你千万别混淆
     </h1>
   
 
@@ -182,31 +188,32 @@ for…of 会循环迭代出有序对象（或集合）的每一个属性值。
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
+        <p>遇到不少人其实是分不太清 for…in 和 for…of 的。大都是用的时候试下，哪个能解决问题还不报错，就选用哪个了。</p>
+<blockquote>
 <p>for…in 循环会遍历一个对象所有的可枚举属性。</p>
 <p>for…of 会循环迭代出有序对象（或集合）的每一个属性值。</p>
 </blockquote>
-<p>这是 MDN 上的官方解释，如果错了怪它别怪我谢谢。下面，用两个例子说明一切。</p>
+<p>这是 MDN 上的官方解释。下面，用两个例子说明一切。</p>
 <a id="more"></a>
 <h2 id="遍历的是数组"><a href="#遍历的是数组" class="headerlink" title="遍历的是数组"></a>遍历的是数组</h2><p>等等，按照刚在开头的解释，这两个不都是用来遍历对象的么？怎么也可以用来遍历数组？</p>
-<p>大哥，数组不就是一种对象吗？在 JavaScript 里，万物皆为对象啊 : ) 所以，你可以把数组看成是一种元素有序的对象。</p>
+<p>大哥啊，数组不就是一种对象吗？在 JavaScript 里，万物皆为对象啊 : ) 所以，你可以把数组看成是一种元素有序的对象。</p>
 <p>既然如此，先声明一个数组 iterable：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> iterable = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>];</div></pre></td></tr></table></figure>
 <p><strong>使用 for…in 遍历:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (let i in iterable) &#123;</div><div class="line">  console.log(i); 		// logs 0, 1, 2</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> iterable) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i); 		<span class="comment">// logs 0, 1, 2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>既然数组是一种特殊的对象，那 iterable 的属性就是其下标了。for…in 遍历的是对象属性，那打印出的自然就是 0，1，2 了。</p>
 <p><strong>使用 for…of 遍历:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (let i of iterable) &#123;</div><div class="line">  console.log(i); 		// logs 3, 5, 7</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> iterable) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i); 		<span class="comment">// logs 3, 5, 7</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>数组是一种元素有序的对象，iterable 的每个属性其实就是数组的每个元素。for…of 遍历的是对象属性值，所以打印出 3，5，7 了。</p>
 <h2 id="遍历的是对象"><a href="#遍历的是对象" class="headerlink" title="遍历的是对象"></a>遍历的是对象</h2><p>没错，这两者都是可以用来遍历对象的方法。</p>
 <p>但 for…of 是为各种有序集合专门定制的，并不适用于所有的对象。</p>
 <p>如果对象含有有序集合，它会以这种方式迭代出该集合的每个元素。</p>
 <p>那如果不含有有序集合呢？那当然就不灵了，这超越了本文的讨论范围，暂不讨论。</p>
-<p>（前方高能，不熟悉 JavaScript 原型的请绕行）</p>
+<p>（前方高能，没听过 JavaScript 原型的请绕行）</p>
 <p>先使用原型继承的方法，给 Object 对象和 Array 对象拓展两个属性，属性值均为函数。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.prototype.objCustom = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;; </div><div class="line"><span class="built_in">Array</span>.prototype.arrCustom = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</div></pre></td></tr></table></figure>
 <p>接着还是跟上一个例子一样，定义一个 iterable，然后添加一个属性 foo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let iterable = [3, 5, 7];</div><div class="line">iterable.foo = &quot;hello&quot;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> iterable = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>];</div><div class="line">iterable.foo = <span class="string">"hello"</span>;</div></pre></td></tr></table></figure>
 <p>这个时候 iterable 变得有点小复杂了。</p>
 <p>首先，它声明的就是一个数组，所以它应该包含 arrCustom 属性；</p>
 <p>其次，数组本身又是一种对象，那它又应该包含刚给 Object 对象拓展的 objCustom 属性；</p>
@@ -214,10 +221,10 @@ for…of 会循环迭代出有序对象（或集合）的每一个属性值。
 <p>最后 <code>iterable.foo = &quot;hello</code> 又给它增加了一个属性 foo。</p>
 <p>那总结一下就是，iterable 包含一个有序集合 3，5，7，然后还包含 arrCustom、 objCustom、foo 三个属性（无序集合）</p>
 <p>此时，使用 <strong>for…in 遍历</strong> iterable:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (let i in iterable) &#123;</div><div class="line">  console.log(i); // logs 0, 1, 2, &quot;foo&quot;, &quot;arrCustom&quot;, &quot;objCustom&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> iterable) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i); 			<span class="comment">// logs 0, 1, 2, "foo", "arrCustom", "objCustom"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如果你记住了开篇的一句话 —— for…in 循环会遍历一个对象所有的可枚举属性，那你应该很容易明白打印出来的就是 iterable 所有的属性（其中有序集合是个数组，跟第一个例子一样会打印出数组下标）。</p>
 <p>如果使用 <strong>for…of 遍历</strong> iterable:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (let i of iterable) &#123;</div><div class="line">  console.log(i); // logs 3, 5, 7</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> iterable) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i); 			<span class="comment">// logs 3, 5, 7</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>有了第一个例子做支撑，这里也好理解了。for…of 只能遍历对象中有序集合部分，iterable 中有序的部分就是数组 [3, 5, 7]，那必然只会打印出 3, 5, 7 了。</p>
 <h2 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h2><ul>
 <li><p>for…in 是循环遍历对象属性。它会遍历一个对象所有的可枚举属性(如果是数组则打印其对应下标)。</p>
@@ -225,6 +232,9 @@ for…of 会循环迭代出有序对象（或集合）的每一个属性值。
 <li><p>for…of 是循环遍历对象属性值。它是为各种有序集合专门定制的，并不适用于所有的对象。它会以这种方式迭代出有序对象每个元素（如果该有序对象是一个数组，则是迭代出它每一个元素）。</p>
 </li>
 </ul>
+<p>我也是每次使用依然每次都要查文档，关键是每次查了下次用的时候还是迷迷糊糊的。所以决定用这两个例子来辅助记忆，希望我下次使用不会再查文档了。呵~</p>
+<hr>
+<p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
 
       
 
@@ -350,7 +360,7 @@ for…of 会循环迭代出有序对象（或集合）的每一个属性值。
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="for-in-compare-for-of" data-title="for...in 与 for...of 千万别混淆" data-url="http://xuzhengmao.com/2017/04/19/for-in-compare-for-of/"></div>
+	<div class="ds-thread" data-thread-key="for-in-compare-for-of" data-title="for...in 与 for...of 你千万别混淆" data-url="http://xuzhengmao.com/2017/04/19/for-in-compare-for-of/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -477,15 +487,15 @@ for…of 会循环迭代出有序对象（或集合）的每一个属性值。
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
               </li>
              
               <li class="article-tag-list-item">
