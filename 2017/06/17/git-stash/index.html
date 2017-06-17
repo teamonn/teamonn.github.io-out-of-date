@@ -18,7 +18,7 @@
 <meta property="og:description" content="git stash 可以用来暂存当前正在进行的工作。
 比如，你想 pull 最新代码，又不想加新 commit 的时候。
 又或者另外一种情况，为了 fix 一个紧急的 bug，先 git stash, 使返回到自己上一个 commit，改完 bug 之后再 git stash pop，继续原来的工作。">
-<meta property="og:updated_time" content="2017-06-17T12:03:29.000Z">
+<meta property="og:updated_time" content="2017-06-17T12:09:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git stash 和 git stash pop">
 <meta name="twitter:description" content="git stash 可以用来暂存当前正在进行的工作。
@@ -184,19 +184,19 @@
 <p>又或者另外一种情况，为了 fix 一个紧急的 bug，先 <code>git stash</code>, 使返回到自己上一个 commit，改完 bug 之后再 <code>git stash pop</code>，继续原来的工作。</p>
 <a id="more"></a> 
 <p>基础命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git stash</div><div class="line">// do some work</div><div class="line">git stash pop</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git stash</div><div class="line"><span class="comment"># do some work</span></div><div class="line">git stash pop</div></pre></td></tr></table></figure>
 <p>进阶：</p>
-<p><code>git stash save &quot;work in progress for foo feature&quot;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash save <span class="string">"work in progress for foo feature"</span></div></pre></td></tr></table></figure>
 <p>当你多次使用 <code>git stash</code> 命令后，你的栈里将充满了未提交的代码，这时候你会对将哪个版本应用回来有些困惑，你可以输入：</p>
-<p><code>git stash list</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash list</div></pre></td></tr></table></figure>
 <p>将当前的 git 栈信息全都打印出来，你只需要将找到对应的版本号，例如使用</p>
-<p><code>git stash apply stash@{1}</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash apply stash@&#123;1&#125;</div></pre></td></tr></table></figure>
 <p>就可以将你指定版本号为 stash@{1} 的工作取出来。当你将所有的栈都应用回来的时候，可以使用</p>
-<p><code>git stash clear</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash clear</div></pre></td></tr></table></figure>
 <p>来将栈清空。</p>
 <h3 id="git-stash-apply-和-git-stash-pop-区别"><a href="#git-stash-apply-和-git-stash-pop-区别" class="headerlink" title="git stash apply 和 git stash pop 区别"></a>git stash apply 和 git stash pop 区别</h3><p>两者都可以把 git 栈里面的内容取出来，但 <code>git stash apply</code> 恢复后，stash 内容并不会被删除，除非你再用 git stash drop 来删除；</p>
 <p>而用 git stash pop，它在恢复的同时把 stash 内容也删了。</p>
-<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">git stash           # save uncommitted changes</div><div class="line">git stash list      # list stashed changes in this git</div><div class="line">git show stash@&#123;0&#125;  # see the last stash </div><div class="line">git stash pop       # apply last stash and remove it from the list</div><div class="line">git stash apply		# apply last stash</div><div class="line">git stash drop		# remove it from the list</div><div class="line">git stash clear		# remove the whole git stash list</div><div class="line">git stash --help    # for more info</div></pre></td></tr></table></figure>
+<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">git stash           <span class="comment"># save uncommitted changes</span></div><div class="line">git stash list      <span class="comment"># list stashed changes in this git</span></div><div class="line">git show stash@&#123;0&#125;  <span class="comment"># see the last stash </span></div><div class="line">git stash pop       <span class="comment"># apply last stash and remove it from the list</span></div><div class="line">git stash apply     <span class="comment"># apply last stash</span></div><div class="line">git stash drop      <span class="comment"># remove it from the list</span></div><div class="line">git stash clear     <span class="comment"># remove the whole git stash list</span></div><div class="line">git stash --help    <span class="comment"># for more info</span></div></pre></td></tr></table></figure>
 <p>参考资料：</p>
 <ul>
 <li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000" target="_blank" rel="external">廖雪峰 git 教程 - Bug分支</a></li>
@@ -452,7 +452,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,7 +460,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
+                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,10 +473,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">移动web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
             
             <div class="clearfix"></div>
