@@ -175,15 +175,9 @@
 <p>如果一个 ul 中有多个 li 标签，如何快速获取到你所点击的那个 li 在整个 ul 中的顺序？</p>
 </blockquote>
 <p>这是一道我们 web 前端程序员会经常在面试中被问到的经典考题。它看似简单却非常考察功力，因为它的解法非常多。你回答的解法，很可能会直接影响面试官对你技术水平的判定。</p>
-<p>首先假设 ul 和 li 的层级关系是这样的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">onClick</span>=<span class="string">"handleClick(event)"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"1"</span>&gt;</span>li-1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"2"</span>&gt;</span>li-2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"3"</span>&gt;</span>li-3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"4"</span>&gt;</span>li-4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"5"</span>&gt;</span>li-5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h3 id="平常很多人的错误写法"><a href="#平常很多人的错误写法" class="headerlink" title="平常很多人的错误写法"></a>平常很多人的错误写法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> list = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; list.length; i++) &#123;</div><div class="line">  list[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="1：jq-each"><a href="#1：jq-each" class="headerlink" title="1：jq each"></a>1：jq each</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'ul li'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.id)</div><div class="line">	&#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="2：js-this"><a href="#2：js-this" class="headerlink" title="2：js this"></a>2：js this</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'ul li'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> index = $(<span class="keyword">this</span>).index() + <span class="number">1</span>;</div><div class="line">	<span class="built_in">console</span>.log(index);</div><div class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="3：js-setAttribute"><a href="#3：js-setAttribute" class="headerlink" title="3：js setAttribute"></a>3：js setAttribute</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lis = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; lis.length; i++) &#123;</div><div class="line">	lis[i].setAttribute(<span class="string">'index'</span>, i);</div><div class="line">  lis[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  	<span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="keyword">this</span>.getAttribute(<span class="string">'index'</span>)) + <span class="number">1</span>);</div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="4：js-var-gt-let"><a href="#4：js-var-gt-let" class="headerlink" title="4：js var -&gt; let"></a>4：js var -&gt; let</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> list = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>);</div><div class="line"><span class="comment">// 仅把循环变量 i 改为用 let 声明即可</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; list.length; i++) &#123;		</div><div class="line">   list[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="built_in">console</span>.log(i + <span class="number">1</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="5：js-事件委托"><a href="#5：js-事件委托" class="headerlink" title="5：js 事件委托"></a>5：js 事件委托</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleClick</span> (<span class="params">ev</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> ev = ev || <span class="built_in">window</span>.event;</div><div class="line"> 	<span class="keyword">var</span> target = ev.target || ev.srcElement;</div><div class="line">	<span class="built_in">console</span>.log(target.id)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="6：js-闭包"><a href="#6：js-闭包" class="headerlink" title="6：js 闭包"></a>6：js 闭包</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lis = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; lis.length; i++) &#123;</div><div class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>)</span>&#123;</div><div class="line">    lis[j].addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(j + <span class="number">1</span>)</div><div class="line">    &#125;, <span class="literal">false</span>)</div><div class="line">  &#125;)(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2017/07/09/how-to-loop-li/#more">more >></a>
+        
       
 
       
@@ -912,11 +906,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">CSS 布局</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
+                <a href="javascript:void(0)" class="js-tag color2">CSS 布局</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -924,15 +918,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
               </li>
              
               <li class="article-tag-list-item">
