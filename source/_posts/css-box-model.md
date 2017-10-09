@@ -1,14 +1,16 @@
 ---
 title: 回顾盒子模型之 box-size 属性
 date: 2017-02-20 10:03:59
-tags:	css盒子模型
+tags: css 盒子模型
 ---
 
 盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。
 
+<!--more-->
+
 ## 标准盒模型
 
-```	bash
+``` css
 box-sizing: content-box;
 ```
 
@@ -22,7 +24,7 @@ box-sizing: content-box;
 
 ## IE盒模型
 
-```	bash
+``` css
 box-sizing: border-box;
 ```
 
@@ -39,5 +41,6 @@ box-sizing: border-box;
 2. 他们的主要区别其实就是 width 包不包含 border 和 padding
 3. box-sizing 默认值是 content-box，即默认是标准盒子模型
 
+***
 
-More info: [我的csdn博客](http://blog.csdn.net/u014326381/article)
+更多文章，可以访问: [我的csdn博客](http://blog.csdn.net/u014326381/article)
