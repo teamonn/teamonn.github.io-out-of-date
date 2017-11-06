@@ -6,23 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>回顾盒子模型之 box-size 属性 | 徐正茂的个人博客</title>
+  <title>about | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
-<meta name="keywords" content="css 盒子模型">
-<meta property="og:type" content="article">
-<meta property="og:title" content="回顾盒子模型之 box-size 属性">
-<meta property="og:url" content="http://xuzhengmao.com/2017/02/20/css-box-model/index.html">
+  <meta name="description" content="爱我所爱，做我所做">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://xuzhengmao.com/about/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
+<meta property="og:description" content="爱我所爱，做我所做">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312191531615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312191552052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="回顾盒子模型之 box-size 属性">
-<meta name="twitter:description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170312191531615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="爱我所爱，做我所做">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -162,46 +158,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-css-box-model" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      回顾盒子模型之 box-size 属性
+      about
     </h1>
   
 
         
-        <a href="/2017/02/20/css-box-model/" class="archive-article-date">
-  	<time datetime="2017-02-20T02:03:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
+        <a href="/about/index.html" class="archive-article-date">
+  	<time datetime="2017-10-09T05:03:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。</p>
-<a id="more"></a>
-<h2 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">content-box</span>;</div></pre></td></tr></table></figure>
-<p>网上盗了张图：</p>
-<p><img src="http://img.blog.csdn.net/20170312191531615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>由上图可以看出，标准盒模型的 width 组成：content（不包含 padding 和 border）</p>
-<p>比如：你给一个div的宽度设为200px，那这个div实际的宽度其实是200px再加上padding和border的值（和是大于等于200px的）。</p>
-<h2 id="IE盒模型"><a href="#IE盒模型" class="headerlink" title="IE盒模型"></a>IE盒模型</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">border-box</span>;</div></pre></td></tr></table></figure>
-<p>网上又盗了张图：</p>
-<p><img src="http://img.blog.csdn.net/20170312191552052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>由上图可以看出，IE盒模型的 width 组成：content + 2 * padding + 2 * border</p>
-<p>比如：你给一个div的宽度设为200px，那这个div内容的宽度其实只有200px减去 padding 和 border 的值。它实际宽度是小于或等于200px的。</p>
-<h2 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h2><ol>
-<li>box-sizing: content-box | border-box | inherit</li>
-<li>他们的主要区别其实就是 width 包不包含 border 和 padding</li>
-<li>box-sizing 默认值是 content-box，即默认是标准盒子模型</li>
-</ol>
-<hr>
-<p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
-
+        
       
 
       
@@ -235,17 +212,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css 盒子模型</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -296,7 +262,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/02/20/css-box-model/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/about/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,25 +274,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2017/03/12/merge-compare-rebase/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          闲话 git merge 与 git rebase 的区别
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/09/19/cook-and-programmer/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">厨子和程序员</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 
 
@@ -335,7 +282,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="css-box-model" data-title="回顾盒子模型之 box-size 属性" data-url="http://xuzhengmao.com/2017/02/20/css-box-model/"></div>
+	<div class="ds-thread" data-thread-key="undefined" data-title="about" data-url="http://xuzhengmao.com/about/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -377,7 +324,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

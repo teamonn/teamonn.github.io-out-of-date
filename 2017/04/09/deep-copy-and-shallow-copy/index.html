@@ -14,12 +14,13 @@
 <meta property="og:url" content="http://xuzhengmao.com/2017/04/09/deep-copy-and-shallow-copy/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
 <meta property="og:description" content="在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。">
+<meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409104700282?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409105005209?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409105542962?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409105749213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409111121300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-05-08T09:06:46.000Z">
+<meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 的深拷贝和浅拷贝">
 <meta name="twitter:description" content="在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。">
@@ -40,7 +41,7 @@
   
 
   
-
+  
 </head>
 
 <body>
@@ -57,6 +58,8 @@
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Xu Zheng Mao</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">记录和成长</p>
 		
 
 		<nav class="header-menu">
@@ -115,6 +118,8 @@
 			<hgroup>
 			  <h1 class="header-author js-header-author">Xu Zheng Mao</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录和成长<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -482,11 +487,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
+                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,11 +499,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
