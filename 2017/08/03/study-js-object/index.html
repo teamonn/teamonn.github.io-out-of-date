@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>how-to-loop-li | 徐正茂的个人博客</title>
+  <title>全面学习JS对象 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爱我所爱，做我所做">
-<meta property="og:type" content="website">
-<meta property="og:title" content="how-to-loop-li">
-<meta property="og:url" content="http://xuzhengmao.com/how-to-loop-li/index.html">
+  <meta name="description" content="有一天，前端菜鸟问老鸟问题。  菜鸟：什么是对象啊？老鸟：有句话不知当讲不当讲？菜鸟：请讲。老鸟：佛说，万物皆为对象！菜鸟：…#@&amp;amp;%!">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全面学习JS对象">
+<meta property="og:url" content="http://xuzhengmao.com/2017/08/03/study-js-object/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="爱我所爱，做我所做">
+<meta property="og:description" content="有一天，前端菜鸟问老鸟问题。  菜鸟：什么是对象啊？老鸟：有句话不知当讲不当讲？菜鸟：请讲。老鸟：佛说，万物皆为对象！菜鸟：…#@&amp;amp;%!">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
+<meta property="og:updated_time" content="2017-12-04T15:28:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="how-to-loop-li">
-<meta name="twitter:description" content="爱我所爱，做我所做">
+<meta name="twitter:title" content="全面学习JS对象">
+<meta name="twitter:description" content="有一天，前端菜鸟问老鸟问题。  菜鸟：什么是对象啊？老鸟：有句话不知当讲不当讲？菜鸟：请讲。老鸟：佛说，万物皆为对象！菜鸟：…#@&amp;amp;%!">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -158,27 +159,54 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-study-js-object" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      how-to-loop-li
+      全面学习JS对象
     </h1>
   
 
         
-        <a href="/how-to-loop-li/index.html" class="archive-article-date">
-  	<time datetime="2017-07-09T15:56:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-09</time>
+        <a href="/2017/08/03/study-js-object/" class="archive-article-date">
+  	<time datetime="2017-08-03T11:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>有一天，前端菜鸟问老鸟问题。</p>
+<blockquote>
+<p>菜鸟：什么是对象啊？<br>老鸟：有句话不知当讲不当讲？<br>菜鸟：请讲。<br>老鸟：佛说，万物皆为对象！<br>菜鸟：…#@&amp;%!</p>
+</blockquote>
+<a id="more"></a>
+<ol>
+<li>什么是对象，结构</li>
+<li>如何构造、访问对象（闭包、深拷贝）、删除对象属性</li>
+<li>值引用和的对象引用</li>
+<li>原型、原型对象（prototype和<em>proto</em>）、原型链、作用域链</li>
+<li>面向oop编程</li>
+<li>this指向问题</li>
+</ol>
+<h3 id="对象的基本结构"><a href="#对象的基本结构" class="headerlink" title="对象的基本结构"></a>对象的基本结构</h3><p><strong>对象</strong>，是一组由若干个无序键值对（key: value）组成的数据集合。</p>
+<p>在 javascript 中，所有的数据都可以被视作对象。在某个对象中，每一个键值对叫做<code>成员</code>，键名叫做<code>属性</code>或者<code>方法</code>。</p>
+<h3 id="如何构造对象、复制对象（深拷贝）、访问或者删除对象属性"><a href="#如何构造对象、复制对象（深拷贝）、访问或者删除对象属性" class="headerlink" title="如何构造对象、复制对象（深拷贝）、访问或者删除对象属性"></a>如何构造对象、复制对象（深拷贝）、访问或者删除对象属性</h3><p><em>常见几种构造对象方法：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 方法1，创建字面量</span></div><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'rain'</span>,</div><div class="line">&#125;  age: <span class="number">25</span></div><div class="line"></div><div class="line"><span class="comment">// 方法2，定义对象实例</span></div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">person.name = <span class="string">'rain'</span>;</div><div class="line">person.age = <span class="number">25</span>;</div><div class="line"><span class="comment">// 方法3，工厂模式</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">  o.name = name;</div><div class="line">  o.age = age;</div><div class="line">  <span class="keyword">return</span> o;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = createPerson(<span class="string">'rain'</span>, <span class="number">25</span>);</div><div class="line"><span class="comment">// 方法4，构造函数模式</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'rain'</span>, <span class="number">25</span>);</div><div class="line"><span class="comment">// 方法5，原型模式</span></div><div class="line"><span class="keyword">var</span> person = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.prototype, &#123;</div><div class="line">  <span class="attr">name</span>: &#123;</div><div class="line">    <span class="attr">value</span>: <span class="string">'rain'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">age</span>: &#123;</div><div class="line">    <span class="attr">value</span>: <span class="number">25</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><em>复制对象</em><br>JavaScript中对象（或数组）与其他基础数据类型不同，它的引用是<strong>按址引用</strong>。的。如果直接使用等号简单复制，会造成不同的变量引用同一个对象，即它们会指向同一个内存地址。修改其中一个变量，其他的变量就会跟着一起改变。<br>解决办法就是<strong>对象深拷贝</strong>。<code>var newObj = Object.assign({}, obj)</code>方法是伪深拷贝，它只能深拷贝对象第一层子属性。<code>var newObj = JSON.parse( JSON.stringify(obj) )</code>方法是深拷贝，但是只能深拷贝对象的属性，对象的方法在拷贝过程中会被丢掉。<br>所以真正的深拷贝是需要自己实现的，可以通过<strong>递归调用浅拷贝</strong>，一层层复制一个对象的子代属性来实现。<br>参见：<a href="https://teamonn.github.io/2017/04/09/deep-copy-and-shallow-copy/#more" target="_blank" rel="external">JavaScript 的深拷贝和浅拷贝</a></p>
+<p><em>访问对象属性</em><br>读取属性有两种方法，一种是<strong>点运算符</strong>，一种是<strong>方括号运算符</strong>。方括号运算符可以使用表达式，也可以读取键名为数字、不符合标识符条件的、关键字和保留字的属性。对象的属性本质是一个字符串，加不加引号都可以。</p>
+<p><em>删除对象属性</em><br><code>delete person.name</code>即删除掉person对象的name属性。</p>
+<h3 id="值引用和对象引用"><a href="#值引用和对象引用" class="headerlink" title="值引用和对象引用"></a>值引用和对象引用</h3><p>程序中变量分为两种，一种计算机存储的是这个变量的值（值引用），一种存储的是这个变量在计算机内存中的地址（对象引用）。<br>与其他简单数据类型不同，数组和对象的引用是<strong>按址引用</strong>的。如果不同的变量引用同一个对象，它们会指向同一个内存地址，修改其中一个变量，会影响到其它的变量。</p>
+<h3 id="原型对象（prototype和proto）、原型链、作用域链、闭包"><a href="#原型对象（prototype和proto）、原型链、作用域链、闭包" class="headerlink" title="原型对象（prototype和proto）、原型链、作用域链、闭包"></a>原型对象（prototype和<em>proto</em>）、原型链、作用域链、闭包</h3><p><em>构造函数、原型和实例的关系:</em><br>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针。<br>见下图</p>
+<p>简单来讲<strong>原型对象</strong>是用来指导某个构造函数来构造对应对象的父对象。这些原型对象一层层嵌套，形成一个链条，就叫<strong>原型链</strong>。</p>
+<p><strong>作用域：</strong>程序中函数或者变量的作用范围，可以是局部，也可以是全局。<br><strong>作用域链：</strong>各个函数作用域的相互嵌套会形成函数作用域链。当在自身作用域内找不到该变量的时候，会沿着作用域链逐步向上查找，若在全局作用域内部仍找不到该变量，则会抛出异常。<br><strong>闭包：</strong>在一个函数的内部创建另外一个函数。当外部函数被调用的时候，内部函数也就随着创建，这样就形成了闭包。作用是 —— 用来实现在一个函数作用域中访问另一个函数作用域的变量或方法。</p>
+<ol>
+<li>面向oop编程</li>
+<li>this指向问题</li>
+</ol>
+
       
 
       
@@ -212,6 +240,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -262,7 +301,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/how-to-loop-li/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/08/03/study-js-object/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,6 +313,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2017/12/01/study-pm2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PM2 从入门到“放弃”
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/11/The-JavaScript-code-that-is-worth-simplifying/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">谈谈那些值得被简化的 JS 代码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -282,7 +340,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="how-to-loop-li" data-url="http://xuzhengmao.com/how-to-loop-li/index.html"></div>
+	<div class="ds-thread" data-thread-key="study-js-object" data-title="全面学习JS对象" data-url="http://xuzhengmao.com/2017/08/03/study-js-object/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -324,7 +382,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

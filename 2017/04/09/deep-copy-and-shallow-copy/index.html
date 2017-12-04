@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
   <title>JavaScript 的深拷贝和浅拷贝 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。">
+  <meta name="description" content="在 JavaScript 的变量赋值操作中，对于简单的数据类型（如 Number、String、Boolean 等）可以直接等号复制。但如果是对象或者数组，直接复制会造成新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。这没毛病也不是 bug，这就是深拷贝与浅拷贝的体现。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 的深拷贝和浅拷贝">
 <meta property="og:url" content="http://xuzhengmao.com/2017/04/09/deep-copy-and-shallow-copy/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。">
+<meta property="og:description" content="在 JavaScript 的变量赋值操作中，对于简单的数据类型（如 Number、String、Boolean 等）可以直接等号复制。但如果是对象或者数组，直接复制会造成新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。这没毛病也不是 bug，这就是深拷贝与浅拷贝的体现。">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409104700282?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409105005209?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409105542962?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409105749213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170409111121300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
+<meta property="og:updated_time" content="2017-12-04T13:15:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 的深拷贝和浅拷贝">
-<meta name="twitter:description" content="在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。">
+<meta name="twitter:description" content="在 JavaScript 的变量赋值操作中，对于简单的数据类型（如 Number、String、Boolean 等）可以直接等号复制。但如果是对象或者数组，直接复制会造成新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。这没毛病也不是 bug，这就是深拷贝与浅拷贝的体现。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170409104700282?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
@@ -184,7 +184,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。</p>
+        <p>在 JavaScript 的变量赋值操作中，对于简单的数据类型（如 Number、String、Boolean 等）可以直接等号复制。但如果是对象或者数组，直接复制会造成新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。这没毛病也不是 bug，这就是深拷贝与浅拷贝的体现。</p>
 <a id="more"></a>
 <h2 id="什么是深拷贝和浅拷贝？"><a href="#什么是深拷贝和浅拷贝？" class="headerlink" title="什么是深拷贝和浅拷贝？"></a>什么是深拷贝和浅拷贝？</h2><p>浅拷贝比较容易理解，所以先从浅拷贝开始说起吧！</p>
 <p>浅拷贝</p>
@@ -203,7 +203,7 @@
 <p>eg2. 深拷贝<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"One"</span>, <span class="string">"Two"</span>, <span class="string">"Three"</span>];</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"原数组的值："</span> + arr);</div><div class="line"><span class="keyword">var</span> newArr = arr.slice(<span class="number">0</span>);</div><div class="line">newArr[<span class="number">1</span>] = <span class="string">"newTwo"</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"新数组的值："</span> + newArr);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"深拷贝后，原数组的值："</span> + arr);</div></pre></td></tr></table></figure></p>
 <p>运行结果：</p>
 <p><img src="http://img.blog.csdn.net/20170409105005209?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>因为深拷贝是给 newArr 申请一个新的内存地址，并使 newArr 的指针指向这个新的内存。然后再把 arr 对应内存的值逐个复制到这个新内存地址。所以这时再修改 newArr 的第2个元素的值，就不会将原数组 arr 的第二个元素值也修改掉了（在内存里，两个数组不再共用一个内存空间了）。</p>
+<p>严格来讲，该方法不是真正的深拷贝，但是对于我们平常大部分情况还适用（当某个元素是对象，且它含有子方法时不行）。<br>因为深拷贝是给 newArr 申请一个新的内存地址，并使 newArr 的指针指向这个新的内存。然后再把 arr 对应内存的值逐个复制到这个新内存地址。所以这时再修改 newArr 的第2个元素的值，就不会将原数组 arr 的第二个元素值也修改掉了（在内存里，两个数组不再共用一个内存空间了）。</p>
 <p><strong>对象</strong></p>
 <p>eg1. 浅拷贝<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'xu'</span>,</div><div class="line">	<span class="attr">age</span>: <span class="number">24</span>,</div><div class="line">	<span class="attr">sex</span>: <span class="string">'men'</span>,</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"原对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj);</div><div class="line"><span class="keyword">var</span> newObj = obj;</div><div class="line">newObj.age = <span class="number">25</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"新对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(newObj);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"浅拷贝后，原对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj);</div></pre></td></tr></table></figure></p>
 <p>运行结果：</p>
@@ -212,25 +212,25 @@
 <p>eg2. 深拷贝<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'xu'</span>,</div><div class="line">	<span class="attr">age</span>: <span class="number">24</span>,</div><div class="line">	<span class="attr">sex</span>: <span class="string">'men'</span>,</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"原对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj);</div><div class="line"><span class="keyword">var</span> newObj = &#123;&#125;;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</div><div class="line">	newObj[i] = obj[i];</div><div class="line">&#125;</div><div class="line">newObj.age = <span class="number">25</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"新对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(newObj);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"深拷贝后，原对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj);</div></pre></td></tr></table></figure></p>
 <p>运行结果：</p>
 <p><img src="http://img.blog.csdn.net/20170409105749213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>这是针对一个对象中的所有属性值都是基本数据类型的情况。但是如果一个对象的属性值还是对象这种情况，就需要递归调用浅拷贝。可以如下处理：</p>
+<p>该方法是对象深拷贝，但这是针对一个对象中的所有属性值都是基本数据类型的情况。但是如果一个对象的属性值还是对象这种情况，就需要递归调用浅拷贝。可以如下处理：</p>
 <p>eg. 对象深拷贝拓展<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">obj, copyObj</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> newObj = copyObj || &#123;&#125;;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</div><div class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> obj[i] === <span class="string">'object'</span>) &#123;</div><div class="line">			newObj[i] = (obj[i].constructor === <span class="built_in">Array</span>) ? [] : &#123;&#125;;</div><div class="line">			deepCopy(obj[i], newObj[i]);</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			newObj[i] = obj[i];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> newObj;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>: &#123;</div><div class="line">		<span class="attr">oldName</span>: <span class="string">'pan'</span>,</div><div class="line">		<span class="attr">newName</span>: <span class="string">'zhengmao'</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">age</span>: <span class="number">24</span>,</div><div class="line">	<span class="attr">sex</span>: <span class="string">'men'</span>,</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"原对象的 name 属性值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj.name);</div><div class="line"><span class="keyword">var</span> secObj = &#123;&#125;;</div><div class="line">secObj = deepCopy(obj, secObj);	 <span class="comment">// 将 obj 的所有属性都复制到 secObj 中</span></div><div class="line">secObj.name = &#123;</div><div class="line">	<span class="attr">oldName</span>: <span class="string">'pan2'</span>,</div><div class="line">	<span class="attr">newName</span>: <span class="string">'zhengmao2'</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"新对象的的 name 属性值："</span>);</div><div class="line"><span class="built_in">console</span>.log(secObj.name);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"深拷贝后，原对象的 name 属性值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj.name);</div></pre></td></tr></table></figure></p>
 <p>运行结果：</p>
 <p><img src="http://img.blog.csdn.net/20170409111121300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>实现原理，其实就是先新建一个空对象，在内存中新开辟一块地址，把被复制对象的所有可枚举的（注意可枚举的对象）属性方法一一复制过来，注意要用递归来复制子对象里面的所有属性和方法，直到所有子代属性都为基本数据类型。</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>数组深拷贝：</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>数组和对象真正的深拷贝都没有对应现成的api方法可以直接使用，需要我们逐个元素方法递归浅拷贝来自己实现。</p>
+<p>但是其他我们常用的伪深拷贝方法，还是有必要了解下，毕竟大多时候这些伪深拷贝就够用了。</p>
+<p><strong>数组伪深拷贝</strong>：</p>
 <ol>
 <li>数组截取：<code>var newArr = arr.slice(0)</code></li>
-<li>数组连接：<code>var newArr = arr.concat()</code></li>
+<li>数组连接：<code>var newArr = arr.concat([])</code></li>
 <li>数组转字符串，再转回数组：<code>var newArr = arr.join(&#39;,&#39;).split(&#39;,&#39;)</code></li>
-<li>无脑方法：for 循环逐个元素拷贝</li>
+<li>用可迭代对象创建数组：<code>var newArr = Array.from(arr)</code><br><em>这些都只能深拷贝属性，不能深拷贝方法</em></li>
 </ol>
-<p>对象深拷贝：</p>
+<p><strong>对象伪深拷贝</strong>：</p>
 <ol>
-<li>对象拷贝方法：<code>var newObj = Object.assign({}, obj)</code></li>
-<li>字符串对象互转方法结合：<code>var newObj = JSON.parse( JSON.stringify(obj) )</code></li>
-<li>无脑方法：for 循环逐个属性拷贝</li>
+<li>对象拷贝方法：<code>var newObj = Object.assign({}, obj)</code>只能深拷贝对象第一代子成员，后代的成员是浅拷贝</li>
+<li>字符串对象互转方法结合：<code>var newObj = JSON.parse( JSON.stringify(obj) )</code>只能深拷贝属性，方法会被遗弃掉</li>
 </ol>
-<p>对于简单的数据类型（如 Number、String、Boolean 等），JavaScript 变量赋值即是值复制（深拷贝）。但是对象或者数组，直接赋值其实复制的只是内存地址（浅拷贝）。这样错误的操作会让父对象或父数组随时存在被篡改的可能。所以数组和对象拷贝时，我们可以按照以上方法进行深拷贝。</p>
 <hr>
 <p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
 
@@ -483,19 +483,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,7 +495,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,7 +511,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">技术视野</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
               </li>
             
             <div class="clearfix"></div>
