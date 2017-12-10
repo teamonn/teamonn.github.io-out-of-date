@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>闲话 git merge 与 git rebase 的区别 | 徐正茂的个人博客</title>
+  <title>如何让你的移动网站拥有原生应用般的体验？ | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
-<meta name="keywords" content="git">
+  <meta name="description" content="众所周知移动网站在开发、迭代版本方面，比原生APP更具有优势，但是在用户体验方面却逊色很多。用户体验差表现在哪些方面呢？主要是 互动（interaction）和动画（animation）这两方面。  那么为什么我们不能把移动web的用户体验做得更好呢？这还得从web的性能瓶颈说起 …">
+<meta name="keywords" content="移动web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闲话 git merge 与 git rebase 的区别">
-<meta property="og:url" content="http://xuzhengmao.com/2017/03/12/merge-compare-rebase/index.html">
+<meta property="og:title" content="如何让你的移动网站拥有原生应用般的体验？">
+<meta property="og:url" content="http://xuzhengmao.com/2017/05/05/make-mobile-web-look-likes-app/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
+<meta property="og:description" content="众所周知移动网站在开发、迭代版本方面，比原生APP更具有优势，但是在用户体验方面却逊色很多。用户体验差表现在哪些方面呢？主要是 互动（interaction）和动画（animation）这两方面。  那么为什么我们不能把移动web的用户体验做得更好呢？这还得从web的性能瓶颈说起 …">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312163257132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闲话 git merge 与 git rebase 的区别">
-<meta name="twitter:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="如何让你的移动网站拥有原生应用般的体验？">
+<meta name="twitter:description" content="众所周知移动网站在开发、迭代版本方面，比原生APP更具有优势，但是在用户体验方面却逊色很多。用户体验差表现在哪些方面呢？主要是 互动（interaction）和动画（animation）这两方面。  那么为什么我们不能把移动web的用户体验做得更好呢？这还得从web的性能瓶颈说起 …">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -164,79 +159,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-merge-compare-rebase" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-make-mobile-web-look-likes-app" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      闲话 git merge 与 git rebase 的区别
+      如何让你的移动网站拥有原生应用般的体验？
     </h1>
   
 
         
-        <a href="/2017/03/12/merge-compare-rebase/" class="archive-article-date">
-  	<time datetime="2017-03-12T09:35:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+        <a href="/2017/05/05/make-mobile-web-look-likes-app/" class="archive-article-date">
+  	<time datetime="2017-05-05T11:33:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。</p>
-<a id="more"></a> 
-<h2 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h2><p>如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：</p>
-<p><img src="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="（SourceTree中的分支截图）"></p>
-<p>假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge deve</div></pre></td></tr></table></figure>
-<p>Git 系统会以两个分支的共同祖先 e381a81 为基础，将两个分支的最新提交 8ab7cff 和 696398a 进行三方合并（分支路径没有合并），然后将合并中修改的内容生成一个新的 commit，即下图的 78941cb：</p>
-<p><img src="http://img.blog.csdn.net/20170312163257132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h2><p>假如我们初始的分支情况如下图：</p>
-<p><img src="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>我们还是处在 master 分支上，我们在该项目根目录路径下输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase deve</div></pre></td></tr></table></figure>
-<p>这时 Git 系统会将 master 中没有 deve 的部分 bcde65c 和 35b6708 都合并进 master，这个过程是不会修改 deve 分支的。此时两个分支暂时合并成一根线，如下图所示：</p>
-<p><img src="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="merge-和-rebase-的区别对比："><a href="#merge-和-rebase-的区别对比：" class="headerlink" title="merge 和 rebase 的区别对比："></a>merge 和 rebase 的区别对比：</h2><table>
-<thead>
-<tr>
-<th>对比项</th>
-<th>merge</th>
-<th>rebase</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>操作过程</td>
-<td>将两个分支的修改信息合并</td>
-<td>将目标分支中有而当前没有的提交都加进当前分支，但不修改目标分支</td>
-</tr>
-<tr>
-<td>分支路径</td>
-<td>多条，各自显示，此时交叉了</td>
-<td>单条，合在一起显示</td>
-</tr>
-<tr>
-<td>历史版本信息</td>
-<td>忠实反映各分支实际发生过什么</td>
-<td>只反映项目过程中发生过什么</td>
-</tr>
-<tr>
-<td>冲突处理</td>
-<td>遇见冲突后会直接停止，等待手动解决冲突并重新提交 commit 后，才能再次 merge</td>
-<td>遇见冲突后会暂停当前操作，开发者可以选择手动解决冲突，然后 git rebase –continue 继续，或者 –skip 跳过（注意此操作中当前分支的修改会直接覆盖目标分支的冲突部分），亦或者 –abort 直接停止该次 rebase 操作</td>
-</tr>
-</tbody>
-</table>
-<h2 id="辅助记忆"><a href="#辅助记忆" class="headerlink" title="辅助记忆"></a>辅助记忆</h2><p>可以类比同学 a 和同学 b 考试对答案的场景，来区别 merge 和 rebase。</p>
+        <blockquote>
+<p>众所周知移动网站在开发、迭代版本方面，比原生APP更具有优势，但是在用户体验方面却逊色很多。用户体验差表现在哪些方面呢？主要是 互动（interaction）和动画（animation）这两方面。</p>
+</blockquote>
+<p>那么为什么我们不能把移动web的用户体验做得更好呢？这还得从web的性能瓶颈说起 …</p>
+<a id="more"></a>
+<h3 id="1-移动网站为什么不能拥有原生般的体验？"><a href="#1-移动网站为什么不能拥有原生般的体验？" class="headerlink" title="1. 移动网站为什么不能拥有原生般的体验？"></a>1. 移动网站为什么不能拥有原生般的体验？</h3><p>阮一峰老师在他的 <a href="http://www.ruanyifeng.com/blog/2015/02/future-of-dom.html" target="_blank" rel="external">《也许，DOM 不是答案》</a>一文中分析了移动 web 性能瓶颈的几个原因：</p>
+<ol>
+<li>Web基于DOM，而DOM加载很慢</li>
+<li>DOM拖慢JavaScript，因为所有的 DOM 操作都是同步的，一个操作没完，后面的操作都需要等待</li>
+<li>网页是单线程的</li>
+<li>网页没有硬件加速，网页由CPU处理，没用GPU图形加速。</li>
+</ol>
+<p>这些原因对于 PC 端 网站没有太大影响。但是手机硬件资源有限，用户互动又相对频繁，于是跟原生应用相比，自然就出现了明显的不足。</p>
+<h3 id="2-怎样做，移动网站才能拥有更好的用户体验？"><a href="#2-怎样做，移动网站才能拥有更好的用户体验？" class="headerlink" title="2. 怎样做，移动网站才能拥有更好的用户体验？"></a>2. 怎样做，移动网站才能拥有更好的用户体验？</h3><p>既然 DOM 操作有性能瓶颈，要想突破这个瓶颈就只能抛弃 DOM 换用其他的解决方案了。</p>
+<p>FlipBoard原本是一个手机App，他们的 Web 版本 <strong>没有使用DOM，而是将整个网站用canvas输出！</strong></p>
+<p>可以用手机打开 <a href="flipboard.com">flipboard.com</a> 体验一下，我觉得它里面的各种手势操作已经很流畅了，体验基本已经快要接近原生了。</p>
+<p>这个方案的出发点是这样的：如果将网页变成了一个个canvas，用户就等于在跟图片互动，这样就绕开了DOM，降低了操作时滞。而且，canvas可以被硬件加速，这样就提高了性能。具体的技术细节，可以参考原文。canvas的转化基于React框架实现，FlipBoard 开发了一个专门的库 React-canvas，已经开源。</p>
+<h3 id="3-web-的未来"><a href="#3-web-的未来" class="headerlink" title="3. web 的未来"></a>3. web 的未来</h3><p>PC 时代，web 在与 原生应用的角逐中占了上风。</p>
+<p>到了移动互联网时代，原生应用又凭借良好的用户体验现在又跟 web 平分秋色了。</p>
+<p>那么未来又会是怎样呢？如果我们能再多出几种像 flipboard 这种的性能解决方案，相信我们 web 还会在下一个时代，再次打败原生应用独占鳌头。</p>
+<p>参考文章：</p>
 <ul>
-<li><p><strong>a merge b</strong> =&gt; 等同 a 和 b 相互对答案，觉得对方对或者对方做了自己没做的就修改过来。最终和他们各自开始的答案相比，他们的答案都修改了（不考虑开始就答案相同的情况）。</p>
-</li>
-<li><p><strong>a rebase b</strong> =&gt; 等同 a 抄 b 的答案，觉得 b 对或者 b 做了自己没做的就按照他的抄过来。最终只有 a 的答案修改了，b 的答案不会被修改。</p>
-</li>
+<li><a href="https://www.zhihu.com/question/47911480" target="_blank" rel="external">如何用 fps 衡量 web 页面性能？</a></li>
+<li><a href="http://engineering.flipboard.com/2015/02/mobile-web" target="_blank" rel="external">移动web的60fps实现 | Flipboard</a></li>
 </ul>
-<p>参考文档：<a href="https://git-scm.com/docs" target="_blank" rel="external">点击进入 git 官网</a></p>
 <hr>
 <p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
 
@@ -278,7 +245,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">移动web</a>
         		</li>
       		
 		</ul>
@@ -334,7 +301,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/03/12/merge-compare-rebase/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/05/05/make-mobile-web-look-likes-app/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -348,18 +315,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/30/classical-layout-comparison/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/17/git-stash/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          圣杯布局 VS 双飞翼布局
+          git stash 和 git stash pop
         
       </div>
     </a>
   
   
-    <a href="/2017/02/20/css-box-model/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">回顾盒子模型之 box-size 属性</div>
+    <a href="/2017/04/19/for-in-compare-for-of/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">for...in 与 for...of 你千万别混淆</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -373,7 +340,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="merge-compare-rebase" data-title="闲话 git merge 与 git rebase 的区别" data-url="http://xuzhengmao.com/2017/03/12/merge-compare-rebase/"></div>
+	<div class="ds-thread" data-thread-key="make-mobile-web-look-likes-app" data-title="如何让你的移动网站拥有原生应用般的体验？" data-url="http://xuzhengmao.com/2017/05/05/make-mobile-web-look-likes-app/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

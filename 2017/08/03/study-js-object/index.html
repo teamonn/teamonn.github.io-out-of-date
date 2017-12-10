@@ -5,15 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: css盒子模型 | 徐正茂的个人博客</title>
+  <link rel="dns-prefetch" href="http://xuzhengmao.com">
+  <title>全面学习JS对象 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="徐正茂的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/css盒子模型/index.html">
+  <meta name="description" content="有一天，前端菜鸟问老鸟问题。  菜鸟：什么是对象啊？老鸟：有句话不知当讲不当讲？菜鸟：请讲。老鸟：佛说，万物皆为对象！菜鸟：…#@&amp;amp;%!">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全面学习JS对象">
+<meta property="og:url" content="http://xuzhengmao.com/2017/08/03/study-js-object/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
+<meta property="og:description" content="有一天，前端菜鸟问老鸟问题。  菜鸟：什么是对象啊？老鸟：有句话不知当讲不当讲？菜鸟：请讲。老鸟：佛说，万物皆为对象！菜鸟：…#@&amp;amp;%!">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://xuzhengmao.com/assets/obj_extend.jpg">
+<meta property="og:image" content="http://xuzhengmao.com/assets/obj_prototype.png">
+<meta property="og:updated_time" content="2017-12-07T13:52:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="徐正茂的个人博客">
+<meta name="twitter:title" content="全面学习JS对象">
+<meta name="twitter:description" content="有一天，前端菜鸟问老鸟问题。  菜鸟：什么是对象啊？老鸟：有句话不知当讲不当讲？菜鸟：请讲。老鸟：佛说，万物皆为对象！菜鸟：…#@&amp;amp;%!">
+<meta name="twitter:image" content="http://xuzhengmao.com/assets/obj_extend.jpg">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -30,7 +39,7 @@
   
 
   
-
+  
 </head>
 
 <body>
@@ -38,23 +47,25 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #607d8b"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="https://github.com/teamonn/teamonn.github.io/tree/master/img/owner.png" class="js-avatar">
+			<img src="http://img.blog.csdn.net/20170318224353506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Xu Zheng Mao</a></h1>
 		</hgroup>
 		
+		<p class="header-subtitle">记录和成长</p>
+		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">博客</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/photo">相册</a></li>
 	        
 			</ul>
 		</nav>
@@ -69,7 +80,7 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
     			
             
 		</nav>
@@ -78,11 +89,11 @@
 				
 					<a class="github" target="_blank" href="https://github.com/teamonn" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="http://weibo.com/u/5415687525?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="/xuzhengmao.com" title="rss"><i class="icon-rss"></i></a>
+					<a class="weibo" target="_blank" href="http://weibo.com/u/3895269434?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xu-zheng-mao-12" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="linkedin" target="_blank" href="http://www.xuzhengmao.com" title="linkedin"><i class="icon-linkedin"></i></a>
 		        
 			</div>
 		</nav>
@@ -93,18 +104,20 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #607d8b"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="https://github.com/teamonn/teamonn.github.io/tree/master/img/owner.png" class="js-avatar">
+				<img src="http://img.blog.csdn.net/20170318224353506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Xu Zheng Mao</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录和成长<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -119,11 +132,11 @@
 					
 						<a class="github" target="_blank" href="https://github.com/teamonn" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="http://weibo.com/u/5415687525?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="/xuzhengmao.com" title="rss"><i class="icon-rss"></i></a>
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3895269434?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xu-zheng-mao-12" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.xuzhengmao.com" title="linkedin"><i class="icon-linkedin"></i></a>
 			        
 				</div>
 			</nav>
@@ -132,9 +145,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">博客</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/photo">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -149,60 +162,237 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-study-js-object" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/20/css-box-model/" class="archive-article-date">
-  	<time datetime="2017-02-20T02:03:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/20/css-box-model/">回顾盒子模型之 box-size 属性</a>
+    <h1 class="article-title" itemprop="name">
+      全面学习JS对象
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/03/study-js-object/" class="archive-article-date">
+  	<time datetime="2017-08-03T11:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有一天，前端菜鸟问老鸟问题。</p>
+<blockquote>
+<p>菜鸟：什么是对象啊？<br>老鸟：有句话不知当讲不当讲？<br>菜鸟：请讲。<br>老鸟：佛说，万物皆为对象！<br>菜鸟：…#@&amp;%!</p>
+</blockquote>
+<a id="more"></a>
+<p>开个玩笑。Web前端开发，JavaScript是核心。而JavaScript中，对象相关的知识又是核心。</p>
+<p>所以，对于一个前端开发者来说，学习好JS对象知识是必不可少的。</p>
+<h3 id="对象的基本结构"><a href="#对象的基本结构" class="headerlink" title="对象的基本结构"></a>对象的基本结构</h3><p><strong>对象</strong>，是一组由若干个无序键值对（key: value）组成的数据集合。</p>
+<p>在 javascript 中，所有的数据都可以被视作对象。在某个对象中，每一个键值对叫做<code>成员</code>，键名叫做<code>属性</code>或者<code>方法</code>。</p>
+<h3 id="如何构造对象、复制对象（深拷贝）、访问或者删除对象属性"><a href="#如何构造对象、复制对象（深拷贝）、访问或者删除对象属性" class="headerlink" title="如何构造对象、复制对象（深拷贝）、访问或者删除对象属性"></a>如何构造对象、复制对象（深拷贝）、访问或者删除对象属性</h3><p><em>常见几种构造对象方法：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 方法1，创建字面量</span></div><div class="line"><span class="keyword">var</span> person = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'rain'</span>,</div><div class="line">  <span class="attr">age</span>: <span class="number">25</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 方法2，定义对象实例</span></div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">person.name = <span class="string">'rain'</span>;</div><div class="line">person.age = <span class="number">25</span>;</div><div class="line"><span class="comment">// 方法3，工厂模式</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">  o.name = name;</div><div class="line">  o.age = age;</div><div class="line">  <span class="keyword">return</span> o;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = createPerson(<span class="string">'rain'</span>, <span class="number">25</span>);</div><div class="line"><span class="comment">// 方法4，构造函数模式</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'rain'</span>, <span class="number">25</span>);</div><div class="line"><span class="comment">// 方法5，原型模式</span></div><div class="line"><span class="keyword">var</span> person = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.prototype, &#123;</div><div class="line">  <span class="attr">name</span>: &#123;</div><div class="line">    <span class="attr">value</span>: <span class="string">'rain'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">age</span>: &#123;</div><div class="line">    <span class="attr">value</span>: <span class="number">25</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><em>复制对象</em><br>JavaScript中对象（或数组）与其他基础数据类型不同，它的引用是<strong>按址引用</strong>。的。如果直接使用等号简单复制，会造成不同的变量引用同一个对象，即它们会指向同一个内存地址。修改其中一个变量，其他的变量就会跟着一起改变。<br>解决办法就是<strong>对象深拷贝</strong>。<code>var newObj = Object.assign({}, obj)</code>方法是伪深拷贝，它只能深拷贝对象第一层子属性。<code>var newObj = JSON.parse( JSON.stringify(obj) )</code>方法是深拷贝，但是只能深拷贝对象的属性，对象的方法在拷贝过程中会被丢掉。<br>所以真正的深拷贝是需要自己实现的，可以通过<strong>递归调用浅拷贝</strong>，一层层复制一个对象的子代属性来实现。<br>参见：<a href="https://teamonn.github.io/2017/04/09/deep-copy-and-shallow-copy/#more" target="_blank" rel="external">JavaScript 的深拷贝和浅拷贝</a></p>
+<p><em>访问对象属性</em><br>读取属性有两种方法，一种是<strong>点运算符</strong>（对象点属性/方法即可拿到一个对象的某个属性值或方法），一种是<strong>方括号运算符</strong>。方括号运算符可以使用表达式，也可以读取键名为数字、不符合标识符条件的、关键字和保留字的属性。对象的属性本质是一个字符串，加不加引号都可以。<br><code>Object.keys(obj)</code>可以遍历 obj 所有可以枚举的属性，返回所有可枚举自身属性的属性名组成的数组。</p>
+<p><em>删除对象属性</em><br><code>delete person.name</code>即删除掉person对象的name属性。</p>
+<h3 id="面向OOP编程"><a href="#面向OOP编程" class="headerlink" title="面向OOP编程"></a>面向OOP编程</h3><p>JavaScript 是一门彻底的面向对象的语言。它在ES6之前没有类（class）的概念，它是基于原型来面向对象的。</p>
+<p><strong>基于类的面向对象 VS 基于原型的面向对象</strong></p>
+<blockquote>
+<p>在 <em>基于类的面向对象</em> 方式中，对象（object）依靠 类（class）来产生。而在 <em>基于原型的面向对象</em> 方式中，对象（object）则是依靠 构造器（constructor）利用 原型（prototype）构造出来的。就像工厂要造一辆车，一方面，工人必须参照一张工程图纸，设计规定这辆车应该如何制造。这里的工程图纸就好比是语言中的 类 (class)，而车就是按照这个 类（class）制造出来的；另一方面，工人和机器 ( 相当于 constructor) 利用各种零部件如发动机，轮胎，方向盘 ( 相当于 prototype 的各个属性 ) 将汽车组装出来。</p>
+</blockquote>
+<p><strong>JavaScript如何实现对象的继承？</strong><br>JavaScript无法实现接口继承，只支持实现继承，所以它主要是依靠原型链来实现继承的。</p>
+<ol>
+<li><strong>原型方法</strong>（将父类的实例作为子类的原型，Cat.prototype = new Animal()）</li>
+<li><strong>借用构造函数</strong>（借父类的构造函数来增强子类实例，子类构造函数中通过call/apply方法把this传到父类）</li>
+<li><strong>原型链方式/实例继承</strong>（子类通过prototype将所有在父类中通过prototype追加的属性和方法都追加到Child）</li>
+<li><strong>拷贝继承</strong>（子类构造函数里面逐个拷贝父类属性）</li>
+<li><strong>组合继承</strong>（把实例函数都放在原型对象上，以实现函数复用。同时还要保留借用构造函数方式的优点）</li>
+<li><strong>寄生组合继承</strong>（切掉了原型对象上多余的那份父类实例属性）<br>（<em>见 《JavaScript高级程序设计 第3版》第6章 继承</em>）</li>
+</ol>
+<p><img src="/assets/obj_extend.jpg" alt="js实现继承方式对比"></p>
+<h3 id="值引用和对象引用"><a href="#值引用和对象引用" class="headerlink" title="值引用和对象引用"></a>值引用和对象引用</h3><p>程序中变量分为两种，一种计算机存储的是这个变量的值（值引用），一种存储的是这个变量在计算机内存中的地址（对象引用）。<br>与其他简单数据类型不同，数组和对象的引用是<strong>按址引用</strong>的。如果不同的变量引用同一个对象，它们会指向同一个内存地址，修改其中一个变量，会影响到其它的变量。</p>
+<p><em>上面讲到的 浅拷贝 和 深拷贝 就是 值引用 和 对象引用 区别的具体体现。</em></p>
+<h3 id="原型对象（prototype和-proto-）、原型链、作用域链、闭包"><a href="#原型对象（prototype和-proto-）、原型链、作用域链、闭包" class="headerlink" title="原型对象（prototype和__proto__）、原型链、作用域链、闭包"></a>原型对象（prototype和__proto__）、原型链、作用域链、闭包</h3><p><em>构造函数、原型和实例的关系:</em><br>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针。</p>
+<p><img src="/assets/obj_prototype.png" alt="prototype和_proto_的关系"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">n</span>) </span>&#123;  <span class="comment">// 构造函数</span></div><div class="line">  <span class="keyword">this</span>.name = n;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> me = <span class="keyword">new</span> Person(<span class="string">'rain'</span>);  <span class="comment">// me 是实例对象</span></div><div class="line">me.__proto__ === Person.prototype;  <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>简单来讲<strong>原型对象</strong>是用来指导某个构造函数来构造对应对象的父对象。这些原型对象一层层嵌套，形成一个链条，就叫<strong>原型链</strong>。JavaScript 主要通过原型链实现继承。</p>
+<p>所有函数的默认原型都是 Object 的实例，因此默认原型都会包含一个内部指针，指向 Object.prototype。但原型链的顶点是null，而不是Object.prototype。<strong>原型链上只能有对象</strong>。</p>
+<p><strong>作用域：</strong>程序中函数或者变量的作用范围，可以是局部，也可以是全局。<br><strong>作用域链：</strong>各个函数作用域的相互嵌套会形成函数作用域链。当在自身作用域内找不到该变量的时候，会沿着作用域链逐步向上查找，若在全局作用域内部仍找不到该变量，则会抛出异常。<br><strong>闭包：</strong>在一个函数的内部创建另外一个函数。当外部函数被调用的时候，内部函数也就随着创建，这样就形成了闭包。作用是 —— 用来实现在一个函数作用域中访问另一个函数作用域的变量或方法。</p>
+<h3 id="this指向问题-apply-call-bind"><a href="#this指向问题-apply-call-bind" class="headerlink" title="this指向问题(apply/call/bind)"></a>this指向问题(apply/call/bind)</h3><p>this用法很多，不同场合this指向不同。</p>
+<ol>
+<li><strong>普通函数调用：</strong>浏览器宿主的全局环境中，this指的是window对象</li>
+<li><strong>作为对象的方法来调用：</strong>this就指向这个被调用方法的父对象</li>
+<li><strong>作为构造函数来调用：</strong>this指向这个新构造出来的新对象</li>
+<li><strong>使用apply/call方法来调用：</strong>this指的就是第一个参数（func.call(this, arg1, arg2)，func.apply(this, [arg1, arg2])）</li>
+<li><strong>bind方法：</strong>创建一个新的函数, 当被调用时，将其this关键字设置为提供的值</li>
+<li><strong>es6箭头函数：</strong>绑定this为定义时所在的作用域，而不是运行时所在的作用域(因为箭头函数根本没有自己的this)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// call方法(apply类似)</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cat</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.food = <span class="string">"fish"</span>;</div><div class="line">  <span class="keyword">this</span>.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"I love "</span> + <span class="keyword">this</span>.food);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> blackCat = <span class="keyword">new</span> cat();</div><div class="line">blackCat.say();  <span class="comment">// I love fish</span></div><div class="line"><span class="keyword">var</span> whiteDog = &#123;</div><div class="line">  <span class="attr">food</span>: <span class="string">"bone"</span></div><div class="line">&#125;</div><div class="line">blackCat.say.call(whiteDog);  <span class="comment">// I love bone 这样让whiteDog也能调用blackCat的say方法</span></div><div class="line"><span class="comment">// bind方法</span></div><div class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  <span class="attr">x</span>: <span class="number">2</span>,</div><div class="line">  <span class="attr">getX</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(obj.getX());  <span class="comment">// 2</span></div><div class="line"><span class="keyword">var</span> oldObj = obj.getX;</div><div class="line">oldObj();  <span class="comment">// 1  oldObj暴露在全局作用域，oldObj的this指向的是window</span></div><div class="line"><span class="keyword">var</span> newObj = obj.getX.bind(obj);  <span class="comment">// 用bind将obj.getX的this指向绑定为obj的this指向</span></div><div class="line">newObj();  <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="最后的小结"><a href="#最后的小结" class="headerlink" title="最后的小结"></a>最后的小结</h3><p>由于公司业务也比较忙，这边文章（其实就是我个人的学习笔记）我差不多整理了3个晚上。之前初学 JavaScript 太过走马观花，没有脚踏实地好好学习原生JS的基础知识。导致工作一年来，越来越觉得基础的重要性。趁现在还能亡羊补牢，赶紧抽时间把JS的基础知识好好系统过一遍吧！</p>
+<p>毕竟，磨刀不误砍柴工。</p>
+<hr>
+<p>推荐参考和学习的资料：</p>
+<ol>
+<li><a href="https://book.douban.com/subject/10546125/" target="_blank" rel="external">《JavaScript高级程序设计 第3版》</a></li>
+<li><a href="https://book.douban.com/subject/3590768/" target="_blank" rel="external">《JavaScript语言精粹》</a></li>
+<li><a href="https://book.douban.com/subject/26351021/" target="_blank" rel="external">《你不知道的JavaScript 上》</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" target="_blank" rel="external">mozilla开发者文档 MDN</a></li>
+<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">《阮一峰 ES6教程》</a></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>您的支持和赞赏，将是我继续创作的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://img.blog.csdn.net/20170318223224912?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">css盒子模型</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/08/03/study-js-object/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/12/01/study-pm2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PM2 从入门到“放弃”
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/07/11/The-JavaScript-code-that-is-worth-simplifying/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">谈谈那些值得被简化的 JS 代码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="study-js-object" data-title="全面学习JS对象" data-url="http://xuzhengmao.com/2017/08/03/study-js-object/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -225,9 +415,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
@@ -285,7 +475,7 @@
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于</a></li>
       
         
     </ul>
@@ -306,11 +496,43 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CSS 布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css盒子模型</a>
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术视野</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
               </li>
             
             <div class="clearfix"></div>
@@ -362,27 +584,35 @@
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://litten.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Litten的个人博客</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="http://xunli.xyz/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>黎浔的個人網誌</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+              <a href="http://www.ruanyifeng.com/blog/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>阮一峰的网络日志</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+              <a href="http://www.cnblogs.com/unclekeith/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Unclekeith的博客园</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+              <a href="https://www.qianduan.net/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>前端观察</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://juejin.im/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>稀土掘金</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.alloyteam.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>腾讯AlloyTeam</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://taobaofed.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>淘宝FED</a>
             </li>
           
         </ul>
@@ -393,7 +623,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">年轻无为，卖马为生。</div>
   	  	
     	</section>
     

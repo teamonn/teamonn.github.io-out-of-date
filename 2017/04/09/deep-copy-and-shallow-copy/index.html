@@ -6,25 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>闲话 git merge 与 git rebase 的区别 | 徐正茂的个人博客</title>
+  <title>JavaScript 的深拷贝和浅拷贝 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
-<meta name="keywords" content="git">
+  <meta name="description" content="在 JavaScript 的变量赋值操作中，对于简单的数据类型（如 Number、String、Boolean 等）可以直接等号复制。但如果是对象或者数组，直接复制会造成新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。这没毛病也不是 bug，这就是深拷贝与浅拷贝的体现。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闲话 git merge 与 git rebase 的区别">
-<meta property="og:url" content="http://xuzhengmao.com/2017/03/12/merge-compare-rebase/index.html">
+<meta property="og:title" content="JavaScript 的深拷贝和浅拷贝">
+<meta property="og:url" content="http://xuzhengmao.com/2017/04/09/deep-copy-and-shallow-copy/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
+<meta property="og:description" content="在 JavaScript 的变量赋值操作中，对于简单的数据类型（如 Number、String、Boolean 等）可以直接等号复制。但如果是对象或者数组，直接复制会造成新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。这没毛病也不是 bug，这就是深拷贝与浅拷贝的体现。">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312163257132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20170409104700282?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170409105005209?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170409105542962?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170409105749213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170409111121300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-12-04T13:15:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闲话 git merge 与 git rebase 的区别">
-<meta name="twitter:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="JavaScript 的深拷贝和浅拷贝">
+<meta name="twitter:description" content="在 JavaScript 的变量赋值操作中，对于简单的数据类型（如 Number、String、Boolean 等）可以直接等号复制。但如果是对象或者数组，直接复制会造成新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。这没毛病也不是 bug，这就是深拷贝与浅拷贝的体现。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170409104700282?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -164,79 +164,73 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-merge-compare-rebase" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-deep-copy-and-shallow-copy" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      闲话 git merge 与 git rebase 的区别
+      JavaScript 的深拷贝和浅拷贝
     </h1>
   
 
         
-        <a href="/2017/03/12/merge-compare-rebase/" class="archive-article-date">
-  	<time datetime="2017-03-12T09:35:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+        <a href="/2017/04/09/deep-copy-and-shallow-copy/" class="archive-article-date">
+  	<time datetime="2017-04-09T04:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。</p>
-<a id="more"></a> 
-<h2 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h2><p>如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：</p>
-<p><img src="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="（SourceTree中的分支截图）"></p>
-<p>假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge deve</div></pre></td></tr></table></figure>
-<p>Git 系统会以两个分支的共同祖先 e381a81 为基础，将两个分支的最新提交 8ab7cff 和 696398a 进行三方合并（分支路径没有合并），然后将合并中修改的内容生成一个新的 commit，即下图的 78941cb：</p>
-<p><img src="http://img.blog.csdn.net/20170312163257132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h2><p>假如我们初始的分支情况如下图：</p>
-<p><img src="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>我们还是处在 master 分支上，我们在该项目根目录路径下输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase deve</div></pre></td></tr></table></figure>
-<p>这时 Git 系统会将 master 中没有 deve 的部分 bcde65c 和 35b6708 都合并进 master，这个过程是不会修改 deve 分支的。此时两个分支暂时合并成一根线，如下图所示：</p>
-<p><img src="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="merge-和-rebase-的区别对比："><a href="#merge-和-rebase-的区别对比：" class="headerlink" title="merge 和 rebase 的区别对比："></a>merge 和 rebase 的区别对比：</h2><table>
-<thead>
-<tr>
-<th>对比项</th>
-<th>merge</th>
-<th>rebase</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>操作过程</td>
-<td>将两个分支的修改信息合并</td>
-<td>将目标分支中有而当前没有的提交都加进当前分支，但不修改目标分支</td>
-</tr>
-<tr>
-<td>分支路径</td>
-<td>多条，各自显示，此时交叉了</td>
-<td>单条，合在一起显示</td>
-</tr>
-<tr>
-<td>历史版本信息</td>
-<td>忠实反映各分支实际发生过什么</td>
-<td>只反映项目过程中发生过什么</td>
-</tr>
-<tr>
-<td>冲突处理</td>
-<td>遇见冲突后会直接停止，等待手动解决冲突并重新提交 commit 后，才能再次 merge</td>
-<td>遇见冲突后会暂停当前操作，开发者可以选择手动解决冲突，然后 git rebase –continue 继续，或者 –skip 跳过（注意此操作中当前分支的修改会直接覆盖目标分支的冲突部分），亦或者 –abort 直接停止该次 rebase 操作</td>
-</tr>
-</tbody>
-</table>
-<h2 id="辅助记忆"><a href="#辅助记忆" class="headerlink" title="辅助记忆"></a>辅助记忆</h2><p>可以类比同学 a 和同学 b 考试对答案的场景，来区别 merge 和 rebase。</p>
-<ul>
-<li><p><strong>a merge b</strong> =&gt; 等同 a 和 b 相互对答案，觉得对方对或者对方做了自己没做的就修改过来。最终和他们各自开始的答案相比，他们的答案都修改了（不考虑开始就答案相同的情况）。</p>
-</li>
-<li><p><strong>a rebase b</strong> =&gt; 等同 a 抄 b 的答案，觉得 b 对或者 b 做了自己没做的就按照他的抄过来。最终只有 a 的答案修改了，b 的答案不会被修改。</p>
-</li>
-</ul>
-<p>参考文档：<a href="https://git-scm.com/docs" target="_blank" rel="external">点击进入 git 官网</a></p>
+        <p>在 JavaScript 的变量赋值操作中，对于简单的数据类型（如 Number、String、Boolean 等）可以直接等号复制。但如果是对象或者数组，直接复制会造成新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。这没毛病也不是 bug，这就是深拷贝与浅拷贝的体现。</p>
+<a id="more"></a>
+<h2 id="什么是深拷贝和浅拷贝？"><a href="#什么是深拷贝和浅拷贝？" class="headerlink" title="什么是深拷贝和浅拷贝？"></a>什么是深拷贝和浅拷贝？</h2><p>浅拷贝比较容易理解，所以先从浅拷贝开始说起吧！</p>
+<p>浅拷贝</p>
+<blockquote>
+<p>就是将一个对象（或数组）的内存地址『编号』复制给另一个对象（或数组）</p>
+</blockquote>
+<p>深拷贝</p>
+<blockquote>
+<p>增加一个指针，并且申请一个新的内存地址，使这个增加的指针指向这个新的内存，然后将原变量对应内存地址里的值逐个复制过去</p>
+</blockquote>
+<h2 id="深拷贝和浅拷贝怎么实现？"><a href="#深拷贝和浅拷贝怎么实现？" class="headerlink" title="深拷贝和浅拷贝怎么实现？"></a>深拷贝和浅拷贝怎么实现？</h2><p><strong>数组</strong></p>
+<p>eg1. 浅拷贝<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"One"</span>, <span class="string">"Two"</span>, <span class="string">"Three"</span>];</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"原数组的值："</span> + arr);</div><div class="line"><span class="keyword">var</span> newArr = arr;</div><div class="line">newArr[<span class="number">1</span>] = <span class="string">"newTwo"</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"新数组的值："</span> + newArr);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"浅拷贝后，原数组的值："</span> + arr);</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><img src="http://img.blog.csdn.net/20170409104700282?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>因为 arr 浅拷贝赋值给 newArr 的是一个指向 arr 内存地址的引用，所以修改 newArr 的第2个元素的值，会将原数组 arr 的第二个元素值也修改掉了（其实在内存里，两个数组共用一个内存空间）。</p>
+<p>eg2. 深拷贝<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"One"</span>, <span class="string">"Two"</span>, <span class="string">"Three"</span>];</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"原数组的值："</span> + arr);</div><div class="line"><span class="keyword">var</span> newArr = arr.slice(<span class="number">0</span>);</div><div class="line">newArr[<span class="number">1</span>] = <span class="string">"newTwo"</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"新数组的值："</span> + newArr);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"深拷贝后，原数组的值："</span> + arr);</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><img src="http://img.blog.csdn.net/20170409105005209?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>严格来讲，该方法不是真正的深拷贝，但是对于我们平常大部分情况还适用（当某个元素是对象，且它含有子方法时不行）。<br>因为深拷贝是给 newArr 申请一个新的内存地址，并使 newArr 的指针指向这个新的内存。然后再把 arr 对应内存的值逐个复制到这个新内存地址。所以这时再修改 newArr 的第2个元素的值，就不会将原数组 arr 的第二个元素值也修改掉了（在内存里，两个数组不再共用一个内存空间了）。</p>
+<p><strong>对象</strong></p>
+<p>eg1. 浅拷贝<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'xu'</span>,</div><div class="line">	<span class="attr">age</span>: <span class="number">24</span>,</div><div class="line">	<span class="attr">sex</span>: <span class="string">'men'</span>,</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"原对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj);</div><div class="line"><span class="keyword">var</span> newObj = obj;</div><div class="line">newObj.age = <span class="number">25</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"新对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(newObj);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"浅拷贝后，原对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj);</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><img src="http://img.blog.csdn.net/20170409105542962?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>对象的浅拷贝跟数组一样，因为赋值过去的是原对象的引用，所以修改了新对象 newObj 的属性 age 后，原对象属性 age 也被修改了。</p>
+<p>eg2. 深拷贝<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>: <span class="string">'xu'</span>,</div><div class="line">	<span class="attr">age</span>: <span class="number">24</span>,</div><div class="line">	<span class="attr">sex</span>: <span class="string">'men'</span>,</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"原对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj);</div><div class="line"><span class="keyword">var</span> newObj = &#123;&#125;;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</div><div class="line">	newObj[i] = obj[i];</div><div class="line">&#125;</div><div class="line">newObj.age = <span class="number">25</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"新对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(newObj);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"深拷贝后，原对象的值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj);</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><img src="http://img.blog.csdn.net/20170409105749213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>该方法是对象深拷贝，但这是针对一个对象中的所有属性值都是基本数据类型的情况。但是如果一个对象的属性值还是对象这种情况，就需要递归调用浅拷贝。可以如下处理：</p>
+<p>eg. 对象深拷贝拓展<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">obj, copyObj</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> newObj = copyObj || &#123;&#125;;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</div><div class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> obj[i] === <span class="string">'object'</span>) &#123;</div><div class="line">			newObj[i] = (obj[i].constructor === <span class="built_in">Array</span>) ? [] : &#123;&#125;;</div><div class="line">			deepCopy(obj[i], newObj[i]);</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			newObj[i] = obj[i];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> newObj;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">	<span class="attr">name</span>: &#123;</div><div class="line">		<span class="attr">oldName</span>: <span class="string">'pan'</span>,</div><div class="line">		<span class="attr">newName</span>: <span class="string">'zhengmao'</span></div><div class="line">	&#125;,</div><div class="line">	<span class="attr">age</span>: <span class="number">24</span>,</div><div class="line">	<span class="attr">sex</span>: <span class="string">'men'</span>,</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"原对象的 name 属性值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj.name);</div><div class="line"><span class="keyword">var</span> secObj = &#123;&#125;;</div><div class="line">secObj = deepCopy(obj, secObj);	 <span class="comment">// 将 obj 的所有属性都复制到 secObj 中</span></div><div class="line">secObj.name = &#123;</div><div class="line">	<span class="attr">oldName</span>: <span class="string">'pan2'</span>,</div><div class="line">	<span class="attr">newName</span>: <span class="string">'zhengmao2'</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"新对象的的 name 属性值："</span>);</div><div class="line"><span class="built_in">console</span>.log(secObj.name);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"深拷贝后，原对象的 name 属性值："</span>);</div><div class="line"><span class="built_in">console</span>.log(obj.name);</div></pre></td></tr></table></figure></p>
+<p>运行结果：</p>
+<p><img src="http://img.blog.csdn.net/20170409111121300?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>实现原理，其实就是先新建一个空对象，在内存中新开辟一块地址，把被复制对象的所有可枚举的（注意可枚举的对象）属性方法一一复制过来，注意要用递归来复制子对象里面的所有属性和方法，直到所有子代属性都为基本数据类型。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>数组和对象真正的深拷贝都没有对应现成的api方法可以直接使用，需要我们逐个元素方法递归浅拷贝来自己实现。</p>
+<p>但是其他我们常用的伪深拷贝方法，还是有必要了解下，毕竟大多时候这些伪深拷贝就够用了。</p>
+<p><strong>数组伪深拷贝</strong>：</p>
+<ol>
+<li>数组截取：<code>var newArr = arr.slice(0)</code></li>
+<li>数组连接：<code>var newArr = arr.concat([])</code></li>
+<li>数组转字符串，再转回数组：<code>var newArr = arr.join(&#39;,&#39;).split(&#39;,&#39;)</code></li>
+<li>用可迭代对象创建数组：<code>var newArr = Array.from(arr)</code><br><em>这些都只能深拷贝属性，不能深拷贝方法</em></li>
+</ol>
+<p><strong>对象伪深拷贝</strong>：</p>
+<ol>
+<li>对象拷贝方法：<code>var newObj = Object.assign({}, obj)</code>只能深拷贝对象第一代子成员，后代的成员是浅拷贝</li>
+<li>字符串对象互转方法结合：<code>var newObj = JSON.parse( JSON.stringify(obj) )</code>只能深拷贝属性，方法会被遗弃掉</li>
+</ol>
 <hr>
 <p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
 
@@ -273,17 +267,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -334,7 +317,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/03/12/merge-compare-rebase/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/04/09/deep-copy-and-shallow-copy/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -348,18 +331,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/30/classical-layout-comparison/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/04/19/for-in-compare-for-of/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          圣杯布局 VS 双飞翼布局
+          for...in 与 for...of 你千万别混淆
         
       </div>
     </a>
   
   
-    <a href="/2017/02/20/css-box-model/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">回顾盒子模型之 box-size 属性</div>
+    <a href="/2017/03/30/classical-layout-comparison/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">圣杯布局 VS 双飞翼布局</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -373,7 +356,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="merge-compare-rebase" data-title="闲话 git merge 与 git rebase 的区别" data-url="http://xuzhengmao.com/2017/03/12/merge-compare-rebase/"></div>
+	<div class="ds-thread" data-thread-key="deep-copy-and-shallow-copy" data-title="JavaScript 的深拷贝和浅拷贝" data-url="http://xuzhengmao.com/2017/04/09/deep-copy-and-shallow-copy/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

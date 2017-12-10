@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>闲话 git merge 与 git rebase 的区别 | 徐正茂的个人博客</title>
+  <title>谈谈那些值得被简化的 JS 代码 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
-<meta name="keywords" content="git">
+  <meta name="description" content="最近这段时间写 JavaScript 的代码感觉略有心得，所以就想把自己平时积累的一些知识点整理分享出来，跟大家粗浅的谈一谈 JavaScript 中有哪些代码可以简化，让它变得更优雅。">
+<meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闲话 git merge 与 git rebase 的区别">
-<meta property="og:url" content="http://xuzhengmao.com/2017/03/12/merge-compare-rebase/index.html">
+<meta property="og:title" content="谈谈那些值得被简化的 JS 代码">
+<meta property="og:url" content="http://xuzhengmao.com/2017/07/11/The-JavaScript-code-that-is-worth-simplifying/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
+<meta property="og:description" content="最近这段时间写 JavaScript 的代码感觉略有心得，所以就想把自己平时积累的一些知识点整理分享出来，跟大家粗浅的谈一谈 JavaScript 中有哪些代码可以简化，让它变得更优雅。">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312163257132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
+<meta property="og:updated_time" content="2017-12-04T02:11:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闲话 git merge 与 git rebase 的区别">
-<meta name="twitter:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="谈谈那些值得被简化的 JS 代码">
+<meta name="twitter:description" content="最近这段时间写 JavaScript 的代码感觉略有心得，所以就想把自己平时积累的一些知识点整理分享出来，跟大家粗浅的谈一谈 JavaScript 中有哪些代码可以简化，让它变得更优雅。">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -164,79 +159,112 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-merge-compare-rebase" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-The-JavaScript-code-that-is-worth-simplifying" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      闲话 git merge 与 git rebase 的区别
+      谈谈那些值得被简化的 JS 代码
     </h1>
   
 
         
-        <a href="/2017/03/12/merge-compare-rebase/" class="archive-article-date">
-  	<time datetime="2017-03-12T09:35:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+        <a href="/2017/07/11/The-JavaScript-code-that-is-worth-simplifying/" class="archive-article-date">
+  	<time datetime="2017-07-11T07:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。</p>
-<a id="more"></a> 
-<h2 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h2><p>如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：</p>
-<p><img src="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="（SourceTree中的分支截图）"></p>
-<p>假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge deve</div></pre></td></tr></table></figure>
-<p>Git 系统会以两个分支的共同祖先 e381a81 为基础，将两个分支的最新提交 8ab7cff 和 696398a 进行三方合并（分支路径没有合并），然后将合并中修改的内容生成一个新的 commit，即下图的 78941cb：</p>
-<p><img src="http://img.blog.csdn.net/20170312163257132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h2><p>假如我们初始的分支情况如下图：</p>
-<p><img src="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>我们还是处在 master 分支上，我们在该项目根目录路径下输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase deve</div></pre></td></tr></table></figure>
-<p>这时 Git 系统会将 master 中没有 deve 的部分 bcde65c 和 35b6708 都合并进 master，这个过程是不会修改 deve 分支的。此时两个分支暂时合并成一根线，如下图所示：</p>
-<p><img src="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="merge-和-rebase-的区别对比："><a href="#merge-和-rebase-的区别对比：" class="headerlink" title="merge 和 rebase 的区别对比："></a>merge 和 rebase 的区别对比：</h2><table>
-<thead>
-<tr>
-<th>对比项</th>
-<th>merge</th>
-<th>rebase</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>操作过程</td>
-<td>将两个分支的修改信息合并</td>
-<td>将目标分支中有而当前没有的提交都加进当前分支，但不修改目标分支</td>
-</tr>
-<tr>
-<td>分支路径</td>
-<td>多条，各自显示，此时交叉了</td>
-<td>单条，合在一起显示</td>
-</tr>
-<tr>
-<td>历史版本信息</td>
-<td>忠实反映各分支实际发生过什么</td>
-<td>只反映项目过程中发生过什么</td>
-</tr>
-<tr>
-<td>冲突处理</td>
-<td>遇见冲突后会直接停止，等待手动解决冲突并重新提交 commit 后，才能再次 merge</td>
-<td>遇见冲突后会暂停当前操作，开发者可以选择手动解决冲突，然后 git rebase –continue 继续，或者 –skip 跳过（注意此操作中当前分支的修改会直接覆盖目标分支的冲突部分），亦或者 –abort 直接停止该次 rebase 操作</td>
-</tr>
-</tbody>
-</table>
-<h2 id="辅助记忆"><a href="#辅助记忆" class="headerlink" title="辅助记忆"></a>辅助记忆</h2><p>可以类比同学 a 和同学 b 考试对答案的场景，来区别 merge 和 rebase。</p>
-<ul>
-<li><p><strong>a merge b</strong> =&gt; 等同 a 和 b 相互对答案，觉得对方对或者对方做了自己没做的就修改过来。最终和他们各自开始的答案相比，他们的答案都修改了（不考虑开始就答案相同的情况）。</p>
-</li>
-<li><p><strong>a rebase b</strong> =&gt; 等同 a 抄 b 的答案，觉得 b 对或者 b 做了自己没做的就按照他的抄过来。最终只有 a 的答案修改了，b 的答案不会被修改。</p>
-</li>
-</ul>
-<p>参考文档：<a href="https://git-scm.com/docs" target="_blank" rel="external">点击进入 git 官网</a></p>
+        <p>最近这段时间写 JavaScript 的代码感觉略有心得，所以就想把自己平时积累的一些知识点整理分享出来，跟大家粗浅的谈一谈 JavaScript 中有哪些代码可以简化，让它变得更优雅。</p>
+<a id="more"></a>
+<h3 id="1-非空校验-短路运算"><a href="#1-非空校验-短路运算" class="headerlink" title="1. 非空校验 / 短路运算"></a>1. 非空校验 / 短路运算</h3><p>我们经常会遇到把一个变量 a 赋值给变量 b 的情况。但是值得注意的是，一般都要进行非空的判断。不然把 null 或者 undefined 赋值给了 b，当后面使用 b 的时候就会报错。</p>
+<p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (a !== <span class="literal">null</span> &amp;&amp; a !== <span class="literal">undefined</span>) &#123;</div><div class="line">	<span class="keyword">let</span> b = a;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> b = a || <span class="string">''</span>;</div></pre></td></tr></table></figure>
+<p>巧妙运用逻辑短路运算，当 a 值为 null 或者 undefined 的时候，「或」的前半部分都是假，而此时「或」的后半部分值是真，则 b 被赋值为空字符串。</p>
+<h3 id="2-三目运算符的使用"><a href="#2-三目运算符的使用" class="headerlink" title="2. 三目运算符的使用"></a>2. 三目运算符的使用</h3><p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> big;</div><div class="line"><span class="keyword">if</span> (x &gt; <span class="number">10</span>) &#123;</div><div class="line">    big = <span class="literal">true</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    big = <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> big = x &gt; <span class="number">10</span> ? <span class="literal">true</span> : flase;</div></pre></td></tr></table></figure>
+<p>这是我们开发中很常见的情景，if…else 大家都很容易想到，但用上三目运算符后代码既简洁，又高效。</p>
+<h3 id="3-优化-if…else"><a href="#3-优化-if…else" class="headerlink" title="3. 优化 if…else"></a>3. 优化 if…else</h3><p>if…else 既要尽量使用三目运算符替代，也要优化它本身。</p>
+<p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 当 c 是假值的时候，执行某些操作</span></div><div class="line"><span class="keyword">if</span> (c === <span class="literal">false</span>) &#123;</div><div class="line">    <span class="comment">// do something...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!c) &#123;</div><div class="line">    <span class="comment">// do something...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-自增自减等"><a href="#4-自增自减等" class="headerlink" title="4. 自增自减等"></a>4. 自增自减等</h3><p>假设 count1、count2、count3、count4、x 均已被赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">count1 = count1 + <span class="number">1</span>;</div><div class="line">count2 = count2 - <span class="number">1</span>;</div></pre></td></tr></table></figure>
+<p>这种很多人都知道可以简化成 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">count1++;</div><div class="line">count2--;</div></pre></td></tr></table></figure>
+<p>但是如果自增、自减的值不是 1，而是一个变量 x 时又该怎么写？</p>
+<p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">count1 = count1 + x;</div><div class="line">count2 = count2 - x;</div><div class="line">count3 = count3 * x;</div><div class="line">count4 = count4 / x;</div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">count1 += x;</div><div class="line">count2 -= x;</div><div class="line">count3 *= x;</div><div class="line">count4 /= x;</div></pre></td></tr></table></figure>
+<h3 id="5-多用-RegExp-隐式声明"><a href="#5-多用-RegExp-隐式声明" class="headerlink" title="5. 多用 RegExp 隐式声明"></a>5. 多用 RegExp 隐式声明</h3><p>如，用正则匹配3个连续的数字</p>
+<p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"[0-9]&#123;3&#125;"</span>,<span class="string">"ig"</span>);</div><div class="line"><span class="keyword">let</span> result = reg.exec(<span class="string">"padding666padding"</span>);</div><div class="line"><span class="built_in">console</span>.log(result[<span class="number">0</span>]); 		<span class="comment">// 666</span></div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> result = <span class="regexp">/[0-9]&#123;3&#125;/ig</span>.exec(<span class="string">"padding666padding"</span>);</div><div class="line"><span class="built_in">console</span>.log(result[<span class="number">0</span>]); 		<span class="comment">// 666</span></div></pre></td></tr></table></figure>
+<p>这样写的好处不仅在于代码更简洁，而且少使用一个变量，减小了内存的开销。</p>
+<h3 id="6-字符串取值当成数组处理"><a href="#6-字符串取值当成数组处理" class="headerlink" title="6. 字符串取值当成数组处理"></a>6. 字符串取值当成数组处理</h3><p>例如 <code>let str = &#39;myString&#39;</code>，怎么快速取到字符串 str 的首字母？</p>
+<p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str.charAt(<span class="number">0</span>);			<span class="comment">// m</span></div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str[<span class="number">0</span>];					<span class="comment">// m</span></div></pre></td></tr></table></figure>
+<p>既然字符串可以当成数组来用下标取值，为什么我们不选择这种更高的姿势呢?</p>
+<h3 id="7-箭头函数"><a href="#7-箭头函数" class="headerlink" title="7. 箭头函数"></a>7. 箭头函数</h3><p>假设有一个数组 <code>let nums = [4, 8, 1, 9, 0];</code></p>
+<p>现在需要将它的每个元素都变成之前2倍</p>
+<p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> nums) &#123;</div><div class="line">	nums[i] *= <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(nums)			<span class="comment">//输出 [8, 16, 2, 18, 0]</span></div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nums.map(<span class="function"><span class="params">i</span> =&gt;</span> <span class="number">2</span> * i)</div><div class="line"><span class="built_in">console</span>.log(nums)			<span class="comment">//输出 [8, 16, 2, 18, 0]</span></div></pre></td></tr></table></figure>
+<p>箭头函数是 ES6 的内容，ES6 已经发展多年，兼容性也比较好了。既然它就是为了解放我们开发者劳动力的，那么我们还有什么理由不去使用更好、更快、更简洁的写法呢？</p>
+<p>除了箭头函数，这个例子还使用了 Array 的 map 方法。它是比用 for 循环来遍历数组更佳的写法，不熟悉的同学可以自行查阅。</p>
+<h3 id="8-优雅的表示大数"><a href="#8-优雅的表示大数" class="headerlink" title="8. 优雅的表示大数"></a>8. 优雅的表示大数</h3><p>平常开发中偶尔也会遇到大数赋值，怎样才是表示大数的正确姿势呢？</p>
+<p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> longNum = <span class="number">1000000</span>;</div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> longNum = <span class="number">1e7</span>;</div></pre></td></tr></table></figure>
+<h3 id="9-连等"><a href="#9-连等" class="headerlink" title="9. 连等"></a>9. 连等</h3><p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="number">5</span>;</div><div class="line"><span class="keyword">let</span> b = a + <span class="number">3</span>;</div><div class="line"><span class="keyword">let</span> c = b;</div><div class="line"><span class="built_in">console</span>.log(c);			<span class="comment">// 8</span></div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="number">5</span>;</div><div class="line"><span class="keyword">let</span> c = b = a + <span class="number">3</span>;</div><div class="line"><span class="built_in">console</span>.log(c);			<span class="comment">// 8</span></div></pre></td></tr></table></figure>
+<h3 id="10-class-的使用"><a href="#10-class-的使用" class="headerlink" title="10. class 的使用"></a>10. class 的使用</h3><p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name, age</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.addAge = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.age++;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.setName = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span> (name, age)&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line">    addAge () &#123;</div><div class="line">        <span class="keyword">this</span>.age++;</div><div class="line">    &#125;</div><div class="line">    setName (name) &#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简化前是函数式编程的写法，各个方法写在外面格式显得很凌乱。用 ES6 的 class 简化后是面向对象的写法，代码显得更整洁紧凑，可以更方便的实现继承。 </p>
+<h3 id="11-字符串拼接"><a href="#11-字符串拼接" class="headerlink" title="11. 字符串拼接"></a>11. 字符串拼接</h3><p><code>let name = &#39;torain&#39;;</code></p>
+<p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> str = <span class="string">'My name is '</span> + name;</div><div class="line"><span class="built_in">console</span>.log(str)				<span class="comment">// My name is torain</span></div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> str = <span class="string">`My name is <span class="subst">$&#123;name&#125;</span>`</span>;</div><div class="line"><span class="built_in">console</span>.log(str)				<span class="comment">// My name is torain</span></div></pre></td></tr></table></figure>
+<h3 id="12-提取对象属性或者属性值"><a href="#12-提取对象属性或者属性值" class="headerlink" title="12. 提取对象属性或者属性值"></a>12. 提取对象属性或者属性值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">	<span class="attr">a</span>: <span class="number">1</span>,</div><div class="line">	<span class="attr">b</span>: <span class="number">2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 提取 obj 的所有属性</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> obj) &#123;</div><div class="line">	<span class="built_in">console</span>.log(i);					<span class="comment">// 依次打印出：a b</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 提取 obj 的所有属性值</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> obj) &#123;</div><div class="line">	<span class="built_in">console</span>.log(obj[i]);			<span class="comment">// 依次打印出：1 2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 提取 obj 的所有属性</span></div><div class="line">keys(obj)				<span class="comment">// ["a", "b"]</span></div><div class="line"></div><div class="line"><span class="comment">// 提取 obj 的所有属性值</span></div><div class="line">values(obj)			<span class="comment">// [1, 2]</span></div></pre></td></tr></table></figure>
+<h3 id="13-更快转化成逻辑值"><a href="#13-更快转化成逻辑值" class="headerlink" title="13. !! 更快转化成逻辑值"></a>13. !! 更快转化成逻辑值</h3><p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num = <span class="number">2</span>;</div><div class="line"><span class="keyword">let</span> bln = <span class="built_in">Boolean</span>(num);</div><div class="line"><span class="built_in">console</span>.log(bln);				<span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num = <span class="number">2</span>;</div><div class="line"><span class="keyword">let</span> bln = !!num;</div><div class="line"><span class="built_in">console</span>.log(bln);				<span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>转换成逻辑值的函数 Boolean() 可能不是人人都知道，所以可以通过两次逻辑求反得到一个变量的逻辑值。既快速，有方便记忆。</p>
+<h3 id="14-对象解构"><a href="#14-对象解构" class="headerlink" title="14. 对象解构"></a>14. 对象解构</h3><p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">	<span class="attr">a</span>: <span class="number">3</span>, </div><div class="line">	<span class="attr">b</span>: <span class="number">4</span> </div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(obj.a, obj.b);		<span class="comment">// 3 4</span></div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = &#123;</div><div class="line">	<span class="attr">a</span>: <span class="number">3</span>, </div><div class="line">	<span class="attr">b</span>: <span class="number">4</span> </div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> &#123; a, b &#125; = obj;</div><div class="line"><span class="built_in">console</span>.log(a, b);				<span class="comment">// 3 4</span></div></pre></td></tr></table></figure>
+<p>这种 ES6 的新写法看似简洁不了多少，但在 obj 的属性有非常多的时候优势就比较明显了。而且这样把需要用到的属性都放在同一行统一解构，对于使用与没有使用的对象属性可以一览无余。</p>
+<h3 id="15-…-数组展开运算符"><a href="#15-…-数组展开运算符" class="headerlink" title="15. … 数组展开运算符"></a>15. … 数组展开运算符</h3><p>假如要列举一个数组的所有的元素，可能大多数人想到的是用 for 循环遍历。</p>
+<p>简化前：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> arr) &#123;</div><div class="line">	<span class="built_in">console</span>.log(i);			<span class="comment">// 依次打印出 1 2 3</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简化后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="built_in">console</span>.log(...arr);		<span class="comment">// 1 2 3</span></div></pre></td></tr></table></figure>
 <hr>
 <p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
 
@@ -278,7 +306,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
         		</li>
       		
 		</ul>
@@ -334,7 +362,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/03/12/merge-compare-rebase/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/07/11/The-JavaScript-code-that-is-worth-simplifying/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -348,18 +376,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/30/classical-layout-comparison/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/03/study-js-object/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          圣杯布局 VS 双飞翼布局
+          全面学习JS对象
         
       </div>
     </a>
   
   
-    <a href="/2017/02/20/css-box-model/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">回顾盒子模型之 box-size 属性</div>
+    <a href="/2017/07/09/how-to-loop-li/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何优雅的获取你点击的那个 li？</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -373,7 +401,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="merge-compare-rebase" data-title="闲话 git merge 与 git rebase 的区别" data-url="http://xuzhengmao.com/2017/03/12/merge-compare-rebase/"></div>
+	<div class="ds-thread" data-thread-key="The-JavaScript-code-that-is-worth-simplifying" data-title="谈谈那些值得被简化的 JS 代码" data-url="http://xuzhengmao.com/2017/07/11/The-JavaScript-code-that-is-worth-simplifying/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
