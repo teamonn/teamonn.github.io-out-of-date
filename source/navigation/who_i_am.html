@@ -1,0 +1,61 @@
+---
+layout: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>我们是谁--自动生成工具</title>
+	<link rel="stylesheet" href="../assets/css/reset.css">
+	<link rel="stylesheet" href="../assets/css/weui.css">
+	<style>
+		/*html{font-size: 62.5%;}*/
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas">
+	  您的浏览器不支持canvas！
+	</canvas>
+
+	<script>
+		var vpWidth = document.body.clientWidth;
+		var realPicWidth = 640;
+		var realPicHeight = 178;
+		var picWidth = vpWidth;
+		var picHeight = realPicHeight * vpWidth / realPicWidth;
+		var wordsList = [{
+			left: '左侧文字',
+			right: '右侧文字'
+		}, {
+			left: '左侧文字',
+			right: '右侧文字'
+		}, {
+			left: '左侧文字',
+			right: '右侧文字'
+		}]
+		
+		var img = new Image();
+		img.src = '../assets/timg.jpg';
+		img.onload = function () {
+			// window.alert('onload')
+			var canvas = document.getElementById('myCanvas');
+			canvas.width = picWidth;
+			canvas.height = (picHeight + 45) * wordsList.length;
+			if (canvas.getContext) {
+			  var ctx = canvas.getContext('2d');
+			  for (var i = 0; i < wordsList.length; i++) {
+					ctx.drawImage(img, 0, 45 + (picHeight + 45) * i, picWidth, picHeight);
+					ctx.font = "Bold 20px Arial";
+					ctx.textAlign = "left";
+					ctx.fillStyle = "#000000";
+					ctx.fillText(wordsList[i].left, 40, 35 + (picHeight + 45) * i); 
+					ctx.fillText(wordsList[i].right, 40 + vpWidth / 2, 35 + (picHeight + 45) * i); 
+			  }
+			}
+		}
+		// ctx.fillStyle = 'yellow';
+		// ctx.fillRect(0, 0, picWidth, picHeight); 
+	</script>
+</body>
+</html>
