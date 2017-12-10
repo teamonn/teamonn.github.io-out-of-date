@@ -1,7 +1,7 @@
 ---
 title: 谈谈那些值得被简化的 JS 代码
 date: 2017-07-11 15:21:33
-tags: JavaScript
+tags: javaScript
 ---
 
 最近这段时间写 JavaScript 的代码感觉略有心得，所以就想把自己平时积累的一些知识点整理分享出来，跟大家粗浅的谈一谈 JavaScript 中有哪些代码可以简化，让它变得更优雅。

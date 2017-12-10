@@ -4,7 +4,7 @@ date: 2017-04-09 12:20:33
 tags:
 ---
 
-在 JavaScript 的变量赋值操作中，如果一个变量值是简单类型，直接复制没有问题。但如果是对象或者数组，直接复制后的新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。如果你不了解深拷贝和浅拷贝，你可能就会觉得这是 bug，不可理解。但是看完本文你就能理解了。
+在 JavaScript 的变量赋值操作中，对于简单的数据类型（如 Number、String、Boolean 等）可以直接等号复制。但如果是对象或者数组，直接复制会造成新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。这没毛病也不是 bug，这就是深拷贝与浅拷贝的体现。
 
 <!--more-->
 
@@ -49,6 +49,7 @@ console.log("深拷贝后，原数组的值：" + arr);
 
 ![这里写图片描述](http://img.blog.csdn.net/20170409105005209?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
+严格来讲，该方法不是真正的深拷贝，但是对于我们平常大部分情况还适用（当某个元素是对象，且它含有子方法时不行）。
 因为深拷贝是给 newArr 申请一个新的内存地址，并使 newArr 的指针指向这个新的内存。然后再把 arr 对应内存的值逐个复制到这个新内存地址。所以这时再修改 newArr 的第2个元素的值，就不会将原数组 arr 的第二个元素值也修改掉了（在内存里，两个数组不再共用一个内存空间了）。
 
 **对象**
@@ -98,7 +99,7 @@ console.log(obj);
 
 ![这里写图片描述](http://img.blog.csdn.net/20170409105749213?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-这是针对一个对象中的所有属性值都是基本数据类型的情况。但是如果一个对象的属性值还是对象这种情况，就需要递归调用浅拷贝。可以如下处理：
+该方法是对象深拷贝，但这是针对一个对象中的所有属性值都是基本数据类型的情况。但是如果一个对象的属性值还是对象这种情况，就需要递归调用浅拷贝。可以如下处理：
 
 eg. 对象深拷贝拓展
 ``` javascript
@@ -144,21 +145,20 @@ console.log(obj.name);
 实现原理，其实就是先新建一个空对象，在内存中新开辟一块地址，把被复制对象的所有可枚举的（注意可枚举的对象）属性方法一一复制过来，注意要用递归来复制子对象里面的所有属性和方法，直到所有子代属性都为基本数据类型。
 
 ## 结论
+数组和对象真正的深拷贝都没有对应现成的api方法可以直接使用，需要我们逐个元素方法递归浅拷贝来自己实现。
 
-数组深拷贝：
+但是其他我们常用的伪深拷贝方法，还是有必要了解下，毕竟大多时候这些伪深拷贝就够用了。
 
+**数组伪深拷贝**：
 1. 数组截取：`var newArr = arr.slice(0) `
-2. 数组连接：`var newArr = arr.concat()`
+2. 数组连接：`var newArr = arr.concat([])`
 3. 数组转字符串，再转回数组：`var newArr = arr.join(',').split(',')`
-4. 无脑方法：for 循环逐个元素拷贝
+4. 用可迭代对象创建数组：`var newArr = Array.from(arr)`
+*这些都只能深拷贝属性，不能深拷贝方法*
 
-对象深拷贝：
-
-1. 对象拷贝方法：`var newObj = Object.assign({}, obj)`
-2. 字符串对象互转方法结合：`var newObj = JSON.parse( JSON.stringify(obj) )`
-3. 无脑方法：for 循环逐个属性拷贝
-
-对于简单的数据类型（如 Number、String、Boolean 等），JavaScript 变量赋值即是值复制（深拷贝）。但是对象或者数组，直接赋值其实复制的只是内存地址（浅拷贝）。这样错误的操作会让父对象或父数组随时存在被篡改的可能。所以数组和对象拷贝时，我们可以按照以上方法进行深拷贝。
+**对象伪深拷贝**：
+1. 对象拷贝方法：`var newObj = Object.assign({}, obj)`只能深拷贝对象第一代子成员，后代的成员是浅拷贝
+2. 字符串对象互转方法结合：`var newObj = JSON.parse( JSON.stringify(obj) )`只能深拷贝属性，方法会被遗弃掉
 
 ***
 
