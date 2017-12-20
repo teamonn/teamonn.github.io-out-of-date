@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>Archives: 2017/5 | 徐正茂的个人博客</title>
+  <title>重识 HTTP | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爱我所爱，做我所做">
-<meta property="og:type" content="website">
-<meta property="og:title" content="徐正茂的个人博客">
-<meta property="og:url" content="http://xuzhengmao.com/archives/2017/05/index.html">
+  <meta name="description" content="HTTP 是网络应用层协议，是万维网数据通信的基础。最初它是用来提供一种服务器端发布和浏览器端接收 HTML 页面的方法。">
+<meta name="keywords" content="http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重识 HTTP">
+<meta property="og:url" content="http://xuzhengmao.com/2017/12/20/understand-http/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="爱我所爱，做我所做">
+<meta property="og:description" content="HTTP 是网络应用层协议，是万维网数据通信的基础。最初它是用来提供一种服务器端发布和浏览器端接收 HTML 页面的方法。">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://xuzhengmao.com/assets/http01.png">
+<meta property="og:image" content="http://xuzhengmao.com/assets/http02.png">
+<meta property="og:updated_time" content="2017-12-20T14:25:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="徐正茂的个人博客">
-<meta name="twitter:description" content="爱我所爱，做我所做">
+<meta name="twitter:title" content="重识 HTTP">
+<meta name="twitter:description" content="HTTP 是网络应用层协议，是万维网数据通信的基础。最初它是用来提供一种服务器端发布和浏览器端接收 HTML 页面的方法。">
+<meta name="twitter:image" content="http://xuzhengmao.com/assets/http01.png">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -157,60 +162,266 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-understand-http" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/05/make-mobile-web-look-likes-app/" class="archive-article-date">
-  	<time datetime="2017-05-05T11:33:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/05/make-mobile-web-look-likes-app/">如何让你的移动网站拥有原生应用般的体验？</a>
+    <h1 class="article-title" itemprop="name">
+      重识 HTTP
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/12/20/understand-http/" class="archive-article-date">
+  	<time datetime="2017-12-20T13:25:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTTP 是网络应用层协议，是万维网数据通信的基础。最初它是用来提供一种服务器端发布和浏览器端接收 HTML 页面的方法。</p>
+<a id="more"></a> 
+<h3 id="HTTP-请求报文结构"><a href="#HTTP-请求报文结构" class="headerlink" title="HTTP 请求报文结构"></a>HTTP 请求报文结构</h3><p>一个 http 请求报文由请求行（request line）、请求头部（headers）、空行（blank line）和请求正文（request-body）4个部分组成。</p>
+<p><img src="/assets/http01.png" alt="http请求报文结构"></p>
+<p><strong>请求行</strong>：由 <code>请求方法</code>、<code>URL</code> 和 <code>http协议版本</code> 3个字段组成。</p>
+<p><strong>请求头</strong>：请求头部由键值对组成，每行一对，关键字和值用英文冒号“：”分隔。请求头部通知服务器有关于客户端请求的信息，典型的请求头有：User-Agent（请求的浏览器类型）、Accept（客户端可识别的内容类型列表）、Host（请求的主机名，允许多个域名同处一个IP地址，即虚拟主机）。</p>
+<p><strong>空行</strong>：最后一个请求头之后是一个空行，发送<em>回车符</em> 和<em>换行符</em>，通知服务器以下不再有请求头。</p>
+<p><strong>请求正文</strong>：请求参数，它不在GET方法中使用，而是在POST方法中使用。POST方法适用于需要客户填写表单的场合。与请求数据相关的最常使用的请求头是Content-Type和Content-Length。</p>
+<h3 id="HTTP-响应报文结构"><a href="#HTTP-响应报文结构" class="headerlink" title="HTTP 响应报文结构"></a>HTTP 响应报文结构</h3><p>HTTP响应也由3个部分组成，分别是：状态行（status line）、消息报头（headers）、响应正文（response body）。</p>
+<p>http <em>响应报文</em> 与 <em>请求报文</em> 的对比：</p>
+<p><img src="/assets/http02.png" alt="http响应报文 vs 请求报文"></p>
+<p><strong>状态行</strong>：服务器HTTP协议的版本 + 响应状态码 + 状态码的文本描述，如<code>HTTP/1.1 200 OK</code>。</p>
+<p><strong>消息报头</strong>：用于描述服务器的基本信息，以及数据的描述，服务器通过这些数据的描述信息，可以通知客户端如何处理等一会儿它回送的数据。如：服务器支持哪些请求方法、文档编码方法（Content-Encoding）、内容长度（Content-Length）、内容文档类型（Content- Type）、当前时间、缓存信息等。</p>
+<p><strong>响应正文</strong>：可能是一个html页面或片段，也可能只是一段纯数据或js代码。</p>
+<h3 id="8种http请求方法"><a href="#8种http请求方法" class="headerlink" title="8种http请求方法"></a>8种http请求方法</h3><ol>
+<li><strong>GET</strong>：向指定的资源发出“显示”请求，应只用在读取数据，而不应当被用于产生“副作用”的操作中。</li>
+<li><strong>HEAD</strong>：同GET方法，都是向服务器发出指定资源的请求。它可以在不必传输全部内容的情况下，获取其中“关于该资源的信息”。</li>
+<li><strong>POST</strong>：向指定资源提交数据，请求服务器进行处理（例：提交表单、上传文件）。数据被包含在请求本文中。这个请求可能会创建新的资源或修改现有资源，或二者皆有。</li>
+<li><strong>PUT</strong>：向指定资源位置上传其最新内容。</li>
+<li><strong>DELETE</strong>：请求服务器删除Request-URI所标识的资源。</li>
+<li><strong>TRACE</strong>：回显服务器收到的请求，主要用于测试或诊断。</li>
+<li><strong>OPTIONS</strong>：这个方法可使服务器传回该资源所支持的所有HTTP请求方法。用’*’来代替资源名称，向Web服务器发送OPTIONS请求，可以测试服务器功能是否正常运作。</li>
+<li><strong>CONNECT</strong>：HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。通常用于SSL加密服务器的链接（经由非加密的HTTP代理服务器）。</li>
+</ol>
+<p>方法名称是区分大小写的。当某个请求所针对的资源不支持对应的请求方法的时候，服务器应当返回状态码405，当服务器不认识或者不支持对应的请求方法的时候，应当返回状态码501。</p>
+<p>HTTP服务器至少应该实现GET和HEAD方法，其他方法都是可选的。当然，所有的方法支持的实现都应当匹配下述的方法各自的语义定义。此外，除了上述方法，特定的HTTP服务器还能够扩展自定义的方法。</p>
+<h3 id="响应报文状态码"><a href="#响应报文状态码" class="headerlink" title="响应报文状态码"></a>响应报文状态码</h3><table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>含义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx</td>
+<td>指示信息–表示请求已接收，继续处理</td>
+<td></td>
+</tr>
+<tr>
+<td>2xx</td>
+<td>成功–表示请求已被成功接收、理解、接受</td>
+<td>HTTP/1.1 200 OK</td>
+</tr>
+<tr>
+<td>3xx</td>
+<td>重定向–要完成请求必须进行更进一步的操作</td>
+<td></td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>客户端错误–请求有语法错误或请求无法实现，如请求链接为不存在</td>
+<td>HTTP/1.1 404 Not Found</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>服务器端错误–处理某个正确请求时发生错误</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>常见状态代码含义如下：</p>
+<ul>
+<li>200 OK：客户端请求成功。</li>
+<li>204 No Content：服务器成功处理了请求，但没有返回任何内容。</li>
+<li>400 Bad Request：客户端请求有语法错误，不能被服务器所理解。</li>
+<li>401 Unauthorized：请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用。</li>
+<li>403 Forbidden：服务器收到请求，但是拒绝提供服务。</li>
+<li>404 Not Found：请求资源不存在，举个例子：输入了错误的URL。</li>
+<li>500 Internal Server Error：服务器发生不可预期的错误。</li>
+<li>503 Server Unavailable：服务器当前不能处理客户端的请求，一段时间后可能恢复正常，举个例子：HTTP/1.1 200 OK（CRLF）。</li>
+</ul>
+<h3 id="http-2-与-http-1-1-的区别"><a href="#http-2-与-http-1-1-的区别" class="headerlink" title="http/2 与 http/1.1 的区别"></a>http/2 与 http/1.1 的区别</h3><ul>
+<li>对HTTP头字段进行数据压缩(即HPACK算法)；</li>
+<li>HTTP/2 支持 <strong>服务端推送</strong> (Server Push)；</li>
+<li>请求 <strong>管线化</strong>；</li>
+<li>修复HTTP/1.0版本以来未修复的 <strong>队头阻塞</strong> 问题；</li>
+<li>对数据传输采用<strong>多路复用</strong>，让多个请求合并在同一 TCP 连接内。</li>
+</ul>
+<p>HTTP/2 高度兼容 HTTP/1.1 的用法。它的请求方法、状态码乃至url和绝大多数http头部字段一致，并支持新特性来让你获得更快的速度。</p>
+<h3 id="GET-和-POST-的区别"><a href="#GET-和-POST-的区别" class="headerlink" title="GET 和 POST 的区别"></a>GET 和 POST 的区别</h3><ol>
+<li><strong>GET</strong>请求的数据附在URL之后，<strong>POST</strong>提交的数据是放置在HTTP包着的＜request-body＞中。</li>
+<li>传输数据的大小不同。<strong>GET</strong>长度最大是2048个字符，<strong>POST</strong>无限制。</li>
+<li>安全性不同。GET提交的参数将明文出现在URL上，存在安全隐患。</li>
+<li><strong>GET</strong>能缓存，<strong>POST</strong>不能缓存。</li>
+<li>后退页面的动作不同。<strong>GET</strong>无害，<strong>POST</strong>会再次重新提交页面请求。</li>
+</ol>
+<hr>
+<p>使用http好久了，但是之前却没有好好花时间系统整理下这块的知识点。虽然说的可能都是别人说过的，但是他山之石可攻玉。就当是作为自己学习http协议的一个总结和回顾吧！</p>
+<p>推荐参考和学习的资料：</p>
+<ol>
+<li><a href="https://www.cnblogs.com/jiu0821/p/5641600.html" target="_blank" rel="external">HTTP请求报文和HTTP响应报文</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP" target="_blank" rel="external">HTTP MDN文档</a></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>您的支持和赞赏，将是我继续创作的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://img.blog.csdn.net/20170318223224912?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">移动web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/12/20/understand-http/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/12/01/study-pm2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PM2 从入门到“放弃”</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="understand-http" data-title="重识 HTTP" data-url="http://xuzhengmao.com/2017/12/20/understand-http/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -233,8 +444,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
