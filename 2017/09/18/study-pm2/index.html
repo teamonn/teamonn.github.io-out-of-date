@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>Tag: javascript | 徐正茂的个人博客</title>
+  <title>PM2 从入门到“放弃” | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爱我所爱，做我所做">
-<meta property="og:type" content="website">
-<meta property="og:title" content="徐正茂的个人博客">
-<meta property="og:url" content="http://xuzhengmao.com/tags/javascript/index.html">
+  <meta name="description" content="“世上无难事，只要肯放弃”。 ：）  本文主要是记录笔者学习PM2后的一种知识回顾和梳理，而不是入门教程。（入门资料见文章底部） 简介pm2 是一个Node应用的进程管理器。">
+<meta name="keywords" content="后端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PM2 从入门到“放弃”">
+<meta property="og:url" content="http://xuzhengmao.com/2017/09/18/study-pm2/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="爱我所爱，做我所做">
+<meta property="og:description" content="“世上无难事，只要肯放弃”。 ：）  本文主要是记录笔者学习PM2后的一种知识回顾和梳理，而不是入门教程。（入门资料见文章底部） 简介pm2 是一个Node应用的进程管理器。">
 <meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2017-12-20T14:33:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="徐正茂的个人博客">
-<meta name="twitter:description" content="爱我所爱，做我所做">
+<meta name="twitter:title" content="PM2 从入门到“放弃”">
+<meta name="twitter:description" content="“世上无难事，只要肯放弃”。 ：）  本文主要是记录笔者学习PM2后的一种知识回顾和梳理，而不是入门教程。（入门资料见文章底部） 简介pm2 是一个Node应用的进程管理器。">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -157,98 +159,212 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-study-pm2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/03/study-js-object/" class="archive-article-date">
-  	<time datetime="2017-08-03T11:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/03/study-js-object/">全面学习JS对象</a>
+    <h1 class="article-title" itemprop="name">
+      PM2 从入门到“放弃”
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/18/study-pm2/" class="archive-article-date">
+  	<time datetime="2017-09-18T08:23:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>“世上无难事，只要肯放弃”。 ：）</p>
+</blockquote>
+<p>本文主要是记录笔者学习PM2后的一种知识回顾和梳理，而不是入门教程。（入门资料见文章底部）</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>pm2 是一个Node应用的进程管理器。</p>
+<a id="more"></a>
+<p>你可以把它理解成是一种命令行管理工具，利用它可以简化很多node应用管理的繁琐任务。</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ol>
+<li>内建负载均衡（使用 Node cluster 集群模块，可参考朴灵的《深入浅出node.js》第九章）</li>
+<li>后台运行</li>
+<li>0秒停机重载，即 允许你重新载入代码而不用失去请求连接</li>
+<li>跨平台支持，具有 Ubuntu 和 CentOS 的启动脚本</li>
+<li>停止不稳定的进程（避免无限循环）</li>
+<li>控制台性能检测</li>
+<li>提供 HTTP API</li>
+<li>远程控制和实时的接口 API ( Nodejs 模块，允许和 PM2 进程管理器交互 )</li>
+</ol>
+<h3 id="常用用法"><a href="#常用用法" class="headerlink" title="常用用法"></a>常用用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">$ npm install pm2 -g     <span class="comment"># 命令行安装 pm2 </span></div><div class="line">$ pm2 start app.js -i 4  <span class="comment"># 后台运行pm2，启动4个app.js (负载均衡)</span></div><div class="line">                         <span class="comment"># 也可以把'max' 参数传递给 start</span></div><div class="line">                         <span class="comment"># 正确的进程数目依赖于Cpu的核心数目</span></div><div class="line">$ pm2 start app.js --name my-api    <span class="comment"># 命名进程</span></div><div class="line">$ pm2 start app.json     <span class="comment"># 启动进程, 在app.json里设置选项（启动的参数说明下面会提到）</span></div><div class="line">$ pm2 list               <span class="comment"># 显示所有进程状态</span></div><div class="line">$ pm2 monit              <span class="comment"># 监视所有进程的CPU和内存的实时使用情况</span></div><div class="line">$ pm2 logs               <span class="comment"># 显示所有进程日志</span></div><div class="line">$ pm2 stop all           <span class="comment"># 停止所有进程</span></div><div class="line">$ pm2 restart all        <span class="comment"># 重启所有进程</span></div><div class="line">$ pm2 reload all         <span class="comment"># 0秒停机重载进程 (用于 NETWORKED 进程)</span></div><div class="line">$ pm2 describe 0         <span class="comment"># 常看指定应用详细的运行状态</span></div><div class="line">$ pm2 stop 0             <span class="comment"># 停止指定的进程</span></div><div class="line">$ pm2 restart 0          <span class="comment"># 重启指定的进程</span></div><div class="line">$ pm2 startup            <span class="comment"># 产生 init 脚本 保持进程活着</span></div><div class="line">$ pm2 web                <span class="comment"># 开启api访问 (浏览器访问 http://localhost:9615)</span></div><div class="line">$ pm2 delete 0           <span class="comment"># 杀死指定的进程</span></div><div class="line">$ pm2 delete all         <span class="comment"># 杀死全部进程</span></div></pre></td></tr></table></figure>
+<h3 id="启动参数"><a href="#启动参数" class="headerlink" title="启动参数"></a>启动参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pm2 start app.js &lt;参数&gt;</div></pre></td></tr></table></figure>
+<p>参数列表</p>
+<ul>
+<li>—watch：监听应用目录的变化，一旦发生变化，自动重启。如果要精确监听、不见听的目录，最好通过配置文件。</li>
+<li>-i —instances：启用多少个实例，可用于负载均衡。如果-i 0或者-i max，则根据当前机器核数确定实例数目。</li>
+<li>—ignore-watch：排除监听的目录/文件，可以是特定的文件名，也可以是正则。比如–ignore-watch=”test node_modules “some scripts””</li>
+<li>-n —name：应用的名称。查看应用信息的时候可以用到。</li>
+<li>-o –output <path></path>：标准输出日志文件的路径。</li>
+<li>-e –error <path></path>：错误输出日志文件的路径。</li>
+<li>—interpreter <interpreter>：the interpreter pm2 should use for executing app (bash, python…)。比如你用的coffee script来编写应用。</interpreter></li>
+</ul>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>学习，是一场孤独的旅行。<br>但我相信，每个忠于自己爱好和兴趣的人，一定能走到最后。</p>
+<hr>
+<p>参考资料:<br>1- <a href="https://www.douban.com/note/314200231/" target="_blank" rel="external">PM2介绍 - 怪石羽笺</a><br>2- <a href="http://imweb.io/topic/57c8cbb27f226f687b365636" target="_blank" rel="external">PM2实用入门指南 - IMWeb社区</a><br>3- <a href="http://blog.csdn.net/qq_17475155/article/details/53823862" target="_blank" rel="external">使用pm2躺着实现负载均衡</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>您的支持和赞赏，将是我继续创作的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://img.blog.csdn.net/20170318223224912?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/09/18/study-pm2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/19/for-in-compare-for-of/" class="archive-article-date">
-  	<time datetime="2017-04-19T13:18:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-19</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/19/for-in-compare-for-of/">for...in 与 for...of 你千万别混淆</a>
-    </h1>
+    <a href="/2017/11/20/understand-http/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          重识 HTTP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/03/study-js-object/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">全面学习JS对象</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="study-pm2" data-title="PM2 从入门到“放弃”" data-url="http://xuzhengmao.com/2017/09/18/study-pm2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -271,9 +387,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
