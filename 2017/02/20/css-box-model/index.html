@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>回顾盒子模型之 box-size 属性 | 徐正茂的个人博客</title>
+  <title>回顾盒子模型之 box-sizing 属性 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
 <meta name="keywords" content="css 盒子模型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回顾盒子模型之 box-size 属性">
+<meta property="og:title" content="回顾盒子模型之 box-sizing 属性">
 <meta property="og:url" content="http://xuzhengmao.com/2017/02/20/css-box-model/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
 <meta property="og:description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312191531615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312191552052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
+<meta property="og:updated_time" content="2017-12-29T13:48:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="回顾盒子模型之 box-size 属性">
+<meta name="twitter:title" content="回顾盒子模型之 box-sizing 属性">
 <meta name="twitter:description" content="盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170312191531615?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      回顾盒子模型之 box-size 属性
+      回顾盒子模型之 box-sizing 属性
     </h1>
   
 
@@ -182,7 +182,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是内容(content)、填充(padding)、边框(border)、边界(margin)。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：标准盒模型和IE盒模型。</p>
+        <p>盒子模型是CSS中很重要也很常见的概念，它涉及到的无非就是<strong>内容(content)</strong>、<strong>填充(padding)</strong>、<strong>边框(border)</strong>、<strong>边界(margin)</strong>。但是真要你把这几个的关系说清楚，相信不少人会掉坑。因为很多人没注意到的是，盒子模型其实有两种类型：<strong>标准盒模型</strong>和<strong>IE盒模型</strong>。</p>
 <a id="more"></a>
 <h2 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">content-box</span>;</div></pre></td></tr></table></figure>
 <p>网上盗了张图：</p>
@@ -195,9 +195,9 @@
 <p>由上图可以看出，IE盒模型的 width 组成：content + 2 * padding + 2 * border</p>
 <p>比如：你给一个div的宽度设为200px，那这个div内容的宽度其实只有200px减去 padding 和 border 的值。它实际宽度是小于或等于200px的。</p>
 <h2 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h2><ol>
-<li>box-sizing: content-box | border-box | inherit</li>
-<li>他们的主要区别其实就是 width 包不包含 border 和 padding</li>
-<li>box-sizing 默认值是 content-box，即默认是标准盒子模型</li>
+<li><strong>box-sizing</strong>: content-box | border-box | inherit</li>
+<li>他们的主要区别其实就是 width/height 包不包含 border 和 padding</li>
+<li>box-sizing 默认值是 content-box，即 <strong>默认是标准盒子模型</strong></li>
 </ol>
 <hr>
 <p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
@@ -335,7 +335,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="css-box-model" data-title="回顾盒子模型之 box-size 属性" data-url="http://xuzhengmao.com/2017/02/20/css-box-model/"></div>
+	<div class="ds-thread" data-thread-key="css-box-model" data-title="回顾盒子模型之 box-sizing 属性" data-url="http://xuzhengmao.com/2017/02/20/css-box-model/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -458,7 +458,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,15 +466,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,11 +478,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
               </li>
              
               <li class="article-tag-list-item">

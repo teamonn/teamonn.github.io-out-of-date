@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>前端人眼中的九段 | 徐正茂的个人博客</title>
+  <title>10个JavaScript难点【转】 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近流行一个段子：  三流码农写UI，二流码农写架构，一流码农写算法…  这个段子可能说得也不全对，毕竟一流程序员也不是通过算法来判定的。但它对于各个段位程序员之间水平差距的划分，好像是那么回事。">
-<meta name="keywords" content="技术视野">
+  <meta name="description" content="转自一篇来自知乎专栏的从国外翻译过来的文章。文章很好，看完后能让人产生一种“拜读”的感觉！ 原文：10 JavaScript concepts every Node.js programmer must master译者：Fundebug">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端人眼中的九段">
-<meta property="og:url" content="http://xuzhengmao.com/2017/06/29/the-nine-section-in-front-end/index.html">
+<meta property="og:title" content="10个JavaScript难点【转】">
+<meta property="og:url" content="http://xuzhengmao.com/2017/12/29/10-difficulty-of-js/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="最近流行一个段子：  三流码农写UI，二流码农写架构，一流码农写算法…  这个段子可能说得也不全对，毕竟一流程序员也不是通过算法来判定的。但它对于各个段位程序员之间水平差距的划分，好像是那么回事。">
+<meta property="og:description" content="转自一篇来自知乎专栏的从国外翻译过来的文章。文章很好，看完后能让人产生一种“拜读”的感觉！ 原文：10 JavaScript concepts every Node.js programmer must master译者：Fundebug">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
+<meta property="og:updated_time" content="2017-12-29T13:43:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端人眼中的九段">
-<meta name="twitter:description" content="最近流行一个段子：  三流码农写UI，二流码农写架构，一流码农写算法…  这个段子可能说得也不全对，毕竟一流程序员也不是通过算法来判定的。但它对于各个段位程序员之间水平差距的划分，好像是那么回事。">
+<meta name="twitter:title" content="10个JavaScript难点【转】">
+<meta name="twitter:description" content="转自一篇来自知乎专栏的从国外翻译过来的文章。文章很好，看完后能让人产生一种“拜读”的感觉！ 原文：10 JavaScript concepts every Node.js programmer must master译者：Fundebug">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -159,50 +159,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-the-nine-section-in-front-end" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-10-difficulty-of-js" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      前端人眼中的九段
+      10个JavaScript难点【转】
     </h1>
   
 
         
-        <a href="/2017/06/29/the-nine-section-in-front-end/" class="archive-article-date">
-  	<time datetime="2017-06-29T07:32:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-29</time>
+        <a href="/2017/12/29/10-difficulty-of-js/" class="archive-article-date">
+  	<time datetime="2017-12-29T13:02:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近流行一个段子：</p>
-<blockquote>
-<p>三流码农写UI，二流码农写架构，一流码农写算法…</p>
-</blockquote>
-<p>这个段子可能说得也不全对，毕竟一流程序员也不是通过算法来判定的。但它对于各个段位程序员之间水平差距的划分，好像是那么回事。</p>
+        <p>转自一篇来自知乎专栏的从国外翻译过来的文章。文章很好，看完后能让人产生一种“拜读”的感觉！</p>
+<p>原文：<a href="http://link.zhihu.com/?target=http%3A//www.infoworld.com/article/3196070/node-js/10-javascript-concepts-nodejs-programmers-must-master.html" target="_blank" rel="external">10 JavaScript concepts every Node.js programmer must master</a><br>译者：<a href="https://www.zhihu.com/people/fundebug" target="_blank" rel="external">Fundebug</a></p>
 <a id="more"></a>
-<p>于是我联想到前两天看到了一个别人像划分围棋一样，将前端程序员划为九等的文章。看后之后我感觉有的地方分得不是很合适，就想以自己粗浅的技术经验和视野，谈一谈自己心中目前的九段。</p>
-<h3 id="第一段"><a href="#第一段" class="headerlink" title="第一段"></a>第一段</h3><p>熟悉 HTML、CSS、JavaScript 基本语法，能够独立写出简单的静态网页（很有可能还是 table 布局）。简单说就是，能切图。</p>
-<h3 id="第二段"><a href="#第二段" class="headerlink" title="第二段"></a>第二段</h3><p>能用 DIV 布局，还能用 JavaScript 或者 JQuery 实现一些简单有趣的动画特效了，也有可能是用别人的插件。一句话就是，能切好图。</p>
-<h3 id="第三段"><a href="#第三段" class="headerlink" title="第三段"></a>第三段</h3><p>熟悉 JavaScript 的内置对象和方法。了解 http 和 web 安全方面的知识，理解前后端分离，能使用 ajax 等与服务器进行数据交互。</p>
-<h3 id="第四段"><a href="#第四段" class="headerlink" title="第四段"></a>第四段</h3><p>熟悉 HTTML5 和 CSS3，能写出语义化的标签和符合 W3C 标准的页面了。能写出自定义动画，掌握 canvas、svg 等，懂浏览器差异性和兼容性。一般会搭建个人博客（可能使用 hexo），自己买服务器域名或者使用 github pages 服务。</p>
-<h3 id="第五段"><a href="#第五段" class="headerlink" title="第五段"></a>第五段</h3><p>JavaScript方面，开始研究面向对象、闭包、原型原型链，并且理解函数式编程与面向对象编程的差距了。能熟悉一门服务器语言如 nodejs、php等，可以一个人写出一个基本网站的前后端了。</p>
-<h3 id="第六段"><a href="#第六段" class="headerlink" title="第六段"></a>第六段</h3><p>熟悉各类 MVVM 前端框架的使用，懂得各类浏览器以及移动端开发的调试技巧，了解CSS、JS的运行机制，注重网站性能优化。能开发单页面应用，能使用各种构建工具，实现前端工程化，自动化，模块化。</p>
-<h3 id="第七段"><a href="#第七段" class="headerlink" title="第七段"></a>第七段</h3><p>经常查看各类知名前端框架、类库的源码，如JQuery、loadsh、ElementUI等。经常为一些开源项目贡献自己的一份力量。</p>
-<h3 id="第八段"><a href="#第八段" class="headerlink" title="第八段"></a>第八段</h3><p>开始在团队里做前端架构类的工作，主持或参与各类前端框架的编写。能跳出个人发展的局限，为团队或带领团队持续向前发展。</p>
-<h3 id="第九段"><a href="#第九段" class="headerlink" title="第九段"></a>第九段</h3><p>已经步入了 HTML、CSS、JS 规范的制定，是他们引领行业的发展，决定前端的未来。</p>
-<p>程序员水平的高低，差距其实是很大的。不光是 web 前端程序员，延伸到整个程序员行业都适用。</p>
-<p>比如遇到一个问题时，<strong>初级程序员</strong>很可能是没有头绪，到处问人，面向QQ编程。没有资源问，就去百度搜索一大堆答案挨个试，这样最后能解决问题的几率很少。</p>
-<p>如果是<strong>中级程序员</strong>，他会结合自己已有的经验解决。如果还是不行他就会上 Google、Stack Overflow 等地方寻找答案。这样最后问题往往都能顺利得到解决。</p>
-<p><strong>高级程序员</strong>遇到问题第一时间往往不是去找答案，而是会通过问题出现的场景，去分析引发问题的根源。他们是经常去查看引用的别人框架、插件、库的源码。这样的处理方式最后不能解决的问题往往极少。</p>
-<p>哈哈，别问我是怎么知道高级程序员解决问题的方式。毕竟「没吃过猪肉，还没见过猪跑啊」。虽然我还不是高级程序员，但我身边有一些工作经验很足，技术积累很深的大神平常就是这么解决问题的。</p>
-<p>行业内从来都没有什么固定的标准来划分前端开发水平的段位，以上也只是我个人的一个简单划分。可能理解有偏差，但是还是希望能给刚入坑的同学一个大致的方向感。</p>
 <hr>
-<p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
+<p>为了保证可读性，本文采用意译而非直译，并且对示例代码进行了大量修改。另外，本文版权归原作者所有，翻译仅用于学习。</p>
+<h3 id="1-立即执行函数"><a href="#1-立即执行函数" class="headerlink" title="1. 立即执行函数"></a>1. 立即执行函数</h3><p>立即执行函数，即 <strong>Immediately Invoked Function Expression (IIFE)</strong>，正如它的名字，就是创建函数的同时立即执行。它没有绑定任何事件，也无需等待任何异步操作：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 代码</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<p><strong>function(){…}</strong> 是一个匿名函数，包围它的一对括号将其转换为一个表达式，紧跟其后的一对括号调用了这个函数。立即执行函数也可以理解为立即调用一个匿名函数。<strong>立即执行函数</strong> 最常见的应用场景就是：将var变量的作用域限制于你们函数内，这样可以避免命名冲突。</p>
+<h3 id="2-闭包"><a href="#2-闭包" class="headerlink" title="2. 闭包"></a>2. 闭包</h3><p>对于<strong>闭包(closure)</strong>，当外部函数返回之后，内部函数依然可以访问外部函数的变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> N = <span class="number">0</span>;         <span class="comment">// N是f1函数的局部变量</span></div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">f2</span> (<span class="params"></span>) </span>&#123;   <span class="comment">// f2是f1函数的内部函数，是闭包</span></div><div class="line">       N += <span class="number">1</span>;        <span class="comment">// 内部函数f2中使用了外部函数f1中的变量N</span></div><div class="line">       <span class="built_in">console</span>.log(N);</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> f2;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> result = f1();</div><div class="line">result();   <span class="comment">// 输出1</span></div><div class="line">result();   <span class="comment">// 输出2</span></div><div class="line">result();   <span class="comment">// 输出3</span></div></pre></td></tr></table></figure>
+<p>代码中，外部函数f1只执行了一次，变量N设为0，并将内部函数f2赋值给了变量result。由于外部函数f1已经执行完毕，其内部变量N应该在内存中被清除，然而事实并不是这样：我们每次调用result的时候，发现变量N一直在内存中，并且在累加。为什么呢？这就是闭包的神奇之处了！</p>
+<h3 id="3-使用闭包定义私有变量"><a href="#3-使用闭包定义私有变量" class="headerlink" title="3. 使用闭包定义私有变量"></a>3. 使用闭包定义私有变量</h3><p>通常，<strong>JavaScript开发者使用下划线作为私有变量的前缀</strong>。但是实际上，这些变量依然可以被访问和修改，并非真正的私有变量。这时，使用闭包可以定义真正的私有变量：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Product</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> name;</div><div class="line">   <span class="keyword">this</span>.setName = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">     name = value;</div><div class="line">   &#125;;</div><div class="line">   <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="keyword">return</span> name;</div><div class="line">   &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Product();</div><div class="line">p.setName(<span class="string">"Fundebug"</span>);</div><div class="line"><span class="built_in">console</span>.log(p.name);       <span class="comment">// 输出undefined</span></div><div class="line"><span class="built_in">console</span>.log(p.getName());  <span class="comment">// 输出Fundebug</span></div></pre></td></tr></table></figure>
+<p>代码中，对象p的的name属性为私有属性，使用p.name不能直接访问。</p>
+<h3 id="4-prototype"><a href="#4-prototype" class="headerlink" title="4. prototype"></a>4. prototype</h3><p>每个JavaScript构造函数都有一个prototype属性，用于设置所有实例对象需要共享的属性和方法。prototype属性不能列举。JavaScript仅支持通过prototype属性进行继承属性和方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">   <span class="keyword">this</span>._length = x;</div><div class="line">   <span class="keyword">this</span>._breadth = y;</div><div class="line">&#125;</div><div class="line">Rectangle.prototype.getDimensions = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">return</span> &#123;</div><div class="line">       <span class="attr">length</span>: <span class="keyword">this</span>._length,</div><div class="line">       <span class="attr">breadth</span>: <span class="keyword">this</span>._breadth</div><div class="line">   &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> x = <span class="keyword">new</span> Rectangle(<span class="number">3</span>, <span class="number">4</span>);</div><div class="line"><span class="keyword">var</span> y = <span class="keyword">new</span> Rectangle(<span class="number">4</span>, <span class="number">3</span>);</div><div class="line"><span class="built_in">console</span>.log(x.getDimensions()); <span class="comment">// &#123; length: 3, breadth: 4 &#125;</span></div><div class="line"><span class="built_in">console</span>.log(y.getDimensions()); <span class="comment">// &#123; length: 4, breadth: 3 &#125;</span></div></pre></td></tr></table></figure>
+<p>代码中，x和y都是构造函数Rectangle创建的对象实例，它们通过prototype继承了getDimensions方法。</p>
+<h3 id="5-模块化"><a href="#5-模块化" class="headerlink" title="5. 模块化"></a>5. 模块化</h3><p>JavaScript并非模块化编程语言，至少ES6落地之前都不是。然而对于一个复杂的Web应用，模块化编程是一个最基本的要求。这时，可以使用<strong>立即执行函数</strong>来实现模块化，正如很多JS库比如jQuery以及我们Fundebug都是这样实现的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="built_in">module</span> = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> N = <span class="number">5</span>;</div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">"The result is: "</span> + x);</div><div class="line">   &#125;</div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">      <span class="keyword">var</span> x = a + N;</div><div class="line">      print(x);</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">description</span>: <span class="string">"This is description"</span>,</div><div class="line">      <span class="attr">add</span>: add</div><div class="line">   &#125;;</div><div class="line">&#125;)();</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.description); <span class="comment">// 输出"this is description" </span></div><div class="line"><span class="built_in">module</span>.add(<span class="number">5</span>); <span class="comment">// 输出“The result is: 10”</span></div></pre></td></tr></table></figure>
+<p>所谓模块化，就是根据需要控制模块内属性与方法的可访问性，即私有或者公开。在代码中，module为一个独立的模块，N为其私有属性，print为其私有方法，decription为其公有属性，add为其共有方法。</p>
+<h3 id="6-变量提升"><a href="#6-变量提升" class="headerlink" title="6. 变量提升"></a>6. 变量提升</h3><p>JavaScript会将所有变量和函数声明移动到它的作用域的最前面，这就是所谓的<strong>变量提升(Hoisting)</strong>。也就是说，无论你在什么地方声明变量和函数，解释器都会将它们移动到作用域的最前面。因此我们可以先使用变量和函数，而后声明它们。</p>
+<p>但是，仅仅是变量声明被提升了，而变量赋值不会被提升。如果你不明白这一点，有时则会出错：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(y);  <span class="comment">// 输出undefined</span></div><div class="line">y = <span class="number">2</span>; <span class="comment">// 初始化y</span></div></pre></td></tr></table></figure>
+<p>上面的代码等价于下面的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> y;  <span class="comment">// 声明y</span></div><div class="line"><span class="built_in">console</span>.log(y);  <span class="comment">// 输出undefined</span></div><div class="line">y = <span class="number">2</span>; <span class="comment">// 初始化y</span></div></pre></td></tr></table></figure></p>
+<p>为了避免BUG，开发者应该在每个作用域开始时声明变量和函数。</p>
+<h3 id="7-柯里化"><a href="#7-柯里化" class="headerlink" title="7. 柯里化"></a>7. 柯里化</h3><p>柯里化，即<strong>Currying</strong>，可以是函数变得更加灵活。我们可以一次性传入多个参数调用它；也可以只传入一部分参数来调用它，让它返回一个函数去处理剩下的参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123;</div><div class="line">       <span class="keyword">return</span> x + y;</div><div class="line">   &#125;;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>)(<span class="number">1</span>)); <span class="comment">// 输出2</span></div><div class="line"><span class="keyword">var</span> add1 = add(<span class="number">1</span>);</div><div class="line"><span class="built_in">console</span>.log(add1(<span class="number">1</span>)); <span class="comment">// 输出2</span></div><div class="line"><span class="keyword">var</span> add10 = add(<span class="number">10</span>);</div><div class="line"><span class="built_in">console</span>.log(add10(<span class="number">1</span>)); <span class="comment">// 输出11</span></div></pre></td></tr></table></figure>
+<p>代码中，我们可以一次性传入2个1作为参数add(1)(1)，也可以传入1个参数之后获取add1与add10函数，这样使用起来非常灵活。</p>
+<h3 id="8-apply-call与bind方法"><a href="#8-apply-call与bind方法" class="headerlink" title="8. apply, call与bind方法"></a>8. apply, call与bind方法</h3><p>JavaScript开发者有必要理解apply、call与bind方法的不同点。它们的共同点是第一个参数都是this，即函数运行时依赖的上下文。</p>
+<p>三者之中，<strong>call</strong>方法是最简单的，它等价于指定<strong>this</strong>值调用函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> user = &#123;</div><div class="line">   <span class="attr">name</span>: <span class="string">"Rahul Mhatre"</span>,</div><div class="line">   <span class="attr">whatIsYourName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">   &#125;</div><div class="line">&#125;;</div><div class="line">user.whatIsYourName(); <span class="comment">// 输出"Rahul Mhatre",</span></div><div class="line"><span class="keyword">var</span> user2 = &#123;</div><div class="line">   <span class="attr">name</span>: <span class="string">"Neha Sampat"</span></div><div class="line">&#125;;</div><div class="line">user.whatIsYourName.call(user2); <span class="comment">// 输出"Neha Sampat"</span></div></pre></td></tr></table></figure>
+<p>apply方法与call方法类似。两者唯一的不同点在于，apply方法使用数组指定参数，而call方法每个参数单独需要指定：</p>
+<ul>
+<li>apply(thisArg, [argsArray])</li>
+<li>call(thisArg, arg1, arg2, …)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> user = &#123;</div><div class="line">   <span class="attr">greet</span>: <span class="string">"Hello!"</span>,</div><div class="line">   <span class="attr">greetUser</span>: <span class="function"><span class="keyword">function</span>(<span class="params">userName</span>) </span>&#123;</div><div class="line">       <span class="built_in">console</span>.log(<span class="keyword">this</span>.greet + <span class="string">" "</span> + userName);</div><div class="line">   &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> greet1 = &#123;</div><div class="line">   <span class="attr">greet</span>: <span class="string">"Hola"</span></div><div class="line">&#125;;</div><div class="line">user.greetUser.call(greet1, <span class="string">"Rahul"</span>); <span class="comment">// 输出"Hola Rahul"</span></div><div class="line">user.greetUser.apply(greet1, [<span class="string">"Rahul"</span>]); <span class="comment">// 输出"Hola Rahul"</span></div></pre></td></tr></table></figure>
+<p>使用bind方法，可以为函数绑定this值，然后作为一个新的函数返回：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> user = &#123;</div><div class="line">    <span class="attr">greet</span>: <span class="string">"Hello!"</span>,</div><div class="line">    <span class="attr">greetUser</span>: <span class="function"><span class="keyword">function</span>(<span class="params">userName</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.greet + <span class="string">" "</span> + userName);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> greetHola = user.greetUser.bind(&#123;<span class="attr">greet</span>: <span class="string">"Hola"</span>&#125;);</div><div class="line"><span class="keyword">var</span> greetBonjour = user.greetUser.bind(&#123;<span class="attr">greet</span>: <span class="string">"Bonjour"</span>&#125;);</div><div class="line">greetHola(<span class="string">"Rahul"</span>) <span class="comment">// 输出"Hola Rahul"</span></div><div class="line">greetBonjour(<span class="string">"Rahul"</span>) <span class="comment">// 输出"Bonjour Rahul"</span></div></pre></td></tr></table></figure></p>
+<h3 id="9-Memoization"><a href="#9-Memoization" class="headerlink" title="9. Memoization"></a>9. Memoization</h3><p>Memoization用于优化比较耗时的计算，通过将计算结果缓存到内存中，这样对于同样的输入值，下次只需要中内存中读取结果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">memoizeFunction</span>(<span class="params">func</span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> cache = &#123;&#125;;</div><div class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">   &#123;</div><div class="line">       <span class="keyword">var</span> key = <span class="built_in">arguments</span>[<span class="number">0</span>];</div><div class="line">       <span class="keyword">if</span> (cache[key])</div><div class="line">       &#123;</div><div class="line">           <span class="keyword">return</span> cache[key];</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">else</span></div><div class="line">       &#123;</div><div class="line">           <span class="keyword">var</span> val = func.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</div><div class="line">           cache[key] = val;</div><div class="line">           <span class="keyword">return</span> val;</div><div class="line">       &#125;</div><div class="line">   &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> fibonacci = memoizeFunction(<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">   <span class="keyword">return</span> (n === <span class="number">0</span> || n === <span class="number">1</span>) ? n : fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">100</span>)); <span class="comment">// 输出354224848179262000000</span></div><div class="line"><span class="built_in">console</span>.log(fibonacci(<span class="number">100</span>)); <span class="comment">// 输出354224848179262000000</span></div></pre></td></tr></table></figure>
+<p>代码中，第2次计算fibonacci(100)则只需要在内存中直接读取结果。</p>
+<h3 id="10-函数重载"><a href="#10-函数重载" class="headerlink" title="10. 函数重载"></a>10. 函数重载</h3><p>所谓<strong>函数重载(method overloading)</strong>，就是函数名称一样，但是输入输出不一样。或者说，允许某个函数有各种不同输入，根据不同的输入，返回不同的结果。凭直觉，函数重载可以通过<strong>if…else</strong>或者<strong>switch</strong>实现，这就不去管它了。jQuery之父John Resig提出了一个非常巧(bian)妙(tai)的方法，利用了闭包。</p>
+<p>从效果上来说，people对象的find方法允许3种不同的输入: 0个参数时，返回所有人名；1个参数时，根据firstName查找人名并返回；2个参数时，根据完整的名称查找人名并返回。</p>
+<p>难点在于，people.find只能绑定一个函数，那它为何可以处理3种不同的输入呢？它不可能同时绑定3个函数find0,find1与find2啊！这里的关键在于old属性。</p>
+<p>由addMethod函数的调用顺序可知，people.find最终绑定的是find2函数。然而，在绑定find2时，old为find1；同理，绑定find1时，old为find0。3个函数find0,find1与find2就这样通过闭包链接起来了。</p>
+<p>根据addMethod的逻辑，当f.length与arguments.length不匹配时，就会去调用old，直到匹配为止。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addMethod</span>(<span class="params">object, name, f</span>)</span>&#123;　　</div><div class="line">   <span class="keyword">var</span> old = object[name];　　</div><div class="line">   object[name] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">   &#123;</div><div class="line">       <span class="comment">// f.length为函数定义时的参数个数</span></div><div class="line">       <span class="comment">// arguments.length为函数调用时的参数个数　　　　</span></div><div class="line">       <span class="keyword">if</span> (f.length === <span class="built_in">arguments</span>.length)</div><div class="line">       &#123;　　</div><div class="line">           <span class="keyword">return</span> f.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);　　　　</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> old === <span class="string">"function"</span>)</div><div class="line">       &#123;</div><div class="line">           <span class="keyword">return</span> old.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);　　　　</div><div class="line">       &#125;　　</div><div class="line">   &#125;;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 不传参数时，返回所有name</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">find0</span>(<span class="params"></span>)</span>&#123;　　</div><div class="line">   <span class="keyword">return</span> <span class="keyword">this</span>.names;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 传一个参数时，返回firstName匹配的name</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">find1</span>(<span class="params">firstName</span>)</span>&#123;　　</div><div class="line">   <span class="keyword">var</span> result = [];　　</div><div class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.names.length; i++)</div><div class="line">   &#123;　　　　</div><div class="line">       <span class="keyword">if</span> (<span class="keyword">this</span>.names[i].indexOf(firstName) === <span class="number">0</span>)</div><div class="line">       &#123;　　　　　　</div><div class="line">           result.push(<span class="keyword">this</span>.names[i]);　　　　</div><div class="line">       &#125;　　</div><div class="line">   &#125;　　</div><div class="line">   <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 传两个参数时，返回firstName和lastName都匹配的name</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">find2</span>(<span class="params">firstName, lastName</span>)</span>&#123;　</div><div class="line">   <span class="keyword">var</span> result = [];　　</div><div class="line">   <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.names.length; i++)</div><div class="line">   &#123;　　　　</div><div class="line">       <span class="keyword">if</span> (<span class="keyword">this</span>.names[i] === (firstName + <span class="string">" "</span> + lastName))</div><div class="line">       &#123;　　　　　　</div><div class="line">           result.push(<span class="keyword">this</span>.names[i]);　　　　</div><div class="line">       &#125;　　</div><div class="line">   &#125;　　</div><div class="line">   <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> people = &#123;　　</div><div class="line">   <span class="attr">names</span>: [<span class="string">"Dean Edwards"</span>, <span class="string">"Alex Russell"</span>, <span class="string">"Dean Tom"</span>]</div><div class="line">&#125;;</div><div class="line">addMethod(people, <span class="string">"find"</span>, find0);</div><div class="line">addMethod(people, <span class="string">"find"</span>, find1);</div><div class="line">addMethod(people, <span class="string">"find"</span>, find2);</div><div class="line"><span class="built_in">console</span>.log(people.find()); <span class="comment">// 输出["Dean Edwards", "Alex Russell", "Dean Tom"]</span></div><div class="line"><span class="built_in">console</span>.log(people.find(<span class="string">"Dean"</span>)); <span class="comment">// 输出["Dean Edwards", "Dean Tom"]</span></div><div class="line"><span class="built_in">console</span>.log(people.find(<span class="string">"Dean"</span>, <span class="string">"Edwards"</span>)); <span class="comment">// 输出["Dean Edwards"]</span></div></pre></td></tr></table></figure>
+<hr>
+<p>参考文章：</p>
+<ul>
+<li><a href="http://link.zhihu.com/?target=https%3A//developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="external">闭包 - MDN</a></li>
+<li><a href="http://link.zhihu.com/?target=https%3A//www.gitbook.com/book/llh911001/mostly-adequate-guide-chinese/details" target="_blank" rel="external">JS函数式编程指南</a></li>
+</ul>
 
       
 
@@ -242,7 +270,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术视野</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		
 		</ul>
@@ -298,7 +326,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/06/29/the-nine-section-in-front-end/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/12/29/10-difficulty-of-js/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -312,18 +340,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/09/how-to-loop-li/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          如何优雅的获取你点击的那个 li？
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/06/17/git-stash/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git stash 和 git stash pop</div>
+    <a href="/2017/11/20/understand-http/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">重识 HTTP</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -337,7 +356,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="the-nine-section-in-front-end" data-title="前端人眼中的九段" data-url="http://xuzhengmao.com/2017/06/29/the-nine-section-in-front-end/"></div>
+	<div class="ds-thread" data-thread-key="10-difficulty-of-js" data-title="10个JavaScript难点【转】" data-url="http://xuzhengmao.com/2017/12/29/10-difficulty-of-js/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
