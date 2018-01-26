@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" onclick="changeBgColor()">
 <head>
 	<title>小甜甜，生日快乐！</title>
 	<meta charset="utf-8">
@@ -9,13 +9,13 @@
 <style>
 	html {
 		min-height: 100%;
+		background-color: #ffc0cb;
 	}
 	body {
 		margin: 0;
 		min-height: 100%;
 		padding: 0 15px 15px;
 		color: #333;
-		background-color: #ffc0cb;
 	}
  	h3 {
  		text-align: center;
@@ -32,10 +32,10 @@
  		}
  	}
 </style>
-<body onload="setInterval(trim,100)" onclick="changeBgColor()">
+<body onload="setInterval(trim,100)">
  	<h3>[ 我的小旖旎，永远十八 ]</h3>
  	<p id="exp"></p>
-	<audio src="http://m10.music.126.net/20180126101802/fa0d58c1166336b58f007366d0b03af2/ymusic/7ccf/c226/8b21/a18bac1eff7de6a034277a6fb3a03333.mp3" autoplay loop>
+	<audio src="../assets/music/happy_birthday.mp3" autoplay loop id="myAudio">
 	  您的浏览器可能暂不支持该<code>音频</code>格式的播放.
 	</audio>
  	<script>
@@ -81,12 +81,11 @@
     }
     // 更换背景颜色
     function changeBgColor () {
-    	document.getElementsByTagName('body')[0].style.backgroundColor = randomColor();
+    	document.getElementsByTagName('html')[0].style.backgroundColor = randomColor();
     }
-    // var wrapperItems = this.$refs.mySwiper.$children
-    // for (let i = 0; i < wrapperItems.length; i++) {
-    //   wrapperItems[i].$el.style.backgroundColor = `rgba(${this.random()}, ${this.random()}, ${this.random()}, 0.6)`
-    // }
+    document.getElementById('myAudio').addEventListener('loadeddata', function () {
+    	document.getElementById('myAudio').play()
+    }, false)
  	</script>
  </body>
 </html>
