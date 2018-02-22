@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
-  <title>You-do-not-know-JavaScript.md | 徐正茂的个人博客</title>
+  <title>《你不知道的JavaScript》上、中卷阅后感 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="敬往事一杯酒，过去再爱也不回头">
+  <meta name="description" content="今年春节期间，利用放假在家的时间看完了《你不知道的JavaScript》上、中卷。 我个人感觉，它与《JavaScript高级程序设计》最为不同的一点就是，JS高程3 侧重的是JS这门语言的使用规则和规范，而《你不知道的JavaScript》侧重的是JS中那些让人难以理解甚至是误解的机制，以及这些机制背后深层次的原理。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="You-do-not-know-JavaScript.md">
+<meta property="og:title" content="《你不知道的JavaScript》上、中卷阅后感">
 <meta property="og:url" content="http://xuzhengmao.com/2018/02/22/You-do-not-know-JavaScript-md/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="敬往事一杯酒，过去再爱也不回头">
+<meta property="og:description" content="今年春节期间，利用放假在家的时间看完了《你不知道的JavaScript》上、中卷。 我个人感觉，它与《JavaScript高级程序设计》最为不同的一点就是，JS高程3 侧重的是JS这门语言的使用规则和规范，而《你不知道的JavaScript》侧重的是JS中那些让人难以理解甚至是误解的机制，以及这些机制背后深层次的原理。">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2018-02-22T09:11:08.555Z">
+<meta property="og:updated_time" content="2018-02-22T10:18:37.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="You-do-not-know-JavaScript.md">
-<meta name="twitter:description" content="敬往事一杯酒，过去再爱也不回头">
+<meta name="twitter:title" content="《你不知道的JavaScript》上、中卷阅后感">
+<meta name="twitter:description" content="今年春节期间，利用放假在家的时间看完了《你不知道的JavaScript》上、中卷。 我个人感觉，它与《JavaScript高级程序设计》最为不同的一点就是，JS高程3 侧重的是JS这门语言的使用规则和规范，而《你不知道的JavaScript》侧重的是JS中那些让人难以理解甚至是误解的机制，以及这些机制背后深层次的原理。">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -165,20 +166,88 @@
         
   
     <h1 class="article-title" itemprop="name">
-      You-do-not-know-JavaScript.md
+      《你不知道的JavaScript》上、中卷阅后感
     </h1>
   
 
         
         <a href="/2018/02/22/You-do-not-know-JavaScript-md/" class="archive-article-date">
-  	<time datetime="2018-02-22T09:11:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
+  	<time datetime="2018-02-22T05:19:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>今年春节期间，利用放假在家的时间看完了《你不知道的JavaScript》上、中卷。</p>
+<p>我个人感觉，它与《JavaScript高级程序设计》最为不同的一点就是，JS高程3 侧重的是JS这门语言的使用规则和规范，而《你不知道的JavaScript》侧重的是JS中那些让人难以理解甚至是误解的机制，以及这些机制背后深层次的原理。</p>
+<a id="more"></a>
+<p><em>对我个人有很大启示作用的知识点：</em></p>
+<ol>
+<li><strong>LHS</strong>（赋值操作的目标） &amp; <strong>RHS</strong>（赋值操作的源头）</li>
+<li><strong>with(obj)</strong>（更加方便的访问和操作obj对象）</li>
+<li><strong>不是值的值</strong>（undefined、null）、<strong>不是数字的数字</strong>（NaN）</li>
+<li><strong>new Array(..)</strong> 参数是集合的时候表示给数组赋初值，只有1个参数时表示新创建数组的长度</li>
+<li><code>var a = 3; var b = &#39;2&#39;; a - b // 1   a + b // &#39;32&#39;</code></li>
+<li><code>Date.now() === (new Date()).getTime() === +new Date()</code></li>
+<li><strong>eval(…)</strong> 字符串当做 JavaScript 代码进行执行。将Json字符串转化为JavaScript对象，但eval()还要用一对圆括号将字符串包起来</li>
+<li><strong>slice</strong> 和 <strong>substring</strong> 方法接收的是起始位置和结束位置(不包括结束位置)，而 <strong>substr</strong> 接收的则是起始位置和所要返回的字符串长度</li>
+<li><strong>JSON.stringify()</strong> 其实是有3个参数</li>
+<li><strong>具有假值的6个值</strong>：undefined、null、NaN、’’(空字符串)、0、false</li>
+<li>（~ 位非操作）<strong>原码</strong>、<strong>反码</strong>、<strong>补码</strong></li>
+<li><code>a || b</code>  等价  <code>a ? a : b</code>; <code>a &amp;&amp; b</code> 等价 <code>a ? b : a</code></li>
+<li><strong>事件循环、事件并发、纸牌屋心理</strong></li>
+<li><strong>生成器</strong>、<strong>迭代器</strong></li>
+<li><strong>Web Worker</strong></li>
+<li><strong>异步</strong> &amp; <strong>并行</strong></li>
+</ol>
+<h3 id="LHS-amp-RHS"><a href="#LHS-amp-RHS" class="headerlink" title="LHS &amp; RHS"></a>LHS &amp; RHS</h3><p>LHS 是赋值操作的目标，RHS 是赋值操作的源头。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123; </div><div class="line">	<span class="keyword">var</span> b = a;</div><div class="line">	<span class="keyword">return</span> a + b; </div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> c = foo( <span class="number">2</span> );</div></pre></td></tr></table></figure>
+<p>一共是3处 <strong>LHS</strong>（<code>c = ..;</code>、<code>a = 2</code>(隐式变量分配)、<code>b = ..</code>），4次 <strong>RHS</strong>（<code>foo(2..</code>、<code>= a;</code>、<code>a ..</code>、<code>.. b</code>）。</p>
+<h3 id="with-obj"><a href="#with-obj" class="headerlink" title="with(obj)"></a>with(obj)</h3><p>with语句 用来扩展一个语句的作用域链。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> (<span class="built_in">Math</span>) &#123;</div><div class="line">  <span class="built_in">console</span>.log(PI);	<span class="comment">// 等价于 Math.PI</span></div><div class="line">  <span class="built_in">console</span>.log(cos(PI));	<span class="comment">// 等价于 Math.cos(PI)</span></div><div class="line">  <span class="built_in">console</span>.log(sin(PI / <span class="number">2</span>));	<span class="comment">// 等价于 Math.sin(PI / 2)</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="JS中一些比较特殊的值类型"><a href="#JS中一些比较特殊的值类型" class="headerlink" title="JS中一些比较特殊的值类型"></a>JS中一些比较特殊的值类型</h3><ul>
+<li><strong>不是值的值</strong>：undefined、null</li>
+<li><strong>不是数字的数字</strong>：NaN</li>
+<li><strong>具有假值的6个值</strong>：undefined、null、NaN、’’(空字符串)、0、false</li>
+</ul>
+<h3 id="一些比较特殊的JS代码"><a href="#一些比较特殊的JS代码" class="headerlink" title="一些比较特殊的JS代码"></a>一些比较特殊的JS代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">3</span>; </div><div class="line"><span class="keyword">var</span> b = <span class="string">'2'</span>; </div><div class="line">a - b <span class="comment">// 1   </span></div><div class="line">a + b <span class="comment">// '32'</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Date</span>.now() === (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime() === +<span class="keyword">new</span> <span class="built_in">Date</span>()</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a || b  <span class="comment">// 等价  a ? a : b；</span></div><div class="line">a &amp;&amp; b <span class="comment">// 等价 a ? b : a</span></div></pre></td></tr></table></figure>
+<h3 id="new-Array-…"><a href="#new-Array-…" class="headerlink" title="new Array(…)"></a>new Array(…)</h3><p>比较让人忽略的一点是，当参数是集合的时候表示给数组赋初值，只有1个参数时表示新创建数组的长度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>);</div><div class="line"><span class="built_in">console</span>.log(arr);	<span class="comment">// [empty × 2]</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="built_in">console</span>.log(arr2);	<span class="comment">// [1, 2]</span></div></pre></td></tr></table></figure>
+<p>了解了这个之后，如果我们要创建只有一个元素的数组，就只能用字面量初始化赋值的方法了。如：<code>var arr3 = [1];</code></p>
+<h3 id="eval-…-和-JSON-stringify"><a href="#eval-…-和-JSON-stringify" class="headerlink" title="eval(…) 和 JSON.stringify()"></a>eval(…) 和 JSON.stringify()</h3><p>eval() 是将一个字符串当做 JavaScript 代码进行执行的内建函数。</p>
+<p>但它还能像JSON.stringify()一样，将Json字符串转化为JavaScript对象。不过它要用一对圆括号将要当成代码执行的字符串包起来。</p>
+<p><strong>由于json是以”{}”的方式来开始以及结束的，在JS中，它会被当成一个语句块来处理，所以必须强制性的将它转换成一种表达式。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="built_in">JSON</span>.stringify(&#123;<span class="attr">ky</span>: <span class="string">'val'</span>&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">eval</span>(<span class="string">'('</span> + str + <span class="string">')'</span>));	<span class="comment">// &#123;ky: "val"&#125;</span></div></pre></td></tr></table></figure>
+<p>JSON.stringify() 方法是将一个JavaScript值(对象或者数组)转换为一个JSON字符串的内建函数。</p>
+<p><strong>值得注意的是，它有3个参数，既可以在序列化过程中逐个执行函数操作，还可以指定序列化之后JSON对象字符串的缩进对齐格式。</strong></p>
+<p>语法 <code>JSON.stringify(value[, replacer [, space]])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str2 = <span class="built_in">JSON</span>.stringify(&#123;<span class="attr">a</span>: <span class="string">'34'</span>, <span class="attr">b</span>: <span class="number">5</span>&#125;, <span class="literal">null</span>, <span class="number">4</span>);</div><div class="line"><span class="built_in">console</span>.log(str2);</div></pre></td></tr></table></figure>
+<p>输出如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">"&#123;</div><div class="line">    "a": "34",</div><div class="line">    "b": 5</div><div class="line">&#125;"</div></pre></td></tr></table></figure>
+<h3 id="slice-、substring-、substr"><a href="#slice-、substring-、substr" class="headerlink" title="slice()、substring()、substr()"></a>slice()、substring()、substr()</h3><p><strong>slice</strong> 和 <strong>substring</strong> 接收的是起始位置和结束位置(不包括结束位置)，而 <strong>substr</strong> 接收的则是起始位置和所要返回的字符串长度。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = <span class="string">'hello world'</span>;</div><div class="line"><span class="built_in">console</span>.log(test.slice(<span class="number">4</span>, <span class="number">7</span>));             <span class="comment">//o w</span></div><div class="line"><span class="built_in">console</span>.log(test.substring(<span class="number">4</span>, <span class="number">7</span>));         <span class="comment">//o w</span></div><div class="line"><span class="built_in">console</span>.log(test.substr(<span class="number">4</span>, <span class="number">7</span>));            <span class="comment">//o world</span></div></pre></td></tr></table></figure>
+<h3 id="原码、补码、反码"><a href="#原码、补码、反码" class="headerlink" title="原码、补码、反码"></a>原码、补码、反码</h3><p>毕业一年多了，由于长时间没用到这块儿，原码、补码、反码等计算机组成原理的知识已经忘了很多了。看这两本书的时候涉及到了~（位非操作），我就把这块儿重新温习了一遍，毕竟计算机底层技术是我们编程的内功。</p>
+<p><strong>原码</strong>：最高位表示符号位，剩下的位数是这个数的绝对值的二进制；</p>
+<p><strong>反码</strong>：正数的反码就是其原码，负数的反码就是在其原码的基础之上，符号位不变，其他位取反；</p>
+<p><strong>补码</strong>：正数的补码就是其原码，负数的补码就是在其反码的基础之上 +1；</p>
+<h3 id="事件循环、事件并发、纸牌屋心理"><a href="#事件循环、事件并发、纸牌屋心理" class="headerlink" title="事件循环、事件并发、纸牌屋心理"></a>事件循环、事件并发、纸牌屋心理</h3><p>事件循环：是一个类似于 while 实现的持续运行的循环。事件一旦被触发，就会被立即加入到事件循环队列的尾部，等待被执行。<br>事件并发：并行地执行多个事件，一般需要是多线程。<br>纸牌屋心理：对于某段代码，因为不知道为什么这样写，所以一点都不敢碰。</p>
+<h3 id="生成器、迭代器"><a href="#生成器、迭代器" class="headerlink" title="生成器、迭代器"></a>生成器、迭代器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 生成器</span></div><div class="line"><span class="function"><span class="keyword">function</span> *<span class="title">createIterator</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">yield</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">yield</span> <span class="number">2</span>;</div><div class="line">    <span class="keyword">yield</span> <span class="number">3</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 生成器能像正规函数那样被调用，但会返回一个迭代器</span></div><div class="line"><span class="keyword">let</span> iterator = createIterator();</div><div class="line"><span class="built_in">console</span>.log(iterator.next().value); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next().value); <span class="comment">// 2</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next().value); <span class="comment">// 3</span></div></pre></td></tr></table></figure>
+<p>对于已有数据，需要构造成生成器，可以这样:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">as</span> = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>];</div><div class="line"><span class="function"><span class="keyword">function</span> *<span class="title">createIterator</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">as</span>.length; i++)&#123;</div><div class="line">		<span class="keyword">yield</span> <span class="keyword">as</span>[i];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> iterator = createIterator();</div><div class="line"><span class="built_in">console</span>.log(iterator.next().value); <span class="comment">// a</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next().value); <span class="comment">// b</span></div><div class="line"><span class="built_in">console</span>.log(iterator.next().value); <span class="comment">// c</span></div></pre></td></tr></table></figure>
+<h3 id="Web-Worker"><a href="#Web-Worker" class="headerlink" title="Web Worker"></a>Web Worker</h3><p>Web Worker 是 HTML5 的一个新特性，用来在浏览器环境中实现多线程。<br>你可以这样来实例化一个 Web Worker：</p>
+<p><code>var w1 = new Worker( &quot;http://some.url.1/mycoolworker.js&quot; );</code></p>
+<p>这个 URL 应该指向一个 JavaScript 文件的位置(而不是一个 HTML 页面!)，这个文件将 被加载到一个 Worker 中。然后浏览器启动一个独立的线程，让这个文件在这个线程中作 为独立的程序运行。</p>
+<h3 id="异步-amp-并行"><a href="#异步-amp-并行" class="headerlink" title="异步 &amp; 并行"></a>异步 &amp; 并行</h3><p><strong>异步</strong> 和 <strong>并行</strong> 常常被混为一谈，但实际上它们的意义完全不同。异步，是<br>关于现在和将来的时间间隙，而并行是关于能够同时发生的事情。</p>
+<p>异步：假如你打电话点买卖，问老板有没有辣椒炒肉。老板说，我要去厨房看看，您稍等。你让老板看好了再打电话告诉你，你先挂掉电话这种方式是<strong>异步</strong>。如果老板让你别挂电话，等他去看完了告诉你这就是<strong>同步</strong>。</p>
+<p>并行：就是你同时做多件事情，比如边吃辣椒炒肉，边看电影。</p>
+<p>多线程：指某个程序可以并行执行多个任务。人是单线程的，人的并行可以看作是你做多件事情是在很短的时间内相互切换的。</p>
+<hr>
+<p>参考资料:<br>1- 《你不知道的JavaScript（上卷）》<br>2- 《你不知道的JavaScript（中卷）》</p>
+
       
 
       
@@ -212,6 +281,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -434,6 +514,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>
