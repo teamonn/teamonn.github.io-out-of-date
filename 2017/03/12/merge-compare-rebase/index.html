@@ -5,38 +5,25 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://xuzhengmao.com">
   <title>闲话 git merge 与 git rebase 的区别 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。
-
-merge如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：
-
-假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：
-1$ git merge">
+  <meta name="description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="闲话 git merge 与 git rebase 的区别">
-<meta property="og:url" content="http://yoursite.com/2017/03/12/merge-compare-rebase/index.html">
+<meta property="og:url" content="http://xuzhengmao.com/2017/03/12/merge-compare-rebase/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。
-
-merge如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：
-
-假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：
-1$ git merge">
+<meta property="og:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
+<meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312163257132?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-03-18T03:48:31.000Z">
+<meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闲话 git merge 与 git rebase 的区别">
-<meta name="twitter:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。
-
-merge如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：
-
-假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：
-1$ git merge">
+<meta name="twitter:description" content="最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
@@ -54,7 +41,7 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
   
 
   
-
+  
 </head>
 
 <body>
@@ -62,23 +49,25 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #518fad"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="https://github.com/teamonn/teamonn.github.io/tree/master/img/owner.png" class="js-avatar">
+			<img src="http://img.blog.csdn.net/20170318224353506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Xu Zheng Mao</a></h1>
 		</hgroup>
 		
+		<p class="header-subtitle">记录和成长</p>
+		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">博客</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/photo">相册</a></li>
 	        
 			</ul>
 		</nav>
@@ -93,7 +82,7 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
     			
             
 		</nav>
@@ -102,11 +91,11 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
 				
 					<a class="github" target="_blank" href="https://github.com/teamonn" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="http://weibo.com/u/5415687525?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="/xuzhengmao.com" title="rss"><i class="icon-rss"></i></a>
+					<a class="weibo" target="_blank" href="http://weibo.com/u/3895269434?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xu-zheng-mao-12" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="linkedin" target="_blank" href="http://www.xuzhengmao.com" title="linkedin"><i class="icon-linkedin"></i></a>
 		        
 			</div>
 		</nav>
@@ -117,18 +106,20 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #518fad"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="https://github.com/teamonn/teamonn.github.io/tree/master/img/owner.png" class="js-avatar">
+				<img src="http://img.blog.csdn.net/20170318224353506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Xu Zheng Mao</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录和成长<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -143,11 +134,11 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
 					
 						<a class="github" target="_blank" href="https://github.com/teamonn" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="http://weibo.com/u/5415687525?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="/xuzhengmao.com" title="rss"><i class="icon-rss"></i></a>
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3895269434?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xu-zheng-mao-12" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.xuzhengmao.com" title="linkedin"><i class="icon-linkedin"></i></a>
 			        
 				</div>
 			</nav>
@@ -156,9 +147,9 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">博客</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/photo">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -193,9 +184,8 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。</p>
-</blockquote>
+        <p>最近换工作，面试碰到一次笔试考这两个的区别。开始学习git的时候，这两个的区别是有了解过的。但是时间长了加上之前公司应用得少了，所以当时记得很模糊。笔试完就赶紧回家整理了下，希望可以借此加深印象。</p>
+<a id="more"></a> 
 <h2 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h2><p>如果一开始我们的分支情况如下图，有一个主分支 master 及一个开发分支 deve：</p>
 <p><img src="http://img.blog.csdn.net/20170312161607281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="（SourceTree中的分支截图）"></p>
 <p>假定我们目前处在 master 主分支上，在该项目根目录路径下输入命令：</p>
@@ -206,7 +196,7 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
 <p><img src="http://img.blog.csdn.net/20170312163606713?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>我们还是处在 master 分支上，我们在该项目根目录路径下输入命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase deve</div></pre></td></tr></table></figure>
-<p>这时 Git 系统会将 master 上的最新提交 85841be、a016f64 与 e53ec51 合并到deve中最新提交 35b6708 后面，丢失掉自己分支的历史版本信息，从而使两个分支暂时合成一根线，如下图所示：</p>
+<p>这时 Git 系统会将 master 中没有 deve 的部分 bcde65c 和 35b6708 都合并进 master，这个过程是不会修改 deve 分支的。此时两个分支暂时合并成一根线，如下图所示：</p>
 <p><img src="http://img.blog.csdn.net/20170312163801560?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <h2 id="merge-和-rebase-的区别对比："><a href="#merge-和-rebase-的区别对比：" class="headerlink" title="merge 和 rebase 的区别对比："></a>merge 和 rebase 的区别对比：</h2><table>
 <thead>
@@ -220,11 +210,11 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
 <tr>
 <td>操作过程</td>
 <td>将两个分支的修改信息合并</td>
-<td>提取当前分支的修改，复制到目标分支的最新提交后面</td>
+<td>将目标分支中有而当前没有的提交都加进当前分支，但不修改目标分支</td>
 </tr>
 <tr>
 <td>分支路径</td>
-<td>多条，各自显示，互不干扰</td>
+<td>多条，各自显示，此时交叉了</td>
 <td>单条，合在一起显示</td>
 </tr>
 <tr>
@@ -239,6 +229,16 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
 </tr>
 </tbody>
 </table>
+<h2 id="辅助记忆"><a href="#辅助记忆" class="headerlink" title="辅助记忆"></a>辅助记忆</h2><p>可以类比同学 a 和同学 b 考试对答案的场景，来区别 merge 和 rebase。</p>
+<ul>
+<li><p><strong>a merge b</strong> =&gt; 等同 a 和 b 相互对答案，觉得对方对或者对方做了自己没做的就修改过来。最终和他们各自开始的答案相比，他们的答案都修改了（不考虑开始就答案相同的情况）。</p>
+</li>
+<li><p><strong>a rebase b</strong> =&gt; 等同 a 抄 b 的答案，觉得 b 对或者 b 做了自己没做的就按照他的抄过来。最终只有 a 的答案修改了，b 的答案不会被修改。</p>
+</li>
+</ul>
+<p>参考文档：<a href="https://git-scm.com/docs" target="_blank" rel="external">点击进入 git 官网</a></p>
+<hr>
+<p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
 
       
 
@@ -252,8 +252,13 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>您的支持和赞赏，将是我继续创作的动力<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://img.blog.csdn.net/20170318223224912?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+                      <span class="reward-type">支付宝</span>
+                    </div>
                     
                     
                   </div>
@@ -329,7 +334,7 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/12/merge-compare-rebase/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/03/12/merge-compare-rebase/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -343,9 +348,18 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
   
 <nav id="article-nav">
   
+    <a href="/2017/03/30/classical-layout-comparison/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          圣杯布局 VS 双飞翼布局
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/02/20/css-box-model/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">回顾盒子模型之 box-size 属性</div>
+      <div class="article-nav-title">回顾盒子模型之 box-sizing 属性</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -370,7 +384,7 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Xu Zheng Mao
+    		&copy; 2018 Xu Zheng Mao
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -443,7 +457,7 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于</a></li>
       
         
     </ul>
@@ -464,11 +478,59 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CSS 布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css盒子模型</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术视野</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
             
             <div class="clearfix"></div>
@@ -520,27 +582,35 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://litten.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Litten的个人博客</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="http://xunli.xyz/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>黎浔的個人網誌</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+              <a href="http://www.ruanyifeng.com/blog/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>阮一峰的网络日志</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+              <a href="http://www.cnblogs.com/unclekeith/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Unclekeith的博客园</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+              <a href="https://www.qianduan.net/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>前端观察</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://juejin.im/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>稀土掘金</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.alloyteam.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>腾讯AlloyTeam</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://taobaofed.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>淘宝FED</a>
             </li>
           
         </ul>
@@ -551,7 +621,7 @@ merge如果一开始我们的分支情况如下图，有一个主分支 master �
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">年轻无为，卖马为生。</div>
   	  	
     	</section>
     

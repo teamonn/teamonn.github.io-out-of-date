@@ -5,15 +5,21 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: css盒子模型 | 徐正茂的个人博客</title>
+  <link rel="dns-prefetch" href="http://xuzhengmao.com">
+  <title>for...in 与 for...of 你千万别混淆 | 徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="徐正茂的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/css盒子模型/index.html">
+  <meta name="description" content="遇到不少人其实是分不太清 for…in 和 for…of 的。大都是用的时候试下，哪个能解决问题还不报错，就选用哪个了。  for…in 循环会遍历一个对象所有的可枚举属性。 for…of 会循环迭代出有序对象（或集合）的每一个属性值。  这是 MDN 上的官方解释。下面，用两个例子说明一切。">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="for...in 与 for...of 你千万别混淆">
+<meta property="og:url" content="http://xuzhengmao.com/2017/04/19/for-in-compare-for-of/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
+<meta property="og:description" content="遇到不少人其实是分不太清 for…in 和 for…of 的。大都是用的时候试下，哪个能解决问题还不报错，就选用哪个了。  for…in 循环会遍历一个对象所有的可枚举属性。 for…of 会循环迭代出有序对象（或集合）的每一个属性值。  这是 MDN 上的官方解释。下面，用两个例子说明一切。">
+<meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2017-10-09T06:07:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="徐正茂的个人博客">
+<meta name="twitter:title" content="for...in 与 for...of 你千万别混淆">
+<meta name="twitter:description" content="遇到不少人其实是分不太清 for…in 和 for…of 的。大都是用的时候试下，哪个能解决问题还不报错，就选用哪个了。  for…in 循环会遍历一个对象所有的可枚举属性。 for…of 会循环迭代出有序对象（或集合）的每一个属性值。  这是 MDN 上的官方解释。下面，用两个例子说明一切。">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -30,7 +36,7 @@
   
 
   
-
+  
 </head>
 
 <body>
@@ -38,23 +44,25 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+<div class="overlay" style="background: #518fad"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="https://github.com/teamonn/teamonn.github.io/tree/master/img/owner.png" class="js-avatar">
+			<img src="http://img.blog.csdn.net/20170318224353506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Xu Zheng Mao</a></h1>
 		</hgroup>
 		
+		<p class="header-subtitle">记录和成长</p>
+		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">博客</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/photo">相册</a></li>
 	        
 			</ul>
 		</nav>
@@ -69,7 +77,7 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
     			
             
 		</nav>
@@ -78,11 +86,11 @@
 				
 					<a class="github" target="_blank" href="https://github.com/teamonn" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="http://weibo.com/u/5415687525?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="/xuzhengmao.com" title="rss"><i class="icon-rss"></i></a>
+					<a class="weibo" target="_blank" href="http://weibo.com/u/3895269434?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xu-zheng-mao-12" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="linkedin" target="_blank" href="http://www.xuzhengmao.com" title="linkedin"><i class="icon-linkedin"></i></a>
 		        
 			</div>
 		</nav>
@@ -93,18 +101,20 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #518fad"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="https://github.com/teamonn/teamonn.github.io/tree/master/img/owner.png" class="js-avatar">
+				<img src="http://img.blog.csdn.net/20170318224353506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Xu Zheng Mao</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>记录和成长<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -119,11 +129,11 @@
 					
 						<a class="github" target="_blank" href="https://github.com/teamonn" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="http://weibo.com/u/5415687525?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="/xuzhengmao.com" title="rss"><i class="icon-rss"></i></a>
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3895269434?is_all=1" title="weibo"><i class="icon-weibo"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xu-zheng-mao-12" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="linkedin" target="_blank" href="http://www.xuzhengmao.com" title="linkedin"><i class="icon-linkedin"></i></a>
 			        
 				</div>
 			</nav>
@@ -132,9 +142,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">博客</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/photo">相册</a></li>
 		        
 				</ul>
 			</nav>
@@ -149,60 +159,209 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-for-in-compare-for-of" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/20/css-box-model/" class="archive-article-date">
-  	<time datetime="2017-02-20T02:03:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/20/css-box-model/">回顾盒子模型之 box-size 属性</a>
+    <h1 class="article-title" itemprop="name">
+      for...in 与 for...of 你千万别混淆
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/04/19/for-in-compare-for-of/" class="archive-article-date">
+  	<time datetime="2017-04-19T13:18:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>遇到不少人其实是分不太清 for…in 和 for…of 的。大都是用的时候试下，哪个能解决问题还不报错，就选用哪个了。</p>
+<blockquote>
+<p>for…in 循环会遍历一个对象所有的可枚举属性。</p>
+<p>for…of 会循环迭代出有序对象（或集合）的每一个属性值。</p>
+</blockquote>
+<p>这是 MDN 上的官方解释。下面，用两个例子说明一切。</p>
+<a id="more"></a>
+<h2 id="遍历的是数组"><a href="#遍历的是数组" class="headerlink" title="遍历的是数组"></a>遍历的是数组</h2><p>等等，按照刚在开头的解释，这两个不都是用来遍历对象的么？怎么也可以用来遍历数组？</p>
+<p>大哥啊，数组不就是一种对象吗？在 JavaScript 里，万物皆为对象啊 : ) 所以，你可以把数组看成是一种元素有序的对象。</p>
+<p>既然如此，先声明一个数组 iterable：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> iterable = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>];</div></pre></td></tr></table></figure>
+<p><strong>使用 for…in 遍历:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> iterable) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i); 		<span class="comment">// logs 0, 1, 2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>既然数组是一种特殊的对象，那 iterable 的属性就是其下标了。for…in 遍历的是对象属性，那打印出的自然就是 0，1，2 了。</p>
+<p><strong>使用 for…of 遍历:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> iterable) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i); 		<span class="comment">// logs 3, 5, 7</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>数组是一种元素有序的对象，iterable 的每个属性其实就是数组的每个元素。for…of 遍历的是对象属性值，所以打印出 3，5，7 了。</p>
+<h2 id="遍历的是对象"><a href="#遍历的是对象" class="headerlink" title="遍历的是对象"></a>遍历的是对象</h2><p>没错，这两者都是可以用来遍历对象的方法。</p>
+<p>但 for…of 是为各种有序集合专门定制的，并不适用于所有的对象。</p>
+<p>如果对象含有有序集合，它会以这种方式迭代出该集合的每个元素。</p>
+<p>那如果不含有有序集合呢？那当然就不灵了，这超越了本文的讨论范围，暂不讨论。</p>
+<p>（前方高能，没听过 JavaScript 原型的请绕行）</p>
+<p>先使用原型继承的方法，给 Object 对象和 Array 对象拓展两个属性，属性值均为函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.prototype.objCustom = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;; </div><div class="line"><span class="built_in">Array</span>.prototype.arrCustom = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</div></pre></td></tr></table></figure>
+<p>接着还是跟上一个例子一样，定义一个 iterable，然后添加一个属性 foo:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> iterable = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>];</div><div class="line">iterable.foo = <span class="string">"hello"</span>;</div></pre></td></tr></table></figure>
+<p>这个时候 iterable 变得有点小复杂了。</p>
+<p>首先，它声明的就是一个数组，所以它应该包含 arrCustom 属性；</p>
+<p>其次，数组本身又是一种对象，那它又应该包含刚给 Object 对象拓展的 objCustom 属性；</p>
+<p>再次，它声明时给的是一个数组 [3, 5, 7]，那它肯定包含 3，5，7 这样一个有序集合；</p>
+<p>最后 <code>iterable.foo = &quot;hello</code> 又给它增加了一个属性 foo。</p>
+<p>那总结一下就是，iterable 包含一个有序集合 3，5，7，然后还包含 arrCustom、 objCustom、foo 三个属性（无序集合）</p>
+<p>此时，使用 <strong>for…in 遍历</strong> iterable:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> iterable) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i); 			<span class="comment">// logs 0, 1, 2, "foo", "arrCustom", "objCustom"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你记住了开篇的一句话 —— for…in 循环会遍历一个对象所有的可枚举属性，那你应该很容易明白打印出来的就是 iterable 所有的属性（其中有序集合是个数组，跟第一个例子一样会打印出数组下标）。</p>
+<p>如果使用 <strong>for…of 遍历</strong> iterable:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> iterable) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i); 			<span class="comment">// logs 3, 5, 7</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有了第一个例子做支撑，这里也好理解了。for…of 只能遍历对象中有序集合部分，iterable 中有序的部分就是数组 [3, 5, 7]，那必然只会打印出 3, 5, 7 了。</p>
+<h2 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a>对比总结</h2><ul>
+<li><p>for…in 是循环遍历对象属性。它会遍历一个对象所有的可枚举属性(如果是数组则打印其对应下标)。</p>
+</li>
+<li><p>for…of 是循环遍历对象属性值。它是为各种有序集合专门定制的，并不适用于所有的对象。它会以这种方式迭代出有序对象每个元素（如果该有序对象是一个数组，则是迭代出它每一个元素）。</p>
+</li>
+</ul>
+<p>我也是每次使用依然每次都要查文档，关键是每次查了下次用的时候还是迷迷糊糊的。所以决定用这两个例子来辅助记忆，希望我下次使用不会再查文档了。呵~</p>
+<hr>
+<p>更多文章，可以访问: <a href="http://blog.csdn.net/u014326381/article" target="_blank" rel="external">我的csdn博客</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>您的支持和赞赏，将是我继续创作的动力<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://img.blog.csdn.net/20170318223224912?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxNDMyNjM4MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">css盒子模型</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://xuzhengmao.com/2017/04/19/for-in-compare-for-of/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/05/make-mobile-web-look-likes-app/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          如何让你的移动网站拥有原生应用般的体验？
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/04/09/deep-copy-and-shallow-copy/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript 的深拷贝和浅拷贝</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -212,7 +371,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Xu Zheng Mao
+    		&copy; 2018 Xu Zheng Mao
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -225,9 +384,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
@@ -285,7 +444,7 @@
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于</a></li>
       
         
     </ul>
@@ -306,11 +465,59 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">CSS 布局</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">互联网的那些事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">css盒子模型</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">移动web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术视野</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
             
             <div class="clearfix"></div>
@@ -362,27 +569,35 @@
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://litten.me/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Litten的个人博客</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="http://xunli.xyz/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>黎浔的個人網誌</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+              <a href="http://www.ruanyifeng.com/blog/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>阮一峰的网络日志</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+              <a href="http://www.cnblogs.com/unclekeith/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Unclekeith的博客园</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+              <a href="https://www.qianduan.net/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>前端观察</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://juejin.im/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>稀土掘金</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.alloyteam.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>腾讯AlloyTeam</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://taobaofed.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>淘宝FED</a>
             </li>
           
         </ul>
@@ -393,7 +608,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">年轻无为，卖马为生。</div>
   	  	
     	</section>
     
