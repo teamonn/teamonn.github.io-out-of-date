@@ -1,4 +1,6 @@
 ---
-title: The-JavaScript-code-that-is-worth-simplifying
-date: 2017-07-16 10:40:39
+title: 谈谈那些值得被简化的 JS 代码
+date: 2017-07-11 15:21:33
+tags: javascript
 ---
+

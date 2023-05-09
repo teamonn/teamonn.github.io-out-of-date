@@ -1,0 +1,31 @@
+---
+layout: false
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>圣诞飘雪</title>
+	<style type="text/css">
+		html{
+			overflow-y:hidden;            /*隐藏竖直滚动条*/
+		}
+	</style>
+</head>
+<body style="background:#3B3B3B url(../assets/christmas_snow.jpg) no-repeat center; color:#ccc;height:689px; overflow-x:hidden;background-size:cover;">
+	<script type="text/javascript" src="../assets/script/jquery-1.8.2.min.js"></script>
+	<script src="../assets/script/snow.js"></script>
+    <!--下面是调用方法和参数说明-->
+	<script>
+		$(function(){
+			$.fn.snow({ 
+				minSize: 5,		//雪花的最小尺寸
+				maxSize: 40, 	//雪花的最大尺寸
+				newOn: 100		//雪花出现的频率 这个数值越小雪花越多
+			});
+		});
+	</script>
+</body>
+</html>

@@ -5,7 +5,7 @@
 # Site
 title: 徐正茂的个人博客
 subtitle: 记录和成长
-description: 爱我所爱，做我所做
+description: 学无止境
 author: Xu Zheng Mao
 language: Chinese
 timezone: Asia/Shanghai
@@ -90,5 +90,6 @@ jsonContent:
     excerpt: false
     categories: false
     tags: true
+
 
 

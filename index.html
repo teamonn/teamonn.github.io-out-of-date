@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://xuzhengmao.com">
   <title>徐正茂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爱我所爱，做我所做">
+  <meta name="description" content="学无止境">
 <meta property="og:type" content="website">
 <meta property="og:title" content="徐正茂的个人博客">
 <meta property="og:url" content="http://xuzhengmao.com/index.html">
 <meta property="og:site_name" content="徐正茂的个人博客">
-<meta property="og:description" content="爱我所爱，做我所做">
+<meta property="og:description" content="学无止境">
 <meta property="og:locale" content="Chinese">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="徐正茂的个人博客">
-<meta name="twitter:description" content="爱我所爱，做我所做">
+<meta name="twitter:description" content="学无止境">
   
     <link rel="alternative" href="/atom.xml" title="徐正茂的个人博客" type="application/atom+xml">
   
@@ -42,7 +42,7 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #607d8b"></div>
+<div class="overlay" style="background: #518fad"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -75,8 +75,9 @@
     			
             
     			
+    			<a q-on="click: openSlider(e, 'resume')" href="javascript:void(0)">简历</a>
+
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
-    			
             
 		</nav>
 		<nav class="header-nav">
@@ -99,7 +100,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #607d8b"></div>
+  	<div class="overlay js-overlay" style="background: #518fad"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -159,20 +160,84 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-study-pm2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-性能优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/01/study-pm2/">PM2 从入门到“放弃”</a>
+      <a class="article-title" href="/2018/04/02/性能优化/">域名收敛和域名发散，及前端性能优化</a>
     </h1>
   
 
         
-        <a href="/2017/12/01/study-pm2/" class="archive-article-date">
-  	<time datetime="2017-12-01T08:23:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-01</time>
+        <a href="/2018/04/02/性能优化/" class="archive-article-date">
+  	<time datetime="2018-04-02T04:10:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>域名发散</strong> 和 <strong>域名收敛</strong> 是两种策略完全相反的性能优化手段。一般我们按照不同的应用场景，来使用对应的优化手段。</p>
+        
+          <a class="article-more-a" href="/2018/04/02/性能优化/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/02/性能优化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-DNS解析的全过程 以及 DNS实现的原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/20/DNS解析的全过程 以及 DNS实现的原理/">DNS 解析的全过程以及实现原理</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/20/DNS解析的全过程 以及 DNS实现的原理/" class="archive-article-date">
+  	<time datetime="2018-03-20T05:03:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
 </a>
         
       </header>
@@ -180,12 +245,337 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>“世上无难事，只要肯放弃”。所以学习很容易，不行就放弃 ：）</p>
+<p>当你在浏览器输入一个网址到你看到页面上呈现出所有内容，这中间经历了哪些过程？</p>
+</blockquote>
+<p>这两天当我在研究这个过程的时候，我注意到其中DNS解析这一环节非常的重要，值得仔细探讨。</p>
+        
+          <a class="article-more-a" href="/2018/03/20/DNS解析的全过程 以及 DNS实现的原理/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/20/DNS解析的全过程 以及 DNS实现的原理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-从输入网址到页面呈现的过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/09/从输入网址到页面呈现的过程/">从输入网址到页面完全呈现经历的过程</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/09/从输入网址到页面呈现的过程/" class="archive-article-date">
+  	<time datetime="2018-03-09T09:33:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这有可能是web前端面试中被问得最稀烂的问题了，可是我还是想按照我个人的理解，仔细的梳理下其过程。</p>
+        
+          <a class="article-more-a" href="/2018/03/09/从输入网址到页面呈现的过程/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/09/从输入网址到页面呈现的过程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-You-do-not-know-JavaScript-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/22/You-do-not-know-JavaScript-md/">《你不知道的JavaScript》上、中卷阅后感</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/22/You-do-not-know-JavaScript-md/" class="archive-article-date">
+  	<time datetime="2018-02-22T05:19:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今年春节期间，利用放假在家的时间看完了《你不知道的JavaScript》上、中卷。</p>
+<p>我个人感觉，它与《JavaScript高级程序设计》最为不同的一点就是，JS高程3 侧重的是JS这门语言的使用规则和规范，而《你不知道的JavaScript》侧重的是JS中那些让人难以理解甚至是误解的机制，以及这些机制背后深层次的原理。</p>
+        
+          <a class="article-more-a" href="/2018/02/22/You-do-not-know-JavaScript-md/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/22/You-do-not-know-JavaScript-md/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-10-difficulty-of-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/29/10-difficulty-of-js/">10个JavaScript难点【转】</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/29/10-difficulty-of-js/" class="archive-article-date">
+  	<time datetime="2017-12-29T13:02:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转自一篇来自知乎专栏的从国外翻译过来的文章。文章很好，看完后能让人产生一种“拜读”的感觉！</p>
+<p>原文：<a href="http://link.zhihu.com/?target=http%3A//www.infoworld.com/article/3196070/node-js/10-javascript-concepts-nodejs-programmers-must-master.html" target="_blank" rel="external">10 JavaScript concepts every Node.js programmer must master</a><br>译者：<a href="https://www.zhihu.com/people/fundebug" target="_blank" rel="external">Fundebug</a></p>
+        
+          <a class="article-more-a" href="/2017/12/29/10-difficulty-of-js/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/29/10-difficulty-of-js/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-understand-http" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/understand-http/">重识 HTTP</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/20/understand-http/" class="archive-article-date">
+  	<time datetime="2017-11-20T13:25:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTTP 是网络应用层协议，是万维网数据通信的基础。最初它是用来提供一种服务器端发布和浏览器端接收 HTML 页面的方法。</p>
+        
+          <a class="article-more-a" href="/2017/11/20/understand-http/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/20/understand-http/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-study-pm2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/18/study-pm2/">PM2 从入门到“放弃”</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/18/study-pm2/" class="archive-article-date">
+  	<time datetime="2017-09-18T08:23:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>“世上无难事，只要肯放弃”。 ：）</p>
 </blockquote>
 <p>本文主要是记录笔者学习PM2后的一种知识回顾和梳理，而不是入门教程。（入门资料见文章底部）</p>
 <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>pm2 是一个Node应用的进程管理器。</p>
         
-          <a class="article-more-a" href="/2017/12/01/study-pm2/#more">more >></a>
+          <a class="article-more-a" href="/2017/09/18/study-pm2/#more">more >></a>
         
       
 
@@ -209,7 +599,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/01/study-pm2/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/09/18/study-pm2/">展开全文 >></a>
         </p>
       
 
@@ -330,7 +720,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		
 		</ul>
@@ -425,393 +815,6 @@
 
 
   
-    <article id="post-the-nine-section-in-front-end" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/29/the-nine-section-in-front-end/">前端人眼中的九段</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/29/the-nine-section-in-front-end/" class="archive-article-date">
-  	<time datetime="2017-06-29T07:32:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近流行一个段子：</p>
-<blockquote>
-<p>三流码农写UI，二流码农写架构，一流码农写算法…</p>
-</blockquote>
-<p>这个段子可能说得也不全对，毕竟一流程序员也不是通过算法来判定的。但它对于各个段位程序员之间水平差距的划分，好像是那么回事。</p>
-        
-          <a class="article-more-a" href="/2017/06/29/the-nine-section-in-front-end/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术视野</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/29/the-nine-section-in-front-end/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-git-stash" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/17/git-stash/">git stash 和 git stash pop</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/17/git-stash/" class="archive-article-date">
-  	<time datetime="2017-06-17T03:54:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>git stash</code> 可以用来暂存当前正在进行的工作。</p>
-<p>比如，你想 pull 最新代码，又不想加新 commit 的时候。</p>
-<p>又或者另外一种情况，为了 fix 一个紧急的 bug，先 <code>git stash</code>, 使返回到自己上一个 commit，改完 bug 之后再 <code>git stash pop</code>，继续原来的工作。</p>
-        
-          <a class="article-more-a" href="/2017/06/17/git-stash/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/17/git-stash/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-make-mobile-web-look-likes-app" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/05/make-mobile-web-look-likes-app/">如何让你的移动网站拥有原生应用般的体验？</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/05/make-mobile-web-look-likes-app/" class="archive-article-date">
-  	<time datetime="2017-05-05T11:33:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>众所周知移动网站在开发、迭代版本方面，比原生APP更具有优势，但是在用户体验方面却逊色很多。用户体验差表现在哪些方面呢？主要是 互动（interaction）和动画（animation）这两方面。</p>
-</blockquote>
-<p>那么为什么我们不能把移动web的用户体验做得更好呢？这还得从web的性能瓶颈说起 …</p>
-        
-          <a class="article-more-a" href="/2017/05/05/make-mobile-web-look-likes-app/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">移动web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/05/make-mobile-web-look-likes-app/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-for-in-compare-for-of" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/19/for-in-compare-for-of/">for...in 与 for...of 你千万别混淆</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/19/for-in-compare-for-of/" class="archive-article-date">
-  	<time datetime="2017-04-19T13:18:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>遇到不少人其实是分不太清 for…in 和 for…of 的。大都是用的时候试下，哪个能解决问题还不报错，就选用哪个了。</p>
-<blockquote>
-<p>for…in 循环会遍历一个对象所有的可枚举属性。</p>
-<p>for…of 会循环迭代出有序对象（或集合）的每一个属性值。</p>
-</blockquote>
-<p>这是 MDN 上的官方解释。下面，用两个例子说明一切。</p>
-        
-          <a class="article-more-a" href="/2017/04/19/for-in-compare-for-of/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/19/for-in-compare-for-of/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-deep-copy-and-shallow-copy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/deep-copy-and-shallow-copy/">JavaScript 的深拷贝和浅拷贝</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/09/deep-copy-and-shallow-copy/" class="archive-article-date">
-  	<time datetime="2017-04-09T04:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 JavaScript 的变量赋值操作中，对于简单的数据类型（如 Number、String、Boolean 等）可以直接等号复制。但如果是对象或者数组，直接复制会造成新对象或者数组只要一修改，原对象或者数组就会同样跟着被修改。这没毛病也不是 bug，这就是深拷贝与浅拷贝的体现。</p>
-        
-          <a class="article-more-a" href="/2017/04/09/deep-copy-and-shallow-copy/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/09/deep-copy-and-shallow-copy/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-classical-layout-comparison" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/30/classical-layout-comparison/">圣杯布局 VS 双飞翼布局</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/30/classical-layout-comparison/" class="archive-article-date">
-  	<time datetime="2017-03-30T01:54:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>作为前端开发者，布局都应该已经写了不少了，但很多时候我们实现布局的思路可能都不一定正确或者不是最合适的。要想自己的布局水平有所提高，两个经典的布局： 圣杯布局 和 双飞翼布局，我个人觉得还是很有必要掌握的。</p>
-        
-          <a class="article-more-a" href="/2017/03/30/classical-layout-comparison/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CSS 布局</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/30/classical-layout-comparison/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -826,7 +829,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Xu Zheng Mao
+    		&copy; 2018 Xu Zheng Mao
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -920,7 +923,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javaScript</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,11 +943,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -944,7 +951,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">移动web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -956,7 +971,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css 盒子模型</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
             
             <div class="clearfix"></div>
