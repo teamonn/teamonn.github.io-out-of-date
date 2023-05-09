@@ -1,0 +1,99 @@
+---
+title: navigation
+date: 2023-5-9 23:10:35
+layout: false
+---
+
+<!DOCTYPE html>
+<html lang="en" onclick="changeBgColor()">
+<head>
+	<title>小甜甜，生日快乐！</title>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+</head>
+<style>
+	html {
+		min-height: 100%;
+		background-color: #ffc0cb;
+	}
+	body {
+		margin: 0;
+		min-height: 100%;
+		padding: 0 15px 15px;
+		color: #333;
+	}
+ 	h3 {
+ 		text-align: center;
+ 		animation: easeIn ease-out 1.5s;
+		-webkit-animation: easeIn ease-out 1.5s;
+		-ms-animation: easeIn ease-out 1.5s;
+ 	}
+ 	@keyframes easeIn {
+ 		from {
+			opacity: 0;
+ 		}
+ 		to {
+			opacity: 1;
+ 		}
+ 	}
+</style>
+<body onload="setInterval(trim,100)">
+ 	<h3>[ 我的小旖旎，永远十八 ]</h3>
+ 	<p id="exp"></p>
+	<audio src="../assets/music/happy_birthday.mp3" autoplay loop id="myAudio">
+	  您的浏览器可能暂不支持该<code>音频</code>格式的播放.
+	</audio>
+ 	<script>
+ 		var exp = document.getElementById('exp');
+ 		var str = "今天是你生日，宝贝又长大了一岁。<br/><br/>很感谢旖旎的妈妈，24年前生下了如此美好的你。<br/><br/>\
+ 			我们都快认识5个月（153天）了，却依然甜蜜如初。<br/><br/>\
+ 			所以我想趁此机会，大声告诉你 —— <br/><br/>\
+			我还是很喜欢你，像风走了八千里，不问归期。<br/><br/>\
+			我还是很喜欢你，像云漂泊九万里，不曾歇息。<br/><br/>\
+			我还是很喜欢你，像雨洒落在热带与极地，不远万里。<br/><br/>\
+			我还是很喜欢你，像日月轮回交替，不理朝夕。<br/><br/>\
+			我还是很喜欢你，像星辰砸向大地，至死而已。<br/><br/>\
+			我还是很喜欢你，像梅雨时节的落雨，延绵无期。<br/><br/>\
+			我还是很喜欢你，像思念如江河东逝，马不停蹄。<br/><br/>\
+			我还是很喜欢你，像知音相逢在故里。<br/><br/>\
+			我还是很喜欢你，像魂牵梦绕但仍然不迷离。<br/><br/>\
+			我还是很喜欢你，像日光倾城，春风十里。<br/><br/>\
+			我还是很喜欢你，希望今生，永不分离！<br/><br/>\
+			—— 爱你的torain，2018.01.26"
+
+ 		var y = 1;
+
+ 		function trim () {
+ 			if (y < str.length - 1) {
+ 				var trimstr = str.substring(0, y) + "_";  			//加上'_',打字效果更逼真
+ 				exp.innerHTML = trimstr;
+ 				if (y < str.length) y++;
+ 				else clearInterval(setInterval(trim,100));
+ 			} else{
+ 				var trimstr = str.substring(0, y);
+ 				exp.innerHTML = trimstr;
+ 				if (y < str.length) y++;
+ 				else clearInterval(setInterval(trim,100));
+ 			}
+ 		}
+		// 随机返回一个色值数
+ 		function random () {
+      return parseInt(Math.random() * 255)
+    }
+    // 随机返回一种颜色
+    function randomColor () {
+    	return 'rgba(' + this.random() + ', ' + this.random() + ', ' + this.random() + ', 0.6)';
+    }
+    // 更换背景颜色
+    function changeBgColor () {
+    	document.getElementsByTagName('html')[0].style.backgroundColor = randomColor();
+    }
+    document.getElementById('myAudio').addEventListener('loadeddata', function () {
+    	document.getElementById('myAudio').play()
+    }, false)
+ 	</script>
+ </body>
+</html>
+
+
+

@@ -1,0 +1,195 @@
+
+---
+title: navigation
+date: 2023-5-9 23:10:35
+layout: false
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>我们是谁--自动生成器</title>
+	<link rel="stylesheet" href="../assets/css/reset.css">
+	<link rel="stylesheet" href="../assets/css/weui.css">
+	<style>
+		/*html{font-size: 62.5%;}*/
+		html, body {background-color: #f9f9f9; min-height: 100vh; line-height: 1;}
+		#myCanvas {background-color: #fff; box-shadow: 2px 0 15px #d4d1d1; margin: 20px 0 0;}
+		.input-bar {
+			/*position: fixed; 
+			left: 0; 
+			bottom: 0; 
+			width: 100%; */
+			background-color: #fff;
+			box-shadow: 2px 0 15px #d4d1d1;
+		}
+		.weui-cells {margin-top: 0;}
+		.input-title {padding: 0 15px; color: #333; line-height: 40px;}
+		.cell-icon {vertical-align: middle; height: 30px;}
+		.image-view {
+			width: 100%;
+	    position: absolute;
+	    top: 50%;
+	    transform: translate3d(0, -50%, 0);
+	  }
+		.btn-area {padding: 15px 25px;}
+	</style>
+</head>
+<body>
+	<div class="input-bar">
+		<div class="input-title">右侧“+”号新建一行</div>
+		<div id="cellList">
+			<!-- 自定义文字列表 -->
+		</div>
+		<div class="btn-area">
+			<a href="javascript:;" class="weui-btn weui-btn_primary" onclick="toggleViewPicture()" target="_blank" rel="external">预览图片</a>
+		</div>
+	</div>
+	<div class="weui-gallery" onclick="toggleViewPicture()">
+    <img class="image-view" id="myImage" alt="">
+    <div class="weui-gallery__opr">
+      <a href="javascript:" class="weui-gallery__del" target="_blank" rel="external">长按图片保存</a>
+    </div>
+	</div>
+	<canvas id="myCanvas">您的浏览器不支持canvas！</canvas>
+
+	<script>
+		var vpWidth = document.body.clientWidth;
+		var realPicWidth = 640;
+		var realPicHeight = 178;
+		var picWidth = vpWidth - 20;  // 图片右侧留一点空白
+		var picHeight = realPicHeight * picWidth / realPicWidth;
+		var wordsList = [];
+		var cellRoot = document.querySelector('#cellList');
+		// 默认自动添加一行输入栏
+		addCell();
+		renderCanvas();
+
+		// 绑定 myImage 点击事件来阻止点击图片触发关闭预览效果
+		document.getElementById('myImage').addEventListener('click', function(ev){
+			ev.stopPropagation();
+		}, true);
+		
+		function addCell () {
+			wordsList.push({
+				left: '请输入左侧文字',
+				right: '请输入右侧文字'
+			})
+			// 重新更新dom结构
+			renderDom();
+		}
+
+		function removeCell (n) {
+			wordsList.splice(n, 1);
+			// 重新更新dom结构
+			renderDom();
+		}
+
+		function toggleViewPicture () {
+			// canvas 生成图片资源
+			var cavs = document.getElementById("myCanvas"); 
+			var myImage = document.getElementById("myImage"); 
+	    var tempSrc = cavs.toDataURL("image/png");
+	    myImage.src = tempSrc; 
+			// 开启生成图片预览效果
+			var gallery = document.querySelector('.weui-gallery');
+			var visibleAttr = gallery.style.display;
+			if (!visibleAttr || visibleAttr === 'none') {
+				visibleAttr = 'block';
+			} else {
+				visibleAttr = 'none';
+			}
+			gallery.style.display = visibleAttr;
+			gallery.style.transition = 'all';
+		}
+
+		function renderCanvas () {
+			var img = new Image();
+			img.src = '../assets/timg.jpg';
+			img.onload = function () {
+				var canvas = document.getElementById('myCanvas');
+				canvas.width = vpWidth;
+				canvas.height = (picHeight + 45) * wordsList.length + 15;
+				if (canvas.getContext) {
+				  var ctx = canvas.getContext('2d');
+				  ctx.fillStyle = '#fff';
+				  ctx.fillRect(0, 0, canvas.width, canvas.height);
+				  for (var i = 0; i < wordsList.length; i++) {
+						ctx.drawImage(img, 5, 45 + (picHeight + 45) * i, picWidth, picHeight);
+						ctx.font = "Bold 14px Arial";
+						ctx.textAlign = "left";
+						ctx.fillStyle = "#000000";
+						ctx.fillText(wordsList[i].left, 40, 35 + (picHeight + 45) * i); 
+						ctx.fillText(wordsList[i].right, 40 + vpWidth / 2, 35 + (picHeight + 45) * i); 
+				  }
+				}
+			}
+		}
+
+		function renderDom () {
+			// if length > 1, clear cellList
+			if (wordsList.length > 1) {
+				cellRoot.innerHTML = '';
+			}
+			// render by wordsList
+			var listRoot = document.createElement('div');
+			listRoot.setAttribute('class', 'weui-cells weui-cells_form');
+			for (var i = 0; i < wordsList.length; i++) {
+				var listItem = document.createElement('div');
+				listItem.setAttribute('class', 'weui-cell');
+				if (i === wordsList.length - 1) {
+					// 最后一行渲染 placeholder
+					listItem.innerHTML = `<div class="weui-cell__hd">\
+		        	<input class="weui-input" type="text" placeholder="${wordsList[i].left}"/>\
+		        </div>\
+		        <div class="weui-cell__bd">\
+		          <input class="weui-input" type="text" placeholder="${wordsList[i].right}"/>\
+		        </div>`;
+		    } else {
+		    	// 其他的渲染 input 输入框的 value
+  				listItem.innerHTML = `<div class="weui-cell__hd">\
+  	        	<input class="weui-input" type="text" value="${wordsList[i].left}"/>\
+  	        </div>\
+  	        <div class="weui-cell__bd">\
+  	          <input class="weui-input" type="text" value="${wordsList[i].right}"/>\
+  	        </div>`;
+		    }
+       	var icon = document.createElement('img');
+       	icon.setAttribute('class', 'cell-icon');
+       	// 最后一个永远是加号
+       	if (i === wordsList.length - 1) {
+					icon.setAttribute('src', '../assets/cell_add.png');
+					icon.setAttribute('onclick', 'addCell()');
+       	} else {
+       		icon.setAttribute('src', '../assets/cell_remove.png');
+					icon.setAttribute('onclick', `removeCell(${i})`);
+       	}
+       	listItem.appendChild(icon);
+	      listRoot.appendChild(listItem);
+			}
+			cellRoot.appendChild(listRoot);
+			// bind events
+			var list = document.getElementsByTagName("input");
+			for(let i = 0; i < list.length; i++) {		
+			  list[i].onkeyup = function(ev) {
+			    var idx = Math.floor(i / 2);  // wordsList 中对应的下标
+			    var restNum = i % 2;  // 余数
+			    if (!restNum) {
+			    	wordsList[idx].left = ev.target.value;
+			    } else {
+			    	wordsList[idx].right = ev.target.value;
+			    }
+			    console.log(wordsList);
+					renderCanvas();
+			  }
+			}
+			// 页面底部 padding 始终等于填写文字区域的高度
+			// var paddingBottom = document.querySelector('.input-bar').offsetHeight;
+			// document.querySelector('#myCanvas').style.marginBottom = paddingBottom + 'px';
+			renderCanvas();
+		}
+	</script>
+</body>
+</html>
