@@ -495,12 +495,11 @@ hexo-generator-category@^1.0.0:
   dependencies:
     hexo-pagination "1.0.0"
 
-hexo-generator-index@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmmirror.com/hexo-generator-index/-/hexo-generator-index-2.0.0.tgz"
+hexo-generator-index@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmmirror.com/hexo-generator-index/-/hexo-generator-index-3.0.0.tgz#4c9233731e027a6af6491886a4aafe08ffdaffe0"
   dependencies:
-    hexo-pagination "1.0.0"
-    timsort "^0.3.0"
+    hexo-pagination "3.0.0"
 
 hexo-generator-json-content@^4.2.3:
   version "4.2.3"
@@ -537,6 +536,10 @@ hexo-log@^3.0.0:
 hexo-pagination@1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/hexo-pagination/-/hexo-pagination-1.0.0.tgz"
+
+hexo-pagination@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmmirror.com/hexo-pagination/-/hexo-pagination-3.0.0.tgz#b98b050bbddff25ae646e3d00ad607ac6ae77ea7"
 
 hexo-renderer-ejs@^1.0.0:
   version "1.0.0"
@@ -1176,10 +1179,6 @@ through2@^4.0.2:
 tildify@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/tildify/-/tildify-2.0.0.tgz"
-
-timsort@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.npmmirror.com/timsort/-/timsort-0.3.0.tgz"
 
 titlecase@^1.1.2:
   version "1.1.3"
